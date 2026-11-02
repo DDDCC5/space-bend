@@ -1,0 +1,27 @@
+==> spatial-ui-design-style verifier
+    paths: app
+    design colors: graphite=#101820 panel=#18242E ice=#9CE5F4 text=#EAF2F7 muted=#93A9B8 amber=#E9B66E danger=#F19A91 control=#263E4A
+
+-- R1 PicoTheme wrapping
+-- R1b native ColorScheme preservation and custom colors
+-- R2 built-in design preference (soft check)
+-- R3 hover effect
+-- R4 window-root background
+-- R4b view-level material shape
+[info] R4 custom-glass / opaque-root override detected — confirm the right off-switch is set:
+       - DefaultWindowContainer  → AndroidManifest `pico.spatial.windowcontainer.materialbackground="0"`
+       - WindowContainer(...) / Augment(...) → DSL parameter `enableMaterialBackground = false`
+       - Stage { ... } has no glass switch; no override is expected on its root
+       app/src/main/java/com/example/spacebend/ui/game/components/GamePanels.kt
+-- R5 theme-role routing
+-- R6 indication & optional haptics
+-- R7 library-private token imports
+-- R8 migrated SpatialUI checklist heuristics
+[info] R8 fixed layout appended to incoming modifier; confirm caller override is not blocked or use Modifier.defaults.then(modifier) :: app/src/main/java/com/example/spacebend/ui/game/components/LabControls.kt:46: Canvas(modifier.size(160.dp,48.dp).semantics{contentDescription="$earned / 3"}){
+-- R10 content surface discipline
+[info] R10 design-surface trace skipped: no --design-spec supplied
+
+==> spatial-ui-design-style verifier summary
+    errors:   0
+    warnings: 0
+    result:   PASS

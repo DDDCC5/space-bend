@@ -1,0 +1,31 @@
+{
+  "tool_name": "emulator.stop",
+  "tool_status": "SUCCESS",
+  "summary": "Stopped the emulator.",
+  "data": {
+    "stopped": true,
+    "targetMatched": true,
+    "targetWasRunning": true,
+    "staleStateRemoved": false,
+    "requestedAdbDeviceId": "emulator-5556",
+    "requestedAvd": "SpaceBend_Test_6_1",
+    "matchedAvd": "SpaceBend_Test_6_1",
+    "adbDeviceId": "emulator-5556",
+    "pid": 98591,
+    "runningTargets": [
+      {
+        "avd": "Pico_Emulator_6_1",
+        "adbDeviceId": "emulator-5554",
+        "pid": 49680
+      }
+    ],
+    "usedAdbKill": true,
+    "usedPidKill": true
+  },
+  "errors": [],
+  "resources": [],
+  "meta": {
+    "format": "json",
+    "truncated": false
+  }
+}

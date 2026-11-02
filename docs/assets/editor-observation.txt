@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "spatialcraft.editor-workflow-response/v1",
+  "runId": "run-7653c369-93cd-4280-afeb-b522178eaa7e",
+  "current": {
+    "status": "cancelled",
+    "revision": 12,
+    "module": "produce-models",
+    "phase": "cancelled"
+  },
+  "result": {
+    "outcome": "cancelled",
+    "summary": "Child Workflow for Module module:execute-generation was cancelled.",
+    "output": {},
+    "finishedAt": "2026-11-02T04:07:26.028Z"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "file": "output/SpaceBend-debug.apk",
+  "package": "com.example.spacebend",
+  "versionName": "1.0",
+  "bytes": 48958657,
+  "sha256": "880cd510447ebd19410c3fb4432cf8ec4b31fc908b829910f4f158ec9efe80b4",
+  "sdkBom": "6.1.9",
+  "minSdk": 35,
+  "buildType": "debug"
+}

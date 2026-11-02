@@ -1,0 +1,38 @@
+--------- beginning of main
+11-02 14:15:53.100   498   498 I AndroidRuntime: Using default boot image
+11-02 14:15:53.100   498   498 I AndroidRuntime: Leaving lock profiling enabled
+11-02 14:15:54.899  1134  1134 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+11-02 14:16:42.015  3083  3083 I AndroidRuntime: Using default boot image
+11-02 14:16:42.015  3083  3083 I AndroidRuntime: Leaving lock profiling enabled
+11-02 14:17:08.172  3094  3094 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-02 14:17:12.166  3094  3094 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-02 14:17:18.145  3094  3094 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-02 14:17:24.271  3094  3094 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-02 14:17:34.125  3094  3094 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-02 14:17:38.132  3094  3094 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:17:39.131  3094  3094 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-02 14:18:29.208  3083  3083 I AndroidRuntime: VM exiting with result code 0.
+11-02 14:21:17.544  4481  4481 I AndroidRuntime: Using default boot image
+11-02 14:21:17.544  4481  4481 I AndroidRuntime: Leaving lock profiling enabled
+11-02 14:21:43.125  4492  4492 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-02 14:21:47.146  4492  4492 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-02 14:21:52.152  4492  4492 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-02 14:21:59.196  4492  4492 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-02 14:22:07.303  4492  4492 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-02 14:22:07.535  4492  4492 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 14:22:08.136  4492  4492 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-02 14:23:07.266  4481  4481 I AndroidRuntime: VM exiting with result code 0.

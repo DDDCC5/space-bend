@@ -1,0 +1,280 @@
+{
+  "svg": 48,
+  "localization": {
+    "en": 74,
+    "zh-Hans": 74,
+    "zh-Hant": 74
+  },
+  "audio": [
+    {
+      "file": "audio/ambient-lab-loop.wav",
+      "channels": 2,
+      "seconds": 32.0,
+      "peakDbFS": -15.6
+    },
+    {
+      "file": "audio/sfx/suction-loop.wav",
+      "channels": 1,
+      "seconds": 4.0,
+      "peakDbFS": -15.4
+    },
+    {
+      "file": "audio/sfx/portal-collapse.wav",
+      "channels": 1,
+      "seconds": 1.3,
+      "peakDbFS": -12.1
+    },
+    {
+      "file": "audio/sfx/portal-close.wav",
+      "channels": 1,
+      "seconds": 0.8,
+      "peakDbFS": -8.5
+    },
+    {
+      "file": "audio/sfx/draw-loop.wav",
+      "channels": 1,
+      "seconds": 2.0,
+      "peakDbFS": -15.3
+    },
+    {
+      "file": "audio/sfx/failure.wav",
+      "channels": 1,
+      "seconds": 1.4,
+      "peakDbFS": -13.4
+    },
+    {
+      "file": "audio/sfx/object-flight.wav",
+      "channels": 1,
+      "seconds": 1.6,
+      "peakDbFS": -10.5
+    },
+    {
+      "file": "audio/sfx/plane-impact.wav",
+      "channels": 1,
+      "seconds": 0.6,
+      "peakDbFS": -9.6
+    },
+    {
+      "file": "audio/sfx/success.wav",
+      "channels": 1,
+      "seconds": 1.4,
+      "peakDbFS": -12.7
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_delete.wav",
+      "channels": 1,
+      "seconds": 3.946,
+      "peakDbFS": -0.9
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_draw.wav",
+      "channels": 1,
+      "seconds": 3.527,
+      "peakDbFS": -0.0
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_launch.wav",
+      "channels": 1,
+      "seconds": 3.724,
+      "peakDbFS": -0.7
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_move.wav",
+      "channels": 1,
+      "seconds": 3.504,
+      "peakDbFS": -1.0
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_select.wav",
+      "channels": 1,
+      "seconds": 2.748,
+      "peakDbFS": -1.7
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_lost.wav",
+      "channels": 1,
+      "seconds": 3.241,
+      "peakDbFS": -1.1
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_welcome.wav",
+      "channels": 1,
+      "seconds": 4.085,
+      "peakDbFS": -1.3
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_fail.wav",
+      "channels": 1,
+      "seconds": 4.238,
+      "peakDbFS": -0.8
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_scan.wav",
+      "channels": 1,
+      "seconds": 4.085,
+      "peakDbFS": -1.9
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_ready.wav",
+      "channels": 1,
+      "seconds": 4.147,
+      "peakDbFS": -1.8
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_loop.wav",
+      "channels": 1,
+      "seconds": 2.977,
+      "peakDbFS": -1.8
+    },
+    {
+      "file": "audio/voice/zh-Hans/v_closed.wav",
+      "channels": 1,
+      "seconds": 2.427,
+      "peakDbFS": -1.3
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_delete.wav",
+      "channels": 1,
+      "seconds": 4.085,
+      "peakDbFS": -2.2
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_draw.wav",
+      "channels": 1,
+      "seconds": 3.666,
+      "peakDbFS": -3.1
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_launch.wav",
+      "channels": 1,
+      "seconds": 4.026,
+      "peakDbFS": -2.0
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_move.wav",
+      "channels": 1,
+      "seconds": 3.887,
+      "peakDbFS": -2.2
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_select.wav",
+      "channels": 1,
+      "seconds": 2.842,
+      "peakDbFS": -2.7
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_lost.wav",
+      "channels": 1,
+      "seconds": 3.626,
+      "peakDbFS": -1.8
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_welcome.wav",
+      "channels": 1,
+      "seconds": 4.545,
+      "peakDbFS": -1.5
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_fail.wav",
+      "channels": 1,
+      "seconds": 4.759,
+      "peakDbFS": -1.3
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_scan.wav",
+      "channels": 1,
+      "seconds": 4.255,
+      "peakDbFS": -2.6
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_ready.wav",
+      "channels": 1,
+      "seconds": 4.396,
+      "peakDbFS": -1.8
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_loop.wav",
+      "channels": 1,
+      "seconds": 3.407,
+      "peakDbFS": -1.7
+    },
+    {
+      "file": "audio/voice/zh-Hant/v_closed.wav",
+      "channels": 1,
+      "seconds": 2.824,
+      "peakDbFS": -2.0
+    },
+    {
+      "file": "audio/voice/en/v_delete.wav",
+      "channels": 1,
+      "seconds": 3.527,
+      "peakDbFS": -2.5
+    },
+    {
+      "file": "audio/voice/en/v_draw.wav",
+      "channels": 1,
+      "seconds": 3.421,
+      "peakDbFS": -2.2
+    },
+    {
+      "file": "audio/voice/en/v_launch.wav",
+      "channels": 1,
+      "seconds": 2.912,
+      "peakDbFS": -2.8
+    },
+    {
+      "file": "audio/voice/en/v_move.wav",
+      "channels": 1,
+      "seconds": 3.398,
+      "peakDbFS": -1.9
+    },
+    {
+      "file": "audio/voice/en/v_select.wav",
+      "channels": 1,
+      "seconds": 2.065,
+      "peakDbFS": -2.7
+    },
+    {
+      "file": "audio/voice/en/v_lost.wav",
+      "channels": 1,
+      "seconds": 3.416,
+      "peakDbFS": -2.5
+    },
+    {
+      "file": "audio/voice/en/v_welcome.wav",
+      "channels": 1,
+      "seconds": 3.961,
+      "peakDbFS": -2.1
+    },
+    {
+      "file": "audio/voice/en/v_fail.wav",
+      "channels": 1,
+      "seconds": 4.377,
+      "peakDbFS": -2.5
+    },
+    {
+      "file": "audio/voice/en/v_scan.wav",
+      "channels": 1,
+      "seconds": 4.253,
+      "peakDbFS": -2.1
+    },
+    {
+      "file": "audio/voice/en/v_ready.wav",
+      "channels": 1,
+      "seconds": 3.544,
+      "peakDbFS": -2.9
+    },
+    {
+      "file": "audio/voice/en/v_loop.wav",
+      "channels": 1,
+      "seconds": 3.348,
+      "peakDbFS": -3.5
+    },
+    {
+      "file": "audio/voice/en/v_closed.wav",
+      "channels": 1,
+      "seconds": 2.972,
+      "peakDbFS": -2.4
+    }
+  ]
+}

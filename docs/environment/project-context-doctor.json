@@ -1,0 +1,30 @@
+{
+  "tool_name": "project.context.doctor",
+  "tool_status": "SUCCESS",
+  "summary": "Project context is configured for pico-spatial-agentic-tools.",
+  "data": {
+    "pluginName": "pico-spatial-agentic-tools",
+    "projectRoot": "/Users/chanzungsan/Documents/ChatGPT/Space Bend",
+    "contextFileName": "PICO-SPATIAL-AGENTIC-TOOLS.AGENTS.md",
+    "contextPath": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/PICO-SPATIAL-AGENTIC-TOOLS.AGENTS.md",
+    "contextExists": true,
+    "routes": [
+      {
+        "host": "codex",
+        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/AGENTS.md",
+        "exists": true,
+        "linked": true
+      }
+    ],
+    "status": "ok",
+    "summary": "Project context is configured for pico-spatial-agentic-tools."
+  },
+  "errors": [],
+  "resources": [],
+  "meta": {
+    "format": "json",
+    "truncated": false,
+    "projectRoot": "/Users/chanzungsan/Documents/ChatGPT/Space Bend",
+    "scope": "local"
+  }
+}

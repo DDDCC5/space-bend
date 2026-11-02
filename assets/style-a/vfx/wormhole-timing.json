@@ -1,0 +1,38 @@
+{
+  "status": "asset_preview_not_runtime",
+  "cycleSeconds": 8,
+  "stages": [
+    {
+      "id": "close",
+      "from": 0,
+      "to": 1.2
+    },
+    {
+      "id": "suction",
+      "from": 1.2,
+      "to": 6.4
+    },
+    {
+      "id": "collapse",
+      "from": 6.4,
+      "to": 8
+    }
+  ],
+  "runtimeRequirements": [
+    "Arbitrary closed-contour rim matching detected real plane",
+    "Inside-only suction particles",
+    "Background lensing depends on supported renderer capability",
+    "Bidirectional surface-normal entry and exit",
+    "Spatial Audio mono emitter with distance attenuation"
+  ],
+  "palette": {
+    "titanium": "#AEBCC7",
+    "graphite": "#101820",
+    "panel": "#18242E",
+    "ice": "#9CE5F4",
+    "text": "#EAF2F7",
+    "muted": "#93A9B8",
+    "amber": "#E9B66E",
+    "danger": "#F19A91"
+  }
+}

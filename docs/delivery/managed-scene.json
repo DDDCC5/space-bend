@@ -1,0 +1,16 @@
+{
+  "runId": "run-d751eec7-549f-4936-a593-919cebae0c21",
+  "current": {
+    "status": "completed",
+    "revision": 15
+  },
+  "validation": {
+    "passed": true,
+    "issues": []
+  },
+  "acceptedCriteria": [
+    "scene_generated",
+    "project_builds"
+  ],
+  "scope": "Source artifacts and Android build only; physical device behavior is separately qualified."
+}

@@ -1,0 +1,815 @@
+{
+  "tool_name": "doctor",
+  "tool_status": "SUCCESS",
+  "summary": "pico-cli spatial environment is usable on darwin.",
+  "data": {
+    "version": "0.6.1 (public)",
+    "distribution": "public",
+    "platform": "darwin",
+    "hostPlatform": "darwin",
+    "targetPlatform": "spatial",
+    "overview": {
+      "cli": "0.6.1 (public)",
+      "pluginName": "pico-spatial-agentic-tools@0.6.1",
+      "pluginStatus": "configured",
+      "targetPlatform": "spatial",
+      "sdk": {
+        "status": "no-project",
+        "version": null
+      },
+      "picoDevelopmentKnowledge": "6.1",
+      "profilingTool": "0.2.1",
+      "emulator": "6.1.0",
+      "editor": "6.1.9"
+    },
+    "selfVersion": {
+      "current": "0.6.1 (public)",
+      "distribution": "public",
+      "updateCheckSupported": true,
+      "updateChannel": "public-npm"
+    },
+    "node": {
+      "version": "v22.23.2",
+      "major": 22,
+      "supported": true,
+      "minimumMajor": 20
+    },
+    "checks": [
+      {
+        "id": "runtime",
+        "label": "Runtime",
+        "status": "ok",
+        "summary": "Runtime checks passed.",
+        "checks": [
+          {
+            "id": "node.version",
+            "label": "Node.js version",
+            "status": "ok",
+            "summary": "Node.js v22.23.2 satisfies the Node.js 20+ requirement.",
+            "details": {
+              "version": "v22.23.2",
+              "minimumMajor": 20
+            }
+          }
+        ]
+      },
+      {
+        "id": "common-doctors",
+        "label": "Common doctors",
+        "status": "ok",
+        "summary": "Common checks passed.",
+        "checks": [
+          {
+            "id": "cli.version",
+            "label": "CLI version and channel",
+            "status": "ok",
+            "summary": "pico-cli 0.6.1 is up to date.",
+            "details": {
+              "currentVersion": "0.6.1",
+              "latestVersion": "0.6.1",
+              "distribution": "public",
+              "packageName": "@picoxr/pico-cli",
+              "registry": "https://registry.npmjs.org/",
+              "updateAvailable": false,
+              "checkedAt": "2026-11-02T03:53:57.909Z",
+              "source": "cache",
+              "updateCheckSupported": true,
+              "durationMs": 12
+            }
+          },
+          {
+            "id": "npm.version",
+            "label": "npm version",
+            "status": "ok",
+            "summary": "npm 10.9.8 is available.",
+            "details": {
+              "command": "npm --version",
+              "version": "10.9.8",
+              "durationMs": 77
+            }
+          },
+          {
+            "id": "perf.doctor",
+            "label": "Performance diagnostics tool",
+            "status": "ok",
+            "summary": "Performance diagnostics tool 0.2.1 dependencies are ready.",
+            "details": {
+              "command": "pico-cli perf doctor check",
+              "result": {
+                "expectedVersion": "0.2.1",
+                "available": true,
+                "healthy": true,
+                "output": "{\"success\":true,\"exitCode\":0,\"resource\":\"doctor\",\"action\":\"check\",\"data\":{\"ok\":true},\"error\":null,\"formattedOutput\":null}",
+                "summary": "Performance diagnostics tool 0.2.1 dependencies are ready."
+              },
+              "durationMs": 93
+            }
+          },
+          {
+            "id": "emulator.doctor",
+            "label": "Emulator doctor",
+            "status": "ok",
+            "summary": "PICO Emulator prerequisites are ready; optional components may be skipped.",
+            "details": {
+              "command": "pico-cli emulator doctor --format json",
+              "result": {
+                "platform": "macos",
+                "androidStudio": {
+                  "installed": true,
+                  "candidates": [
+                    {
+                      "path": "/Applications/Android Studio.app",
+                      "launcherPath": "/Applications/Android Studio.app/Contents/MacOS/studio",
+                      "version": "AI-251.26094.121.2513.14007798",
+                      "isRequiredVersion": true
+                    }
+                  ]
+                },
+                "androidSdk": {
+                  "root": "/Users/chanzungsan/Library/Android/sdk",
+                  "hasPlatform35": true,
+                  "hasSources35": true
+                },
+                "plugin": {
+                  "found": true,
+                  "matches": [
+                    "/Users/chanzungsan/Library/Application Support/Google/AndroidStudio2025.1.3/plugins/SpatialPlugin"
+                  ],
+                  "searchedDirectories": [
+                    "/Users/chanzungsan/Library/Application Support/Google"
+                  ]
+                },
+                "emulator": {
+                  "path": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator/emulator",
+                  "source": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator"
+                },
+                "picoBundles": [
+                  {
+                    "root": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator",
+                    "emulatorPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator/emulator",
+                    "avdRoot": "/Users/chanzungsan/.pico/avd",
+                    "sdkRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator",
+                    "avds": [
+                      {
+                        "name": "Pico_Emulator_6_1",
+                        "iniPath": "/Users/chanzungsan/.pico/avd/Pico_Emulator_6_1.ini",
+                        "avdRoot": "/Users/chanzungsan/.pico/avd",
+                        "source": "pico_bundle",
+                        "bundleRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator",
+                        "emulatorPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator/emulator",
+                        "sdkRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator",
+                        "displayName": "PICO Emulator 6.1.0"
+                      }
+                    ],
+                    "version": "6.1.0",
+                    "actualSysdir": "/Users/chanzungsan/Library/PICO/sdk/6.1/emulator/system-images/system-images",
+                    "abiType": "arm64-v8a",
+                    "apiLevel": "36",
+                    "buildType": "user",
+                    "buildFlavor": "picosdk_spaceos_arm64-user"
+                  }
+                ],
+                "storageLayout": {
+                  "status": "clean",
+                  "picoHome": "/Users/chanzungsan/Library/PICO/sdk",
+                  "cliDataPath": "/Users/chanzungsan/.pico/cli",
+                  "avdPath": "/Users/chanzungsan/.pico/avd",
+                  "legacyCliDataPath": "/Users/chanzungsan/Library/PICO/sdk/cli",
+                  "legacyAvdPath": "/Users/chanzungsan/Library/PICO/sdk/avd",
+                  "migratedPaths": [],
+                  "warnings": []
+                },
+                "common": {
+                  "primer": {
+                    "installed": true,
+                    "jarPath": "/Users/chanzungsan/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@picoxr/pico-cli/vendor/primer-cli/primer-cli-all.jar",
+                    "envDoctorStatus": "ok"
+                  },
+                  "payload": {
+                    "javaHomeValid": true,
+                    "javaHomePath": "/Users/chanzungsan/.pico/primer-cli/jdk/jdk-21.0.12.1+1/Contents/Home",
+                    "androidSdkInstalled": true,
+                    "androidSdkPath": "/Users/chanzungsan/Library/Android/sdk",
+                    "androidSdkHasPlatformsAndSources": true,
+                    "picoHomeConfigured": true,
+                    "picoHomePath": "/Users/chanzungsan/Library/PICO/sdk",
+                    "agentVaultInstalled": true,
+                    "agentVaultPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/agent-vault",
+                    "templatesInstalled": true,
+                    "templatesPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/templates",
+                    "spatialSdkToolsVersion": "6.1",
+                    "picoSdk": {
+                      "found": true,
+                      "sdks": [
+                        {
+                          "path": "/Users/chanzungsan/Library/PICO/sdk",
+                          "isPicoHome": true,
+                          "versions": [
+                            {
+                              "name": "6.1",
+                              "components": [
+                                {
+                                  "name": "agent-vault",
+                                  "version": "6.1.2"
+                                },
+                                {
+                                  "name": "editor",
+                                  "version": "6.1.9"
+                                },
+                                {
+                                  "name": "emulator",
+                                  "version": "6.1.0"
+                                },
+                                {
+                                  "name": "templates",
+                                  "version": "6.1.0"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "available": true
+                },
+                "checks": [
+                  {
+                    "id": "storage.layout",
+                    "label": "PICO emulator storage layout",
+                    "status": "ok",
+                    "summary": "CLI data uses /Users/chanzungsan/.pico/cli; AVDs and emulator runtime data use /Users/chanzungsan/.pico/avd (shared with primer-cli)."
+                  },
+                  {
+                    "id": "windows.virtualization",
+                    "label": "Windows virtualization",
+                    "status": "skip",
+                    "summary": "Windows virtualization is not applicable on this platform."
+                  },
+                  {
+                    "id": "pico.plugin",
+                    "label": "PICO Spatial Plugin",
+                    "status": "ok",
+                    "summary": "PICO Spatial Plugin was detected."
+                  },
+                  {
+                    "id": "pico.emulator",
+                    "label": "PICO Emulator bundle",
+                    "status": "ok",
+                    "summary": "PICO Emulator is available at /Users/chanzungsan/Library/PICO/sdk/6.1/emulator/emulator."
+                  }
+                ]
+              },
+              "errors": [],
+              "durationMs": 5
+            }
+          },
+          {
+            "id": "setup.doctor",
+            "label": "PICO environment setup",
+            "status": "ok",
+            "summary": "PICO environment is set up.",
+            "details": {
+              "resolvedPath": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.pico-env.json",
+              "fileExists": true,
+              "platform": "spatial",
+              "picoDevelopmentKnowledgeVersion": "6.1",
+              "recordedVersion": "6.1",
+              "workspaceVersion": "6.1",
+              "versionMismatch": false,
+              "durationMs": 0
+            }
+          },
+          {
+            "id": "common.pico.home",
+            "label": "PICO_HOME",
+            "status": "ok",
+            "summary": "PICO_HOME is configured at /Users/chanzungsan/Library/PICO/sdk.",
+            "details": {
+              "command": "pico-cli primer env doctor --format json",
+              "configured": true,
+              "path": "/Users/chanzungsan/Library/PICO/sdk",
+              "source": "environment",
+              "durationMs": 0
+            }
+          },
+          {
+            "id": "common.android.sdk",
+            "label": "Android SDK",
+            "status": "ok",
+            "summary": "Android SDK Platform 35 and Sources for Android 35 are available at /Users/chanzungsan/Library/Android/sdk.",
+            "details": {
+              "command": "pico-cli primer env doctor --format json",
+              "installed": true,
+              "path": "/Users/chanzungsan/Library/Android/sdk",
+              "hasPlatformsAndSources": true,
+              "durationMs": 0
+            }
+          },
+          {
+            "id": "knowledge.doctor",
+            "label": "Knowledge doctor",
+            "status": "ok",
+            "summary": "Knowledge static checks completed successfully. Run pico-cli knowledge doctor --format json to check Graphify MCP serve readiness.",
+            "details": {
+              "command": "pico-cli knowledge doctor --format json",
+              "result": {
+                "graphify": {
+                  "knowledgeType": "spatial",
+                  "versions": [
+                    {
+                      "version": "6.1",
+                      "graphJsonExists": true,
+                      "workspace": "/Users/chanzungsan/Library/PICO/sdk/6.1/agent-vault/spatial"
+                    }
+                  ],
+                  "latestVersion": "6.1",
+                  "resolvedGraphPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/agent-vault/spatial/graphify-out/graph.json",
+                  "resolvedWorkspace": "/Users/chanzungsan/Library/PICO/sdk/6.1/agent-vault/spatial",
+                  "graphDataChecked": true,
+                  "graphDataBlockedReason": null,
+                  "graphifyBin": "/Users/chanzungsan/.local/bin/graphify",
+                  "graphifyBinExists": true,
+                  "graphifyVersion": "graphify 0.6.1",
+                  "graphifyVersionIndeterminate": false,
+                  "graphifyServeChecked": false,
+                  "graphifyServeReady": false,
+                  "graphifyServeError": null,
+                  "envDiagnostic": {
+                    "scope": "local",
+                    "filePath": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.pico-env.json",
+                    "recordedVersion": "6.1",
+                    "recordedPlatform": "spatial",
+                    "recordedWorkspace": "6.1/agent-vault/spatial",
+                    "installedVersions": [
+                      "6.1"
+                    ]
+                  }
+                },
+                "graphifyError": null,
+                "findings": []
+              },
+              "errors": [],
+              "findings": [],
+              "durationMs": 692
+            }
+          }
+        ]
+      },
+      {
+        "id": "spatial-doctors",
+        "label": "Spatial doctors",
+        "status": "ok",
+        "summary": "Spatial checks passed.",
+        "checks": [
+          {
+            "id": "primer.doctor",
+            "label": "PICO dev environment",
+            "status": "ok",
+            "summary": "Environment prerequisites are configured.",
+            "details": {
+              "command": "pico-cli primer doctor --format json",
+              "result": {
+                "platform": "macos",
+                "checks": [
+                  {
+                    "id": "javaHome",
+                    "status": "ok",
+                    "label": "JAVA_HOME",
+                    "value": "/Users/chanzungsan/.pico/primer-cli/jdk/jdk-21.0.12.1+1/Contents/Home"
+                  },
+                  {
+                    "id": "templates",
+                    "status": "ok",
+                    "label": "Templates",
+                    "value": "/Users/chanzungsan/Library/PICO/sdk/6.1/templates"
+                  }
+                ]
+              },
+              "errors": [],
+              "durationMs": 1104
+            }
+          },
+          {
+            "id": "editor.doctor",
+            "label": "Editor doctor",
+            "status": "ok",
+            "summary": "Spatial Editor environment checks completed successfully.",
+            "details": {
+              "command": "pico-cli editor doctor --format json",
+              "result": {
+                "platform": "macos",
+                "installations": [
+                  {
+                    "editorPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor/Spatial Editor.app/Contents/MacOS/Spatial Editor",
+                    "appBundlePath": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor/Spatial Editor.app",
+                    "mcpServerPath": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor/Spatial Editor.app/Contents/Resources/plugins/mcp/launcher/run_mcp.sh",
+                    "mcpServerType": "executable",
+                    "version": "6.1.9",
+                    "source": "cli-managed",
+                    "platform": "macos",
+                    "installRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor",
+                    "slot": "stable",
+                    "slotVersion": "6.1",
+                    "versionSource": "primer_package",
+                    "metadataSource": "primer",
+                    "warnings": [],
+                    "capabilities": {
+                      "editorLaunchable": true,
+                      "mcpLauncherPresent": true,
+                      "mcpBackendPresent": true,
+                      "runtimePresent": true,
+                      "usableForBootstrap": true,
+                      "issues": []
+                    }
+                  }
+                ],
+                "checks": [
+                  {
+                    "id": "editor.platform",
+                    "label": "Host platform",
+                    "status": "ok",
+                    "summary": "Spatial Editor supports this macos host."
+                  },
+                  {
+                    "id": "editor.installation",
+                    "label": "Editor installation",
+                    "status": "ok",
+                    "summary": "1 Spatial Editor installation(s) detected.",
+                    "details": {
+                      "installations": [
+                        {
+                          "path": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor/Spatial Editor.app",
+                          "version": "6.1.9",
+                          "source": "cli-managed",
+                          "versionSource": "primer_package",
+                          "slot": "stable",
+                          "slotVersion": "6.1",
+                          "installRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "editor.partial-installations",
+                    "label": "Partial Editor installations",
+                    "status": "ok",
+                    "summary": "No partial Spatial Editor installations were found."
+                  },
+                  {
+                    "id": "editor.capabilities",
+                    "label": "Editor capabilities",
+                    "status": "ok",
+                    "summary": "Every discovered Spatial Editor installation is usable."
+                  },
+                  {
+                    "id": "editor.mcp-launcher",
+                    "label": "Editor MCP launcher",
+                    "status": "ok",
+                    "summary": "Every discovered Spatial Editor installation has an MCP launcher."
+                  },
+                  {
+                    "id": "editor.python",
+                    "label": "Python runtime",
+                    "status": "skip",
+                    "summary": "External Python is not required by the discovered Editor MCP launcher."
+                  },
+                  {
+                    "id": "editor.runtime-discovery",
+                    "label": "Running Editor discovery",
+                    "status": "ok",
+                    "summary": "0 running Spatial Editor instance(s) detected.",
+                    "details": {
+                      "processScanSucceeded": true,
+                      "instances": []
+                    }
+                  },
+                  {
+                    "id": "editor.orphans.headless",
+                    "label": "Headless orphaned Editors",
+                    "status": "ok",
+                    "summary": "No headless orphaned Editor processes were found."
+                  },
+                  {
+                    "id": "editor.orphans.gui",
+                    "label": "GUI orphaned Editors",
+                    "status": "ok",
+                    "summary": "No GUI orphaned Editor processes were found."
+                  }
+                ],
+                "uninstallTargets": [
+                  {
+                    "installRoot": "/Users/chanzungsan/Library/PICO/sdk/6.1/editor",
+                    "slotVersion": "6.1",
+                    "version": "6.1.9",
+                    "slot": "stable",
+                    "state": "complete",
+                    "evidence": [
+                      "primer_package",
+                      "app_bundle",
+                      "mcp_layout"
+                    ],
+                    "warnings": []
+                  }
+                ],
+                "runtime": {
+                  "instances": [],
+                  "processScanSucceeded": true,
+                  "warnings": []
+                },
+                "orphanedEditors": {
+                  "headless": [],
+                  "gui": [],
+                  "reaped": []
+                }
+              },
+              "errors": [],
+              "durationMs": 49
+            }
+          },
+          {
+            "id": "plugin.doctor",
+            "label": "Plugin doctor",
+            "status": "ok",
+            "summary": "Plugin checks completed for discovered hosts. Host coverage is optional and depends on the agent you plan to use.",
+            "details": {
+              "command": "pico-cli plugin doctor --format json",
+              "result": {
+                "envExists": true,
+                "envPath": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.pico-env.json",
+                "findings": [],
+                "hosts": [
+                  {
+                    "host": "codex",
+                    "platform": "spatial",
+                    "pluginVersion": "0.6.1",
+                    "executableRequired": false,
+                    "executableAvailable": true,
+                    "installedPluginNames": [
+                      "pico-spatial-agentic-tools",
+                      "pico-general-agentic-tools"
+                    ],
+                    "missingPluginNames": [],
+                    "findings": [
+                      {
+                        "code": "PLUGIN_HEALTHY",
+                        "message": "codex plugin resources are current and complete.",
+                        "severity": "ok"
+                      }
+                    ],
+                    "resources": [
+                      {
+                        "id": "knowledge-query",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/knowledge-query/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-cli",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/pico-cli/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-cli-device-target",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/pico-cli-device-target/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-cli-screenshot",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/pico-cli-screenshot/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-env-doctor",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/pico-env-doctor/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-spatial-app-designer",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/pico-spatial-app-designer/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "porting-android-app",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/porting-android-app/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-app-dev-workflow",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-app-dev-workflow/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-app-onboarding",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-app-onboarding/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-app-performance-analysis",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-app-performance-analysis/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-design-to-app",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-design-to-app/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-editor",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-editor/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-emulator-usage",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-emulator-usage/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-sdk-guideline",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-sdk-guideline/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-sdk-scene-builder",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-sdk-scene-builder/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-sdk-update",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-sdk-update/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-ui-ability",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-ui-ability/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatial-ui-design-style",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatial-ui-design-style/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatialml",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatialml/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "spatialml-debugging",
+                        "kind": "skill",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.agents/skills/spatialml-debugging/SKILL.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-dev-knowledge",
+                        "kind": "mcp",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/config.toml",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-spatial-editor",
+                        "kind": "mcp",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/config.toml",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks/pico-general-agentic-tools/catalog.json",
+                        "kind": "managed-file",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks/pico-general-agentic-tools/catalog.json",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks/pico-general-agentic-tools/ingest.mjs",
+                        "kind": "managed-file",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks/pico-general-agentic-tools/ingest.mjs",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks/pico-general-agentic-tools/runtime.mjs",
+                        "kind": "managed-file",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks/pico-general-agentic-tools/runtime.mjs",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks/pico-spatial-agentic-tools/agent-hook-process-lifecycle.mjs",
+                        "kind": "managed-file",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks/pico-spatial-agentic-tools/agent-hook-process-lifecycle.mjs",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks/pico-spatial-agentic-tools/capture-context.mjs",
+                        "kind": "managed-file",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks/pico-spatial-agentic-tools/capture-context.mjs",
+                        "status": "ok"
+                      },
+                      {
+                        "id": ".codex/hooks.json",
+                        "kind": "hook-document",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/.codex/hooks.json",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-spatial-agentic-tools",
+                        "kind": "project-context",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/PICO-SPATIAL-AGENTIC-TOOLS.AGENTS.md",
+                        "status": "ok"
+                      },
+                      {
+                        "id": "pico-general-agentic-tools",
+                        "kind": "project-context",
+                        "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/PICO-GENERAL-AGENTIC-TOOLS.AGENTS.md",
+                        "status": "ok"
+                      }
+                    ],
+                    "versionChecks": [
+                      {
+                        "host": "codex",
+                        "pluginName": "pico-spatial-agentic-tools",
+                        "installedVersion": "0.6.1",
+                        "availableVersion": "0.6.1",
+                        "updateAvailable": false
+                      },
+                      {
+                        "host": "codex",
+                        "pluginName": "pico-general-agentic-tools",
+                        "installedVersion": "0.1.1",
+                        "availableVersion": "0.1.1",
+                        "updateAvailable": false
+                      }
+                    ],
+                    "status": "ok",
+                    "summary": "codex plugin resources are current and complete."
+                  }
+                ],
+                "pluginNames": [
+                  "pico-spatial-agentic-tools",
+                  "pico-general-agentic-tools"
+                ],
+                "projectRoot": "/Users/chanzungsan/Documents/ChatGPT/Space Bend",
+                "scope": "local"
+              },
+              "errors": [],
+              "durationMs": 28
+            }
+          },
+          {
+            "id": "project.context.doctor",
+            "label": "Project context doctor",
+            "status": "ok",
+            "summary": "Project context is configured for pico-spatial-agentic-tools.",
+            "details": {
+              "command": "pico-cli project context doctor --format json",
+              "scope": "local",
+              "result": {
+                "pluginName": "pico-spatial-agentic-tools",
+                "projectRoot": "/Users/chanzungsan/Documents/ChatGPT/Space Bend",
+                "contextFileName": "PICO-SPATIAL-AGENTIC-TOOLS.AGENTS.md",
+                "contextPath": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/PICO-SPATIAL-AGENTIC-TOOLS.AGENTS.md",
+                "contextExists": true,
+                "routes": [
+                  {
+                    "host": "codex",
+                    "path": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/AGENTS.md",
+                    "exists": true,
+                    "linked": true
+                  }
+                ],
+                "status": "ok",
+                "summary": "Project context is configured for pico-spatial-agentic-tools."
+              },
+              "durationMs": 10
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "errors": [],
+  "resources": [],
+  "meta": {
+    "format": "json",
+    "truncated": false,
+    "platform": "darwin",
+    "hostPlatform": "darwin",
+    "targetPlatform": "spatial",
+    "distribution": "public"
+  }
+}

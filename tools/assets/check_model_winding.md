@@ -1,0 +1,1 @@
+The GLB validator checks the format, not outward triangle winding. A separate geometry check compares each triangle cross product to its stored vertex normals. The first scan found inverted faces in the procedural meshes; the exporter now flips those index triplets. Geometry, dimensions and approved materials remain the same. Final check: 13,524 triangles, zero inverted faces.

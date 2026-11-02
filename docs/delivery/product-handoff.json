@@ -1,0 +1,19 @@
+{
+  "package": "com.example.spacebend",
+  "project": "/Users/chanzungsan/Documents/ChatGPT/Space Bend",
+  "scaffoldOnly": false,
+  "productUiImplemented": true,
+  "apk": "/Users/chanzungsan/Documents/ChatGPT/Space Bend/output/SpaceBend-debug.apk",
+  "jvmTests": 34,
+  "instrumentation": "1 passed (109.361 seconds including loading and capture waits)",
+  "runtimePlanesObserved": 57,
+  "style": "A Gravity Laboratory",
+  "voiceAliases": {
+    "zh-Hans": "zh-Hans",
+    "zh-Hant": "zh-Hans",
+    "en": "en"
+  },
+  "sceneOwner": "Kotlin ECS codegen",
+  "hardwareAcceptance": "pending",
+  "performanceAcceptance": "pending"
+}

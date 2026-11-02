@@ -1,0 +1,7 @@
+heavy_capsule inverted 0
+exploration_robot inverted 0
+spacecraft inverted 0
+micro_probe inverted 0
+energy_core inverted 0
+beacon inverted 0
+Total triangles 13524 inverted 0

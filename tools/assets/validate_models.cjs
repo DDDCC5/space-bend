@@ -1,0 +1,3 @@
+const fs=require('node:fs'),path=require('node:path');const validator=require('./runtime/node_modules/gltf-validator');
+(async()=>{const root=path.resolve(__dirname,'../../assets/style-a'),reports=[];for(const folder of ['models','vfx'])for(const name of fs.readdirSync(path.join(root,folder)).filter(n=>n.endsWith('.glb'))){const file=path.join(root,folder,name);const report=await validator.validateBytes(new Uint8Array(fs.readFileSync(file)),{uri:name});reports.push({file:path.relative(root,file),...report});console.log(name,'errors',report.issues.numErrors,'warnings',report.issues.numWarnings);}
+fs.writeFileSync(path.resolve(__dirname,'../../docs/assets/gltf-validation.json'),JSON.stringify(reports,null,2));if(reports.some(r=>r.issues.numErrors))process.exitCode=1;})();

@@ -1,0 +1,117 @@
+{
+  "status": "pending_visual_approval",
+  "source": "Original procedural geometry; official Editor workflow blocked by bundled Python TLS certificate failure.",
+  "units": "meters",
+  "upAxis": "Y",
+  "forward": "-Z",
+  "objects": [
+    {
+      "id": "exploration_robot",
+      "file": "models/exploration_robot.glb",
+      "parts": 71,
+      "triangles": 3584,
+      "bounds": {
+        "min": [
+          -0.2425,
+          0.027000000000000003,
+          -0.23750000000000002
+        ],
+        "max": [
+          0.2425,
+          0.4275,
+          0.21
+        ]
+      }
+    },
+    {
+      "id": "energy_core",
+      "file": "models/energy_core.glb",
+      "parts": 12,
+      "triangles": 2832,
+      "bounds": {
+        "min": [
+          -0.129,
+          -0.129,
+          -0.129
+        ],
+        "max": [
+          0.129,
+          0.129,
+          0.129
+        ]
+      }
+    },
+    {
+      "id": "spacecraft",
+      "file": "models/spacecraft.glb",
+      "parts": 16,
+      "triangles": 2336,
+      "bounds": {
+        "min": [
+          -0.25732079203845465,
+          -0.067,
+          -0.275
+        ],
+        "max": [
+          0.25732079203845465,
+          0.125,
+          0.27
+        ]
+      }
+    },
+    {
+      "id": "micro_probe",
+      "file": "models/micro_probe.glb",
+      "parts": 21,
+      "triangles": 1312,
+      "bounds": {
+        "min": [
+          -0.1625,
+          -0.065,
+          -0.1625
+        ],
+        "max": [
+          0.1625,
+          0.17400000000000002,
+          0.1625
+        ]
+      }
+    },
+    {
+      "id": "heavy_capsule",
+      "file": "models/heavy_capsule.glb",
+      "parts": 28,
+      "triangles": 1232,
+      "bounds": {
+        "min": [
+          -0.2125,
+          -0.17,
+          -0.262
+        ],
+        "max": [
+          0.2125,
+          0.234,
+          0.2275
+        ]
+      }
+    },
+    {
+      "id": "beacon",
+      "file": "models/beacon.glb",
+      "parts": 13,
+      "triangles": 2228,
+      "bounds": {
+        "min": [
+          -0.09137544456622773,
+          0.0,
+          -0.14170393758658795
+        ],
+        "max": [
+          0.155,
+          0.40950000000000003,
+          0.141703937586588
+        ]
+      }
+    }
+  ]
+}

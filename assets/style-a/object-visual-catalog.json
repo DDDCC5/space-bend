@@ -1,0 +1,42 @@
+{
+  "status": "proposed_for_asset_review",
+  "note": "Mass and launch speed are proposed tuning values, not yet approved game balance.",
+  "objects": [
+    {
+      "id": "robot",
+      "marking": "R-01",
+      "massKg": 2.4,
+      "initialSpeedMps": 2.8
+    },
+    {
+      "id": "core",
+      "marking": "E-02",
+      "massKg": 1.2,
+      "initialSpeedMps": 3.6
+    },
+    {
+      "id": "craft",
+      "marking": "S-03",
+      "massKg": 1.8,
+      "initialSpeedMps": 4.0
+    },
+    {
+      "id": "probe",
+      "marking": "P-04",
+      "massKg": 0.3,
+      "initialSpeedMps": 4.8
+    },
+    {
+      "id": "capsule",
+      "marking": "C-05",
+      "massKg": 8.0,
+      "initialSpeedMps": 1.8
+    },
+    {
+      "id": "beacon",
+      "marking": "B-06",
+      "massKg": 0.8,
+      "initialSpeedMps": 3.2
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+phase=STABLE, payload=Payload(kind=CORE, position=V3(x=-3.137099838256833, y=0.5570315341645172, z=-4.177100038528443), velocity=V3(x=0.0, y=4.028463009445545, z=0.0), expectedEntry=0, traversals=4, loops=2, lastExitId=1, isFalling=false), planes=57
