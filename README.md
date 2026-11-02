@@ -2,6 +2,12 @@
 
 PICO Spatial MR 空间解谜游戏，包名 `com.example.spacebend`。风格 A「引力实验室」：石墨黑工程面板、冰蓝虫洞边缘、低饱和金属物体与琥珀色状态提示。Kotlin + Compose + PICO Spatial SDK 6.1.9，官方 Stage 模板，Mixed 透视模式。
 
+## 私有测试与迭代
+
+- 测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.0-debug.1)，需登录有仓库权限的 GitHub 账号。
+- 测试反馈：[新建真机测试反馈](https://github.com/DDDCC5/space-bend/issues/new?template=device-test.md)。请附头显 / OS 版本、APK 版本、复现步骤和截图。
+- 本地 SDK、登录配置、缓存和签名密钥不进入仓库；APK 作为私有仓库的测试发布附件保存。
+
 ## 运行与构建
 
 交付 APK：`output/SpaceBend-debug.apk`；可移植源码包：`output/SpaceBend-source.zip`。需要兼容 Spatial SDK 6.1 的 PICO OS 环境；普通 Android 手机无法提供空间运行时。
