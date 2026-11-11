@@ -87,15 +87,15 @@ internal class SceneRuntime(
   controllers.start();hands.start()
   sound.play("audio/ambient-lab-loop.wav",null,vm.state.value.settings,loop=true,key="music",channel="music")
  }
- fun pause(){Log.d("SpaceBend","Scene paused");active=false;router.cancel();planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();started=false;sound.pause()}
- fun resume(){Log.d("SpaceBend","Scene resume requested; loaded=$loaded closed=$closed");if(closed||!loaded)return;active=true;start();sound.resume()}
+ fun pause(){Log.i("SpaceBend","Scene paused");active=false;router.cancel();planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();started=false;sound.pause()}
+ fun resume(){Log.i("SpaceBend","Scene resume requested; loaded=$loaded closed=$closed");if(closed||!loaded)return;active=true;start();sound.resume()}
  private var diagnosticFrames=0L
  private var diagnosticAt=0L
  fun frame(rawDelta: Double) {
   if(closed||!active||!started)return
   diagnosticFrames++
   val now=android.os.SystemClock.uptimeMillis()
-  if((context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0&&now-diagnosticAt>10000){diagnosticAt=now;Log.d("SpaceBend","Frame=$diagnosticFrames delta=$rawDelta phase=${vm.engine.phase} tracking=${vm.state.value.tracking} elapsed=${vm.engine.elapsedSeconds}")}
+  if((context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0&&now-diagnosticAt>10000){diagnosticAt=now;Log.i("SpaceBend","Frame=$diagnosticFrames delta=$rawDelta phase=${vm.engine.phase} tracking=${vm.state.value.tracking} elapsed=${vm.engine.elapsedSeconds}")}
   val dt=rawDelta.coerceIn(0.0,.1);time+=dt;scanTimer+=dt
   val changed=planes.drain()
   if(changed||scanTimer>.4){

@@ -1,0 +1,27 @@
+# Physical device scan investigation — 2026-11-02
+
+Status: unresolved; no repaired build has been verified.
+
+Target: B3110 / swan, Android 16 (API 36), OS display ID 6.2.0, arm64. App SDK BOM remains 6.1.9 with knowledge line 6.1. Environment doctor succeeded: CLI/plugin 0.6.1, SDK 6.1.9, knowledge 6.1, emulator 6.1.0, editor 6.1.9.
+
+User reports zero detected planes after looking around the physical room. System logs show plane observer permission/init/start success (error_code 0). PlaneTrackingManager reports RUNNING but loadAllAnchors returns empty; ten bounded repeated snapshot loads were added for diagnosis, and observed nine successive empty loads before an application pause. ECS/frame execution is live (about 90 updates/sec in sampled timestamps; this is not a performance certification). No geometry was fabricated and scan gating was preserved.
+
+Temporary source changes add tracker/snapshot and ECS diagnostics. The installed build is a diagnostic build from app/build/outputs/apk/debug/app-debug.apk; output/SpaceBend-debug.apk and the private GitHub release still contain the previous baseline.
+
+An opt-in instrumentation probe compares raw PlaneTrackingManager and MeshTrackingManager output without modifying game progress. The first diagnostic run logged one sample with both RUNNING and both counts zero. A different app then became foreground, after which the plane tracker STOPPED and mesh PAUSED. The original reporting-only probe returned OK, which means the probe code executed; it does NOT prove sensing works. The probe now requires -e sensingProbe true and asserts a sufficiently uninterrupted observation window plus nonzero real planes. An exclusive rerun at 23:12 produced eight samples with both trackers RUNNING, planes=0, meshes=0, meshUpdates=0. The test failed its nonzero-plane assertion. pico-cli timed out its adb shell after 30 seconds; the device TestRunner log independently confirms the test completed with one failure at 23:12:25. No Android crash-buffer entry was observed. Native Photoid logs additionally contain GetOnlineMeshFloorHeight Failed; this is a lead, not a proven root cause.
+
+Do not clear app/device room data or silently upgrade the SDK/OS. Next: compare with the headset's built-in room sensing (user asked via asynchronous question). Both public raw-geometry paths returned zero under uninterrupted running states; this does not yet distinguish SDK/runtime compatibility from a system/environment sensing problem.
+
+User comparison: the headset's built-in room scanning also cannot recognize surfaces. This supports a device/system sensing issue beyond this app; exact cause is still unconfirmed. A normal device reboot is proposed as a reversible system-service recovery step, pending user approval because it closes other running headset apps. No reboot, service kill, data clear, SDK upgrade, or system property mutation has been performed.
+
+## Reboot and post-reboot check
+
+User approved one normal headset reboot. The first reboot command found the hardware momentarily offline and did not run; device rediscovery succeeded, the second reboot returned exit 0, and sys.boot_completed subsequently returned 1.
+
+The post-reboot Gradle connectedDebugAndroidTest selected only PB311XHGKC220169G and the opt-in probe. It logged three RUNNING samples with planes=0 and meshes=0, followed by plane STOPPED / mesh PAUSED after returning to launcher. The runner later reported a process interruption. Its cleanup uninstalled the target app (app info then confirmed package absent). This was an unintended effect of using connectedDebugAndroidTest; the original installed app data was not backed up and exact preference restoration cannot be guaranteed. The user has been informed. Do NOT use this connected-test route again for the user's installation; CLI-directed install/instrumentation or pure app logs must preserve installation and data. Reinstallation is in progress. No room data was cleared and no factory reset or OS/SDK upgrade was performed.
+
+Reinstallation succeeded and the direct app launch succeeded. Direct runtime then produced RUNNING/zero-plane snapshots before pausing at 23:33:54. Device ActivityManager logs show com.picoxr.systemui explicitly force-stopped the app at 23:34:00. The earlier test interruption at 23:32:01 was also a force-stop from com.picoxr.systemui, not a confirmed application exception. Crash buffer remained empty. The post-reboot recovery result therefore remains inconclusive: both observations were interrupted. The diagnostic main app remains installed (new appId 10159), currently stopped; no background instrumentation/monitor was left running. User has been asked whether the exits were manual or automatic. Exact pre-test app preferences cannot be restored because connected-test cleanup removed the earlier installation/data and no snapshot exists.
+
+## Uninterrupted direct observation after reboot
+
+The user confirmed previous exits were manual. A direct launch at approximately 23:37 ran uninterrupted for over 40 seconds. App PID 10101 remained alive, ECS frames advanced, and all ten raw PlaneTrackingManager snapshots reported RUNNING with count=0. No plane callbacks were logged. The crash buffer was empty. The normal reboot did not restore app plane detection; exact firmware/hardware cause remains unconfirmed. The earlier built-in system scan failure was reported before reboot, so a post-reboot built-in scan comparison remains pending. No successful repair is claimed.

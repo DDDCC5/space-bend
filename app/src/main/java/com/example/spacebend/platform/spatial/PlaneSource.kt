@@ -11,6 +11,8 @@ import com.pico.spatial.sense.plane.PlaneAnchor
 import com.pico.spatial.sense.plane.PlaneTrackingManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import java.util.concurrent.ConcurrentLinkedQueue
 
 internal class PlaneSource(private val root: Entity,private val scope: CoroutineScope) {
@@ -19,6 +21,8 @@ internal class PlaneSource(private val root: Entity,private val scope: Coroutine
  private val planes=linkedMapOf<String,Surface>()
  private val assembler=SurfaceAssembler()
  private var stopSubscription: (() -> Unit)?=null
+ private var snapshotJob: Job?=null
+ private var anchorLogs=0
  var error: String?=null;private set
  val running: Boolean get()=PlaneTrackingManager.state==TrackingState.RUNNING
  fun start() {
@@ -29,10 +33,15 @@ internal class PlaneSource(private val root: Entity,private val scope: Coroutine
     else enqueue(event.anchor)
    }
    stopSubscription={subscription.cancel()};PlaneTrackingManager.start()
-   scope.launch{try{PlaneTrackingManager.loadAllAnchors().forEach{enqueue(it)}}catch(e: Exception){Log.w("SpaceBend","Plane load failed",e);error=e.message}}
+   Log.i("SpaceBend","Plane tracking start: state=${PlaneTrackingManager.state}")
+   snapshotJob=scope.launch{repeat(10){
+    try{val anchors=PlaneTrackingManager.loadAllAnchors();Log.i("SpaceBend","Plane snapshot: state=${PlaneTrackingManager.state} count=${anchors.size}");anchors.forEach{enqueue(it)}}catch(e: kotlinx.coroutines.CancellationException){throw e}catch(e: Exception){Log.w("SpaceBend","Plane load failed",e);error=e.message}
+    delay(2000)
+   }}
   } catch(e: Exception){error=e.message;Log.e("SpaceBend","Plane tracking could not start",e)}
  }
  private fun enqueue(anchor: PlaneAnchor){
+  if(anchorLogs++<5)Log.i("SpaceBend","Plane received: vertices=${anchor.vertices.size} indices=${anchor.indices.size} semantic=${anchor.semantics}")
   val transform=anchor.transform;val rotation=transform.rotation.toQuat();val origin=transform.position.game()
   pending.add(Change(anchor.anchorUUID.toString(),false,anchor.vertices.map{it.game()},anchor.indices.toList(),anchor.semantics.toString(),origin,rotation))
  }
@@ -46,5 +55,5 @@ internal class PlaneSource(private val root: Entity,private val scope: Coroutine
   };return changed
  }
  fun surfaces()=planes.values.toList()
- fun stop(){stopSubscription?.invoke();stopSubscription=null;try{PlaneTrackingManager.stop()}catch(e: Exception){Log.w("SpaceBend","Plane stop",e)}}
+ fun stop(){snapshotJob?.cancel();snapshotJob=null;stopSubscription?.invoke();stopSubscription=null;try{PlaneTrackingManager.stop()}catch(e: Exception){Log.w("SpaceBend","Plane stop",e)}}
 }

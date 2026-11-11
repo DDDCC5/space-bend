@@ -1,0 +1,5 @@
+com.example.spacebend.SpatialSensingProbeTest:.
+
+Time: 22.542
+
+OK (1 test)

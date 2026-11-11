@@ -1,0 +1,24 @@
+11-02 23:31:52.564 10433 10433 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-02 23:31:54.416 10433 10433 I SpaceBend: ECS update: runtimes=1 delta=0.011625729
+11-02 23:31:54.565 10433 10433 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-02 23:31:55.328 10433 10433 I SpaceBend: Scene paused
+11-02 23:33:48.898 10099 10099 I SpaceBend: ECS update: runtimes=0 delta=0.0
+11-02 23:33:49.911 10099 10099 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-02 23:33:50.056 10099 10099 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-02 23:33:50.247 10099 10099 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-02 23:33:50.494 10099 10099 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-02 23:33:50.816 10099 10099 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-02 23:33:50.966 10099 10099 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-02 23:33:50.971 10099 10099 I SpaceBend: Plane tracking start: state=PAUSED
+11-02 23:33:51.063 10099 10099 I SpaceBend: Frame=1 delta=0.1017950028181076 phase=PLANNING tracking=false elapsed=0.0
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-02 23:33:51.064 10099 10099 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-02 23:33:51.085 10099 10099 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-02 23:33:53.086 10099 10099 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-02 23:33:54.179 10099 10099 I SpaceBend: Scene paused

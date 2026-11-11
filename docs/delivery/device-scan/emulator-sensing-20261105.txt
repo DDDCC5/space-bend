@@ -1,0 +1,8 @@
+11-05 11:55:17.584  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=0 meshState=RUNNING meshes=0 meshUpdates=0
+11-05 11:55:20.423  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=48
+11-05 11:55:22.477  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=48
+11-05 11:55:24.532  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=48
+11-05 11:55:26.586  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=52
+11-05 11:55:28.641  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=52
+11-05 11:55:30.695  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=52
+11-05 11:55:32.750  3113  3133 I SpaceBendProbe: planeState=RUNNING planes=57 meshState=RUNNING meshes=48 meshUpdates=55

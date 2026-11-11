@@ -1,0 +1,4 @@
+11-05 11:55:11.302  3113  3133 I TestRunner: run started: 1 tests
+11-05 11:55:11.302  3113  3133 I TestRunner: started: reportRawPlaneAndMeshOutput(com.example.spacebend.SpatialSensingProbeTest)
+11-05 11:55:35.584  3113  3133 I TestRunner: finished: reportRawPlaneAndMeshOutput(com.example.spacebend.SpatialSensingProbeTest)
+11-05 11:55:35.585  3113  3133 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
