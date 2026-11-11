@@ -1,0 +1,72 @@
+{
+  "files": [
+    {
+      "file": "01-icon-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 280046,
+      "limit_bytes": 4000000,
+      "sha256": "87a822d443836e41c594b8e2667308b1540b3ebb685bd7938e834a842e5a63f9"
+    },
+    {
+      "file": "02-poster-2560x1440.jpg",
+      "width": 2560,
+      "height": 1440,
+      "bytes": 1108697,
+      "limit_bytes": 5000000,
+      "sha256": "28c6e0bdd3328433b65e06df3eecfa91cc9bf15cc217841488baa08bcc5b0b1a"
+    },
+    {
+      "file": "03-screenshot-room.png",
+      "width": 2560,
+      "height": 1440,
+      "bytes": 2586720,
+      "limit_bytes": 5000000,
+      "sha256": "844670899389f3289633458d5d3465d0509f76ea8473bf886ae8d56c36650cba"
+    },
+    {
+      "file": "04-screenshot-loop.png",
+      "width": 2560,
+      "height": 1440,
+      "bytes": 2347400,
+      "limit_bytes": 5000000,
+      "sha256": "cc4048c712dab408ce1487c7b9b9a0128382653e9d2f23af5c6f369638f8188c"
+    }
+  ],
+  "screenshot_provenance": [
+    {
+      "file": "03-screenshot-room.png",
+      "source": "output/screenshots/space-bend-emulator-scan-ready-20261105.png",
+      "source_sha256": "597e7bfa7a93cdd828241669c4e1130bf2e03a93a9cb77cd805c07ca91242c65",
+      "source_viewport": [
+        0,
+        700,
+        2160,
+        1215
+      ],
+      "disclosure_strip": [
+        0,
+        1378,
+        2560,
+        62
+      ]
+    },
+    {
+      "file": "04-screenshot-loop.png",
+      "source": "output/screenshots/space-bend-stable-loop.png",
+      "source_sha256": "2d31514e40fe9a7a916cc38b9e2a4695501b5babe404d79095d16241524b0c00",
+      "source_viewport": [
+        0,
+        700,
+        2160,
+        1215
+      ],
+      "disclosure_strip": [
+        0,
+        1378,
+        2560,
+        62
+      ]
+    }
+  ]
+}

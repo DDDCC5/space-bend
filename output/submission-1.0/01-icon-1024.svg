@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#1c3541"/><stop offset="1" stop-color="#091119"/></radialGradient>
+ <radialGradient id="void"><stop stop-color="#02060b"/><stop offset=".82" stop-color="#07101c"/><stop offset="1" stop-color="#224c5c"/></radialGradient>
+ <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edfcff"/><stop offset=".35" stop-color="#89e8ff"/><stop offset=".65" stop-color="#327b98"/><stop offset="1" stop-color="#c5f4ff"/></linearGradient>
+ <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1e9ec"/><stop offset=".45" stop-color="#7c949f"/><stop offset="1" stop-color="#344852"/></linearGradient>
+ <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1024" height="1024" fill="url(#bg)"/>
+<path d="M80 220V110L110 80H220M804 80H914L944 110V220M944 804V914L914 944H804M220 944H110L80 914V804" fill="none" stroke="#557580" stroke-width="4"/>
+<g transform="rotate(24 512 512)">
+ <ellipse cx="512" cy="512" rx="240" ry="338" fill="url(#void)"/>
+ <ellipse cx="512" cy="512" rx="249" ry="347" fill="none" stroke="#68d6fd" stroke-width="30" opacity=".36" filter="url(#glow)"/>
+ <ellipse cx="512" cy="512" rx="244" ry="342" fill="none" stroke="url(#ring)" stroke-width="16"/>
+ <ellipse cx="512" cy="512" rx="267" ry="365" fill="none" stroke="#4f96ae" stroke-width="3" stroke-dasharray="46 12 5 12"/>
+ <ellipse cx="512" cy="512" rx="227" ry="323" fill="none" stroke="#90e8ff" stroke-opacity=".6" stroke-width="3"/>
+ <path d="M455 230C690 390 310 610 570 788M407 261C640 450 340 560 620 755M365 306C588 431 415 658 665 714" fill="none" stroke="#6dc6e5" stroke-width="3" opacity=".26"/>
+</g>
+<path d="M159 640C255 687 324 685 414 625" fill="none" stroke="#f2bd73" stroke-width="7" stroke-dasharray="17 13"/>
+<path d="M398 535L515 485L625 552L509 608Z" fill="#b9cbd3" stroke="#e0edf2" stroke-width="4"/>
+<path d="M398 535L509 608V743L398 672Z" fill="#415a69" stroke="#91a9b5" stroke-width="4"/>
+<path d="M509 608L625 552V685L509 743Z" fill="url(#steel)" stroke="#c0d4de" stroke-width="4"/>
+<path d="M418 562L485 605V628L418 586ZM531 620L602 585V608L531 644Z" fill="#efb569"/>
+<path d="M491 552L517 540L543 555L517 568Z" fill="#0b1c26"/>
+<path d="M464 100H560M512 52V148M464 924H560M512 876V972" fill="none" stroke="#628a99" stroke-width="3"/>
+</svg>
