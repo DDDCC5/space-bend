@@ -4,7 +4,7 @@ PICO Spatial MR 空间解谜游戏，包名 `com.example.spacebend`。风格 A�
 
 ## 测试与迭代
 
-- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.0-debug.2)。仓库已公开，可直接访问源码与发布附件。应用内版本仍为 1.0，本次更新主要增加扫描诊断与测试证据。
+- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.1)。仓库已公开，可直接访问源码与发布附件。1.0.1（versionCode 2）已将确认的虫洞图标写入APK，包括普通图标、PICO双层图标和对应SDF。
 - 测试反馈：[新建真机测试反馈](https://github.com/DDDCC5/space-bend/issues/new?template=device-test.md)。请附头显 / OS 版本、APK 版本、复现步骤和截图。
 - 本地 SDK、登录配置、缓存和签名密钥不进入仓库；APK 作为GitHub 测试发布附件保存。
 - [Vibe Lab 投稿字段填写稿](docs/submission/00-填写指南.md)：沿用 Orbit Mission 表单字段，包含可复制简介、版本说明及当前验证边界。
@@ -51,6 +51,7 @@ pico-cli app launch com.example.spacebend
 - `app/src/test`：几何、物理、持久化与导航回归；`app/src/androidTest`：真实 SDK 平面驱动的闭环冒烟测试。
 - `assets/style-a`：素材源文件与预览；`app/src/main/assets`：实际运行资源。
 - `docs/delivery/verification.md`：实际验证结果与边界。`output/screenshots`：官方 CLI 捕获的运行画面。
+- `docs/delivery/launcher-identity/`：1.0.1编译后图标引用、分层/SDF资源检查及直接从APK提取的图标。`tools/assets/generate_launcher_identity.py`和`GenerateIconSdf.java`为离线资源导出工具；Android Studio插件仅参与资源制作，不作为APK运行依赖。
 
 ## 验证状态
 

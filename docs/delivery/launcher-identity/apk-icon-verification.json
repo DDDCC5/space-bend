@@ -1,0 +1,79 @@
+{
+  "package": "com.example.spacebend",
+  "versionName": "1.0.1",
+  "versionCode": 2,
+  "apk_sha256": "7c4153b185fcb01eaf195114453531c6d9253925180648bc131c2014539cebd7",
+  "android_icon_and_round_icon": "mipmap/ic_spatial_launcher",
+  "pico_layer_order_front_to_back": [
+    "icon_3d_layer_1",
+    "icon_3d_layer_0"
+  ],
+  "pico_sdf_order_front_to_back": [
+    "icon_3d_sdf_1",
+    "icon_3d_sdf_0"
+  ],
+  "compiled_manifest_and_arrays_verified": true,
+  "resources": [
+    {
+      "apk_entry": "res/drawable/ic_launcher_foreground.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "b249594684532bf07359f3f3f7e78c58e1b76b08ae47cb19c6740f0433ba1b30",
+      "decoded_pixels_match_source": true
+    },
+    {
+      "apk_entry": "res/drawable/icon_3d_layer_0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "15d894aa4ee69599a635454ef7857f63d262125a7e674fd5b5c1b6a0118e7b12",
+      "decoded_pixels_match_source": true
+    },
+    {
+      "apk_entry": "res/drawable/icon_3d_layer_1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "523eb17c64d75fb05e8482bd5f5331251a17d6474c85dca9581cc2e0f1d60749",
+      "decoded_pixels_match_source": true
+    },
+    {
+      "apk_entry": "res/drawable/icon_3d_sdf_0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "5c9761529c46839f46f18ba267a2a45a91f89eb55e172289f148988068be735a",
+      "decoded_pixels_match_source": true
+    },
+    {
+      "apk_entry": "res/drawable/icon_3d_sdf_1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "9d752b82f750b75934cbb72d48cb23f03603c62f5971d7cd20100b09beb9654c",
+      "decoded_pixels_match_source": true
+    },
+    {
+      "apk_entry": "res/mipmap-xxxhdpi-v4/ic_spatial_launcher.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "source_sha256": "e30d27215d071bb1b47b88b0390750906d97ec214a98f67229accf73bedd9e25",
+      "decoded_pixels_match_source": true
+    }
+  ],
+  "jvm_tests": {
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "runtime_launcher_visual_verification": "not performed; packaged icon extracted and visually inspected"
+}
