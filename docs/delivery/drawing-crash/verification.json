@@ -8,5 +8,11 @@
     "fixed_passed": 2
   },
   "new_fatal_exceptions_since_repair": 0,
-  "manual_drawing_confirmation": "pending"
+  "manual_drawing_confirmation": {
+    "status": "passed",
+    "source": "user report",
+    "date": "2026-11-13",
+    "result": "Drawing works normally; no longer crashes",
+    "input_modality": "not separately identified"
+  }
 }
