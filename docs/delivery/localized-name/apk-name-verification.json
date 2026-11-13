@@ -1,0 +1,23 @@
+{
+  "versionName": "1.0.3",
+  "versionCode": 4,
+  "package": "com.example.spacebend",
+  "manifest_label_resource": "string/app_name",
+  "verified_labels": {
+    "": "Space Bend",
+    "en": "Space Bend",
+    "zh": "空间折跃",
+    "zh-CN": "空间折跃",
+    "zh-HK": "空間折躍",
+    "zh-Hant": "空間折躍",
+    "zh-TW": "空間折躍"
+  },
+  "no_bilingual_application_label": true,
+  "apk_sha256": "411cd98d01710b29c58884326bb5f434980dc85e4d9c9ea3538a02360ca57998",
+  "jvm_tests": {
+    "tests": 34,
+    "failures": 0,
+    "errors": 0
+  },
+  "fresh_device_language_switch": "not performed"
+}

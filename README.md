@@ -4,7 +4,7 @@ PICO Spatial MR 空间解谜游戏，包名 `com.example.spacebend`。风格 A�
 
 ## 测试与迭代
 
-- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.2)。仓库已公开，可直接访问源码与发布附件。1.0.2（versionCode 3）修复绘制笔迹、删除并重建虫洞时共享材质与网格被提前释放的问题；保留1.0.1引入的虫洞安装图标。
+- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.3)。仓库已公开，可直接访问源码与发布附件。1.0.3（versionCode 4）的系统应用名称随语言切换：简体中文“空间折跃”、繁体中文“空間折躍”、英文“Space Bend”，不再使用中英文拼接名称；保留虫洞图标和绘制闪退修复。
 - 测试反馈：[新建真机测试反馈](https://github.com/DDDCC5/space-bend/issues/new?template=device-test.md)。请附头显 / OS 版本、APK 版本、复现步骤和截图。
 - 本地 SDK、登录配置、缓存和签名密钥不进入仓库；APK 作为GitHub 测试发布附件保存。
 - [Vibe Lab 投稿字段填写稿](docs/submission/00-填写指南.md)：沿用 Orbit Mission 表单字段，包含可复制简介、版本说明及当前验证边界。

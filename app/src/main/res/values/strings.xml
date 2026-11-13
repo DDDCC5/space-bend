@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">空间折跃 / Space Bend</string>
+    <string name="app_name">Space Bend</string>
     <string name="hello">Hello, Spatial SDK！</string>
 </resources>
