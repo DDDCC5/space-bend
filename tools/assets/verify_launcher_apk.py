@@ -18,7 +18,12 @@ out.mkdir(parents=True, exist_ok=True)
 badging = subprocess.check_output([aapt2, 'dump', 'badging', str(apk)], text=True)
 manifest = subprocess.check_output([aapt2, 'dump', 'xmltree', str(apk), '--file', 'AndroidManifest.xml'], text=True)
 resources = subprocess.check_output([aapt2, 'dump', 'resources', str(apk)], text=True)
-assert "name='com.example.spacebend' versionCode='2' versionName='1.0.1'" in badging
+identity = re.search(r"name='com.example.spacebend' versionCode='(\d+)' versionName='([^']+)'", badging)
+assert identity, 'Unexpected APK package identity'
+version_code, version_name = identity.groups()
+gradle = (root / 'app/build.gradle.kts').read_text()
+assert version_code == re.search(r'versionCode = (\d+)', gradle).group(1)
+assert version_name == re.search(r'versionName = "([^"]+)"', gradle).group(1)
 icon_id = re.search(r'resource (0x\w+) mipmap/ic_spatial_launcher', resources).group(1)
 for attribute in ['icon', 'roundIcon']:
     assert re.search(rf'android:{attribute}\(.*?\)=@{icon_id}', manifest)
@@ -51,7 +56,7 @@ with zipfile.ZipFile(apk) as z:
 results = [ET.parse(p).getroot() for p in (root / 'app/build/test-results/testDebugUnitTest').glob('TEST-*.xml')]
 tests = {k: sum(int(r.get(k, 0)) for r in results) for k in ['tests', 'failures', 'errors', 'skipped']}
 assert tests['tests'] == 34 and tests['failures'] == tests['errors'] == 0
-report = {'package': 'com.example.spacebend', 'versionName': '1.0.1', 'versionCode': 2,
+report = {'package': 'com.example.spacebend', 'versionName': version_name, 'versionCode': int(version_code),
           'apk_sha256': hashlib.sha256(apk.read_bytes()).hexdigest(),
           'android_icon_and_round_icon': 'mipmap/ic_spatial_launcher',
           'pico_layer_order_front_to_back': ['icon_3d_layer_1', 'icon_3d_layer_0'],

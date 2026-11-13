@@ -1,0 +1,6 @@
+11-13 14:11:14.885 26680 26703 I TestRunner: run started: 2 tests
+11-13 14:11:14.885 26680 26703 I TestRunner: started: repeatedStrokeReplacementKeepsSceneResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-13 14:11:21.495 26680 26703 I TestRunner: finished: repeatedStrokeReplacementKeepsSceneResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-13 14:11:21.496 26680 26703 I TestRunner: started: repeatedPortalRemovalAndRecreationKeepsSharedResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-13 14:11:26.330 26680 26703 I TestRunner: finished: repeatedPortalRemovalAndRecreationKeepsSharedResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-13 14:11:26.331 26680 26703 I TestRunner: run finished: 2 tests, 0 failed, 0 ignored

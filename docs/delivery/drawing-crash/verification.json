@@ -1,0 +1,12 @@
+{
+  "version": "1.0.2",
+  "versionCode": 3,
+  "apk_sha256": "8195bb557ebafdeaafdb2b9c90e72c74b8694eea1fb94a21062676321b0fe064",
+  "host_tests": 34,
+  "native_resource_tests": {
+    "old_failed": 2,
+    "fixed_passed": 2
+  },
+  "new_fatal_exceptions_since_repair": 0,
+  "manual_drawing_confirmation": "pending"
+}

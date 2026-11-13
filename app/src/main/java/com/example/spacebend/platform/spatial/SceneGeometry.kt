@@ -7,14 +7,14 @@ import com.pico.spatial.core.math.Color4
 import com.pico.spatial.core.math.Vector3
 import kotlin.math.*
 
-/** Scene-lifetime registry. Shared resources are closed only after all owning entities are destroyed. */
+/** Own shared resources explicitly: transient ModelEntity destruction must not release cached handles. */
 internal class SceneGeometry {
- val ice=UnlitMaterial.create().apply{setBaseColor(Color4(.61f,.90f,.96f,1f))}
- val halo=UnlitMaterial.create().apply{setBaseColor(Color4(.20f,.48f,.60f,.22f));setBlendingMode(BlendingMode.TRANSPARENT);setDepthWrite(false)}
- val amber=UnlitMaterial.create().apply{setBaseColor(Color4(.91f,.71f,.43f,1f))}
- val planeMaterial=UnlitMaterial.create().apply{setBaseColor(Color4(.3f,.55f,.64f,.35f));setBlendingMode(BlendingMode.TRANSPARENT);setDepthWrite(false)}
- val dotMesh=MeshResource.createSphere(.006f)
- val beamMesh=MeshResource.createBox(Vector3(.0015f,.0015f,1f))
+ val ice=UnlitMaterial.create().apply{toGlobal();setBaseColor(Color4(.61f,.90f,.96f,1f))}
+ val halo=UnlitMaterial.create().apply{toGlobal();setBaseColor(Color4(.20f,.48f,.60f,.22f));setBlendingMode(BlendingMode.TRANSPARENT);setDepthWrite(false)}
+ val amber=UnlitMaterial.create().apply{toGlobal();setBaseColor(Color4(.91f,.71f,.43f,1f))}
+ val planeMaterial=UnlitMaterial.create().apply{toGlobal();setBaseColor(Color4(.3f,.55f,.64f,.35f));setBlendingMode(BlendingMode.TRANSPARENT);setDepthWrite(false)}
+ val dotMesh=MeshResource.createSphere(.006f).apply{toGlobal()}
+ val beamMesh=MeshResource.createBox(Vector3(.0015f,.0015f,1f)).apply{toGlobal()}
  fun trace(points: List<V3>,width: Double,closed: Boolean,material: UnlitMaterial): Pair<Entity,MeshResource>? {
   if(points.size<2)return null
   val vertices=mutableListOf<Vector3>();val indices=mutableListOf<Int>()

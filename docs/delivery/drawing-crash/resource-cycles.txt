@@ -1,0 +1,2 @@
+11-13 14:11:20.206 26680 26680 I SpaceBendResourceTest: 160 trace replacements and 40 shared-mesh owner destructions passed
+11-13 14:11:24.784 26680 26680 I SpaceBendResourceTest: 30 portal create/update/collapse/destroy cycles passed

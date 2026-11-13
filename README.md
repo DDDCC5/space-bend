@@ -4,7 +4,7 @@ PICO Spatial MR 空间解谜游戏，包名 `com.example.spacebend`。风格 A�
 
 ## 测试与迭代
 
-- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.1)。仓库已公开，可直接访问源码与发布附件。1.0.1（versionCode 2）已将确认的虫洞图标写入APK，包括普通图标、PICO双层图标和对应SDF。
+- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.2)。仓库已公开，可直接访问源码与发布附件。1.0.2（versionCode 3）修复绘制笔迹、删除并重建虫洞时共享材质与网格被提前释放的问题；保留1.0.1引入的虫洞安装图标。
 - 测试反馈：[新建真机测试反馈](https://github.com/DDDCC5/space-bend/issues/new?template=device-test.md)。请附头显 / OS 版本、APK 版本、复现步骤和截图。
 - 本地 SDK、登录配置、缓存和签名密钥不进入仓库；APK 作为GitHub 测试发布附件保存。
 - [Vibe Lab 投稿字段填写稿](docs/submission/00-填写指南.md)：沿用 Orbit Mission 表单字段，包含可复制简介、版本说明及当前验证边界。
@@ -58,6 +58,8 @@ pico-cli app launch com.example.spacebend
 34 项 JVM 回归通过，真实 SDK 平面驱动的 Android 闭环测试通过（1 项，包含加载与截图等待约 109 秒）。已观察到 57 个平面与三星结算。模拟器仍存在加载变慢和画面滞后，根因未确认；功能通过不代表实时性能通过。详细原始结果见 `docs/delivery/verification.md`。
 
 2026-11-05 使用同一诊断 APK 复测 PICO 6.1 模拟器：官方平面接口返回 57 个平面，网格接口返回 48 个网格，专用感知检测 1 项通过。2026-11-11 已覆盖安装并启动至 PICO B3110 真机，但此前该头显与系统自带扫描均未获得有效平面，正常重启后应用仍返回 0；扫描故障尚未修复。详见 `docs/delivery/device-scan/`。投稿时应披露该体验前提，不能把模拟器数据表述为真机扫描成功。
+
+2026-11-13换用另一台B3110后已取得20个真实平面；用户实测扫描可用，但1.0.1在绘制时因共享材质提前释放而崩溃。1.0.2已修复资源所有权并覆盖安装到新设备；两项新增真机资源生命周期回归由旧版失败变为通过。详见 `docs/delivery/drawing-crash/`。旧设备的扫描状态不代表新设备；资源回归也不等同于完整实体手绘验收。
 
 `SpatialSensingProbeTest` 是显式启用的设备诊断，使用 `-e sensingProbe true`；默认跳过。请通过明确设备目标的 CLI 安装与运行，避免在用户头显上使用会清理/卸载被测应用的 Gradle connected-test 任务。
 

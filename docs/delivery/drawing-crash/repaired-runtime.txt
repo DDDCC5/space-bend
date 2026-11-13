@@ -1,0 +1,94 @@
+11-13 14:11:15.130 26680 26680 I SpaceBend: ECS update: runtimes=0 delta=0.0
+11-13 14:11:16.139 26680 26680 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-13 14:11:16.280 26680 26680 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-13 14:11:16.458 26680 26680 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-13 14:11:16.693 26680 26680 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-13 14:11:17.024 26680 26680 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-13 14:11:17.176 26680 26680 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-13 14:11:17.182 26680 26680 I SpaceBend: Plane tracking start: state=PAUSED
+11-13 14:11:17.287 26680 26680 I SpaceBend: Frame=1 delta=0.1283501535654068 phase=PLANNING tracking=false elapsed=0.0
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:17.288 26680 26680 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-13 14:11:17.325 26680 26680 I SpaceBend: Plane received: vertices=17 indices=45 semantic=CEILING
+11-13 14:11:17.326 26680 26680 I SpaceBend: Plane received: vertices=4 indices=6 semantic=SCREEN
+11-13 14:11:17.326 26680 26680 I SpaceBend: Plane received: vertices=17 indices=45 semantic=UNKNOWN
+11-13 14:11:17.326 26680 26680 I SpaceBend: Plane received: vertices=23 indices=63 semantic=WALL
+11-13 14:11:17.326 26680 26680 I SpaceBend: Plane received: vertices=19 indices=51 semantic=SCREEN
+11-13 14:11:17.444 26680 26680 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-13 14:11:20.225 26680 26680 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:11:20.690 26680 26680 I SpaceBend: Scene paused
+11-13 14:11:21.423 26680 26680 I SpaceBend: Scene paused
+11-13 14:11:21.670 26680 26680 I SpaceBend: ECS update: runtimes=0 delta=0.0
+11-13 14:11:22.571 26680 26680 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-13 14:11:22.713 26680 26680 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-13 14:11:22.890 26680 26680 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-13 14:11:23.125 26680 26680 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-13 14:11:23.451 26680 26680 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-13 14:11:23.601 26680 26680 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-13 14:11:23.601 26680 26680 I SpaceBend: Plane tracking start: state=RUNNING
+11-13 14:11:23.625 26680 26680 I SpaceBend: Plane snapshot: state=PAUSED count=0
+11-13 14:11:23.668 26680 26680 I SpaceBend: Frame=1 delta=0.07618692517280579 phase=PLANNING tracking=false elapsed=0.0
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:11:23.668 26680 26680 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-13 14:11:24.793 26680 26680 I SpaceBend: Plane received: vertices=17 indices=45 semantic=CEILING
+11-13 14:11:24.793 26680 26680 I SpaceBend: Plane received: vertices=4 indices=6 semantic=SCREEN
+11-13 14:11:24.794 26680 26680 I SpaceBend: Plane received: vertices=17 indices=45 semantic=UNKNOWN
+11-13 14:11:24.794 26680 26680 I SpaceBend: Plane received: vertices=23 indices=63 semantic=WALL
+11-13 14:11:24.794 26680 26680 I SpaceBend: Plane received: vertices=19 indices=51 semantic=SCREEN
+11-13 14:11:25.645 26680 26680 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:11:25.663 26680 26680 I SpaceBend: Scene paused
+11-13 14:11:26.266 26680 26680 I SpaceBend: Scene paused
+11-13 14:12:02.575 25345 25345 I SpaceBend: ECS update: runtimes=0 delta=0.0
+11-13 14:12:03.979 25345 25345 I SpaceBend: Loaded exploration_robot; source center=V3(x=0.0, y=0.22725, z=-0.013750000000000012), radius=0.390967
+11-13 14:12:04.114 25345 25345 I SpaceBend: Loaded energy_core; source center=V3(x=0.0, y=0.0, z=0.0), radius=0.228435
+11-13 14:12:04.303 25345 25345 I SpaceBend: Loaded spacecraft; source center=V3(x=0.0, y=0.028999999999999998, z=-0.0025000000000000022), radius=0.391893
+11-13 14:12:04.555 25345 25345 I SpaceBend: Loaded micro_probe; source center=V3(x=0.0, y=0.05450000000000001, z=0.0), radius=0.264023
+11-13 14:12:04.882 25345 25345 I SpaceBend: Loaded heavy_capsule; source center=V3(x=0.0, y=0.032, z=-0.01725), radius=0.38692
+11-13 14:12:05.035 25345 25345 I SpaceBend: Loaded beacon; source center=V3(x=0.031812277716886134, y=0.20475000000000002, z=2.7755575615628914E-17), radius=0.282809
+11-13 14:12:05.040 25345 25345 I SpaceBend: Plane tracking start: state=PAUSED
+11-13 14:12:05.142 25345 25345 I SpaceBend: Frame=1 delta=0.11656004935503006 phase=PLANNING tracking=false elapsed=0.0
+11-13 14:12:05.142 25345 25345 I SpaceBend: Panel MENU: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.142 25345 25345 I SpaceBend: Panel SCAN: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.142 25345 25345 I SpaceBend: Panel LEVELS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.142 25345 25345 I SpaceBend: Panel PICKER: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.92 m
+11-13 14:12:05.143 25345 25345 I SpaceBend: Panel RESULT: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.143 25345 25345 I SpaceBend: Panel SETTINGS: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.143 25345 25345 I SpaceBend: Panel TUTORIAL: runtime source 0.7680000066757202 x 0.5119999647140503 m, fitted width 0.86 m
+11-13 14:12:05.143 25345 25345 I SpaceBend: Panel HUD: runtime source 0.43199998140335083 x 0.35199999809265137 m, fitted width 0.48 m
+11-13 14:12:05.289 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=0
+11-13 14:12:05.302 25345 25345 I SpaceBend: Plane received: vertices=17 indices=45 semantic=CEILING
+11-13 14:12:05.303 25345 25345 I SpaceBend: Plane received: vertices=4 indices=6 semantic=SCREEN
+11-13 14:12:05.303 25345 25345 I SpaceBend: Plane received: vertices=17 indices=45 semantic=UNKNOWN
+11-13 14:12:05.303 25345 25345 I SpaceBend: Plane received: vertices=23 indices=63 semantic=WALL
+11-13 14:12:05.303 25345 25345 I SpaceBend: Plane received: vertices=19 indices=51 semantic=SCREEN
+11-13 14:12:07.498 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:09.526 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:11.531 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:12.678 25345 25345 I SpaceBend: ECS update: runtimes=1 delta=0.19745922
+11-13 14:12:13.536 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:15.147 25345 25345 I SpaceBend: Frame=456 delta=0.01088260393589735 phase=PLANNING tracking=true elapsed=0.0
+11-13 14:12:15.541 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:17.545 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:19.550 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:21.553 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:22.683 25345 25345 I SpaceBend: ECS update: runtimes=1 delta=0.005161041
+11-13 14:12:23.557 25345 25345 I SpaceBend: Plane snapshot: state=RUNNING count=20
+11-13 14:12:25.148 25345 25345 I SpaceBend: Frame=1033 delta=0.011184374801814556 phase=PLANNING tracking=true elapsed=0.0
+11-13 14:12:32.699 25345 25345 I SpaceBend: ECS update: runtimes=1 delta=0.20693032
+11-13 14:12:35.159 25345 25345 I SpaceBend: Frame=1631 delta=0.011159791611135006 phase=PLANNING tracking=true elapsed=0.0
+11-13 14:12:42.704 25345 25345 I SpaceBend: ECS update: runtimes=1 delta=0.011215156
+11-13 14:12:45.170 25345 25345 I SpaceBend: Frame=2465 delta=0.011666040867567062 phase=PLANNING tracking=true elapsed=0.0
+11-13 14:12:52.715 25345 25345 I SpaceBend: ECS update: runtimes=1 delta=0.010838594
+11-13 14:12:55.171 25345 25345 I SpaceBend: Frame=3365 delta=0.012264426797628403 phase=PLANNING tracking=true elapsed=0.0

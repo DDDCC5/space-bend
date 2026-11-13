@@ -1,4 +1,4 @@
-package: name='com.example.spacebend' versionCode='2' versionName='1.0.1' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+package: name='com.example.spacebend' versionCode='3' versionName='1.0.2' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
 minSdkVersion:'35'
 targetSdkVersion:'35'
 uses-permission: name='com.example.spacebend.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
