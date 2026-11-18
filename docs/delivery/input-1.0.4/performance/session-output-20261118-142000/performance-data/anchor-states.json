@@ -1,0 +1,1 @@
+{"success":true,"exitCode":0,"resource":"trace","action":"query","data":{"sessionId":"9ab494fa-0171-4261-bb34-1797a9c8e83d","rpcEndpoint":"http://127.0.0.1:9002","rows":[{"state":"S","n":72,"ms":204.724794},{"state":"Running","n":94,"ms":71.699535},{"state":"R","n":91,"ms":3.784421},{"state":"R+","n":2,"ms":0.098177}]},"error":null,"formattedOutput":null}

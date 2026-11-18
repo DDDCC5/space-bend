@@ -31,13 +31,25 @@ val LocalLabHaptics=staticCompositionLocalOf {true}
 // User explicitly requires custom chamfered controls; rounded native buttons do not fit the accepted design.
 @Composable
 fun LabButton(label: String,onClick: ()->Unit,modifier: Modifier=Modifier,enabled: Boolean=true,selected: Boolean=false) {
+ LabButtonFace(label,modifier.labAction(label,enabled,selected,onClick),enabled,selected)
+}
+
+/** One target for a custom control, including its graphic and label. */
+@Composable
+fun Modifier.labAction(label: String,enabled: Boolean,selected: Boolean,onClick: ()->Unit): Modifier {
  val interactions=remember{MutableInteractionSource()};val shape=remember{ChamferShape()}
- Box(modifier.defaultMinSize(minWidth=110.dp,minHeight=48.dp).clip(shape)
-  .background(if(selected)LabColors.Control else LabColors.Panel)
+ return this.clip(shape)
   .spatialHoverEffect(enabled=enabled)
   .controllerHapticFeedback(type=if(LocalLabHaptics.current)HandControllerHapticType.Press else HandControllerHapticType.None,interactionSource=interactions)
   .clickable(interactionSource=interactions,indication=LocalIndication.current,enabled=enabled,role=Role.Button,onClick=onClick)
-  .semantics{contentDescription=label}.padding(horizontal=16.dp,vertical=12.dp),contentAlignment=Alignment.CenterStart) {
+  .semantics{contentDescription=label;this.selected=selected}
+}
+
+@Composable
+fun LabButtonFace(label: String,modifier: Modifier=Modifier,enabled: Boolean=true,selected: Boolean=false) {
+ Box(modifier.defaultMinSize(minWidth=110.dp,minHeight=48.dp).clip(remember{ChamferShape()})
+  .background(if(selected)LabColors.Control else LabColors.Panel)
+  .padding(horizontal=16.dp,vertical=12.dp),contentAlignment=Alignment.CenterStart) {
   Text(label,color=if(enabled)LabColors.Text else LabColors.Muted.copy(alpha=.45f),fontSize=17.sp,maxLines=2)
  }
 }

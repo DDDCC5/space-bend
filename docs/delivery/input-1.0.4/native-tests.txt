@@ -1,0 +1,10 @@
+11-18 14:25:38.554 10371 10394 I TestRunner: run started: 4 tests
+11-18 14:25:38.555 10371 10394 I TestRunner: started: repeatedStrokeReplacementKeepsSceneResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:44.173 10371 10394 I TestRunner: finished: repeatedStrokeReplacementKeepsSceneResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:44.175 10371 10394 I TestRunner: started: planePoseRefinementReusesNativeMeshAndReleasesItOnRemoval(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:47.175 10371 10394 I TestRunner: finished: planePoseRefinementReusesNativeMeshAndReleasesItOnRemoval(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:47.175 10371 10394 I TestRunner: started: repeatedPortalRemovalAndRecreationKeepsSharedResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:51.358 10371 10394 I TestRunner: finished: repeatedPortalRemovalAndRecreationKeepsSharedResourcesAlive(com.example.spacebend.platform.spatial.SceneGeometryLifecycleTest)
+11-18 14:25:51.359 10371 10394 I TestRunner: started: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:25:56.527 10371 10394 I TestRunner: finished: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:25:56.527 10371 10394 I TestRunner: run finished: 4 tests, 0 failed, 0 ignored

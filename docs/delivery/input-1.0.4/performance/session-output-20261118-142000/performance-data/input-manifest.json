@@ -1,0 +1,12 @@
+[
+  {
+    "path": "performance-data/inputs/first-trace.perfetto-trace",
+    "bytes": 251218638,
+    "sha256": "fd5f4909eff1e1104ce7f621fb89dc34cfcdd5c307d7e960157bc59cfb6dd61b"
+  },
+  {
+    "path": "performance-data/trace.perfetto-trace",
+    "bytes": 282245894,
+    "sha256": "da45566394c50e08ac46f78cfe07ef67ce5611ded1359684540b853d3053ce6c"
+  }
+]

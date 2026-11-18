@@ -1,0 +1,4 @@
+InputRouterTest > visiblePickerOwnsTriggerEvenWhenDetectedWallIsCloser FAILED
+    org.junit.ComparisonFailure at InputRouterTest.kt:38
+2 tests completed, 1 failed
+BUILD FAILED in 3s

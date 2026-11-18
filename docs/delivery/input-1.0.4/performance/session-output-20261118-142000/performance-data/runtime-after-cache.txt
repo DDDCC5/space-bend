@@ -1,0 +1,8 @@
+11-18 14:32:49.269  2991  2991 I SpaceBend: ECS update: runtimes=1 delta=0.010886198
+11-18 14:32:51.936  2991  2991 I SpaceBend: Frame=31448 delta=0.011230520904064178 phase=PLANNING tracking=true callbackFrames=901 callbackAvgMs=1.1304934206437292 callbackMaxMs=4.198021 callbacksOver11ms=0 planeBuilds=0
+11-18 14:32:59.281  2991  2991 I SpaceBend: ECS update: runtimes=1 delta=0.011362031
+11-18 14:33:01.947  2991  2991 I SpaceBend: Frame=32348 delta=0.010963073000311852 phase=PLANNING tracking=true callbackFrames=900 callbackAvgMs=1.1601198677777778 callbackMaxMs=18.423594 callbacksOver11ms=1 planeBuilds=0
+11-18 14:33:09.291  2991  2991 I SpaceBend: ECS update: runtimes=1 delta=0.010800886
+11-18 14:33:11.947  2991  2991 I SpaceBend: Frame=33248 delta=0.01141364499926567 phase=PLANNING tracking=true callbackFrames=900 callbackAvgMs=1.1158571099999999 callbackMaxMs=4.783125 callbacksOver11ms=0 planeBuilds=0
+11-18 14:33:19.303  2991  2991 I SpaceBend: ECS update: runtimes=1 delta=0.011261823
+11-18 14:33:21.958  2991  2991 I SpaceBend: Frame=34149 delta=0.01105854194611311 phase=PLANNING tracking=true callbackFrames=901 callbackAvgMs=1.108115065482797 callbackMaxMs=4.784219 callbacksOver11ms=0 planeBuilds=0

@@ -1,0 +1,4 @@
+InputFocusTest > triggerOnAlreadyTouchedLeftControllerOverridesTouchedRightController FAILED
+    org.junit.ComparisonFailure at InputFocusTest.kt:33
+4 tests completed, 1 failed
+BUILD FAILED in 1s

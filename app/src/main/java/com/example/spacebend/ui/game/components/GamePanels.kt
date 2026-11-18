@@ -10,6 +10,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
@@ -110,16 +111,16 @@ private fun ObjectPanel(s: GameUiState,event: (GameEvent)->Unit) {
  Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(10.dp)){
   PayloadKind.entries.forEachIndexed{i,k->
    val allowed=s.mode==GameMode.SANDBOX||k in Missions.all[s.missionId-1].allowed
-   Column(Modifier.weight(1f),horizontalAlignment=Alignment.CenterHorizontally){
-    PayloadGlyph(i,Modifier.size(90.dp))
-    LabButton(s.text(k.textKey),{event(GameEvent.Select(k))},Modifier.fillMaxWidth(),enabled=allowed,selected=s.selected==k)
+   Column(Modifier.weight(1f).labAction(s.text(k.textKey),allowed,s.selected==k){event(GameEvent.Select(k))},horizontalAlignment=Alignment.CenterHorizontally){
+    PayloadGlyph(i,Modifier.size(90.dp).alpha(if(allowed)1f else .3f))
+    LabButtonFace(s.text(k.textKey),Modifier.fillMaxWidth(),enabled=allowed,selected=s.selected==k)
    }
   }
  }
  Spacer(Modifier.height(24.dp));Text(s.text(s.selected.textKey),color=LabColors.Text,fontSize=27.sp)
  Spacer(Modifier.height(12.dp));Text("${s.text("mass")}  ${s.selected.massKg} kg   /   ${s.text("velocity")}  ${s.selected.launchSpeed} m/s",color=LabColors.Muted,fontSize=20.sp)
  Spacer(Modifier.height(10.dp));Text(s.text("fit_hint"),color=LabColors.Muted,fontSize=16.sp)
- Spacer(Modifier.height(20.dp));Text(s.text("object_hint"),color=LabColors.Muted,fontSize=15.sp)
+ Spacer(Modifier.height(20.dp));Text(s.text("object_hint")+if(s.mode==GameMode.CHALLENGE)"\n"+String.format(s.text("object_allowed"),Missions.all[s.missionId-1].allowed.joinToString(" / "){s.text(it.textKey)})else "",color=LabColors.Muted,fontSize=15.sp)
  Spacer(Modifier.height(16.dp));LabButton(s.text("place"),{event(GameEvent.Launch)},Modifier.width(240.dp),enabled=s.tracking&&s.portalCount>=2&&s.phase==ExperimentPhase.PLANNING,selected=true)
 }
 @Composable

@@ -1,0 +1,8 @@
+11-18 14:04:46.602 30806 30829 I TestRunner: run started: 1 tests
+11-18 14:04:46.602 30806 30829 I TestRunner: started: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:04:51.790 30806 30829 I TestRunner: finished: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:04:51.791 30806 30829 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored
+11-18 14:06:45.750 31368 31392 I TestRunner: run started: 1 tests
+11-18 14:06:45.751 31368 31392 I TestRunner: started: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:06:53.007 31368 31392 I TestRunner: finished: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-18 14:06:53.009 31368 31392 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

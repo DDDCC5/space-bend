@@ -1,0 +1,6 @@
+InputFocusTest > leftInteractionTakesFocusAndIdleRightDoesNotStealItBack FAILED
+    org.junit.ComparisonFailure at InputFocusTest.kt:12
+InputFocusTest > capturedDrawingKeepsRayUntilReleasedThenOtherHandCanTakeOver FAILED
+    org.junit.ComparisonFailure at InputFocusTest.kt:17
+5 tests completed, 2 failed
+BUILD FAILED in 3s

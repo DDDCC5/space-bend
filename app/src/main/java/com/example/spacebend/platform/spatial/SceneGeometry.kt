@@ -36,6 +36,23 @@ internal class SceneGeometry {
  }
  fun close(){dotMesh.close();beamMesh.close();ice.close();halo.close();amber.close();planeMaterial.close()}
 }
+/** Stable anchor-local mesh; tracking pose refinements update only the Entity transform. */
+internal class PlaneOutlineVisual(surface: Surface,geometry: SceneGeometry) {
+ private val trace=geometry.trace(surface.boundary.map{V3(it.x,it.y,.002)},.001,true,geometry.planeMaterial)
+ val entity: Entity? get()=trace?.first
+ val mesh: MeshResource? get()=trace?.second
+ private var placed: Surface?=null
+ init{updatePose(surface)}
+ fun updatePose(surface: Surface){
+  val previous=placed
+  if(previous?.origin==surface.origin&&previous.u==surface.u&&previous.v==surface.v)return
+  entity?.components?.get(TransformComponent::class.java)?.apply{
+   setPosition(surface.origin.sdk());setQuaternion(basisRotation(surface.u,surface.v,surface.normal))
+  }
+  placed=surface
+ }
+ fun close(){trace?.first?.destroy();trace?.second?.close()}
+}
 internal class PortalVisual(val portal: Portal,var surface: Surface,private val geometry: SceneGeometry) {
  val root=Entity()
  private val meshes=mutableListOf<MeshResource>()

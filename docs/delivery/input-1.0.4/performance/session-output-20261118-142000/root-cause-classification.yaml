@@ -1,0 +1,12 @@
+schema_version: 2
+session_dir: session-output-20261118-142000
+final_summary: ./final-summary.md
+root_cause_classification:
+- resource_type: cpu
+  bottleneck_category: cpu_app_main_thread_busy_or_blocked
+  conclusion_level: confirmed
+  evidence_refs:
+  - app_jank:e1
+  - app_jank:e2
+  - app_jank:e3
+  note: 应用帧线程中的整批轮廓网格生命周期工作为观测到的主要阻塞；不把SDK内部等待称为系统服务争用。

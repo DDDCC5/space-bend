@@ -31,12 +31,14 @@ internal class SceneRuntime(
  @Volatile private var actions: ControllerActionData?=null
  private val listener=ControllerTrackingProvider.ControllerActionListener {actions=it}
  private val router=InputRouter(vm,this)
+ private val inputFocus=InputFocus()
  private val models=mutableMapOf<PayloadKind,Entity>()
  private val portals=mutableMapOf<Long,PortalVisual>()
  private val panelEntities=mutableMapOf<GamePanel,Entity>()
  private val panelHalfSizes=mutableMapOf<GamePanel,V2>()
  private val fittedPanels=mutableSetOf<GamePanel>()
- private val planeVisuals=mutableListOf<Pair<Entity,MeshResource>>()
+ private val planeVisuals=mutableMapOf<String,PlaneOutlineVisual>()
+ private val planeVisualPlan=PlaneVisualPlan()
  private var strokeVisual: Pair<Entity,MeshResource>?=null
  private var strokeKey: List<V3> = emptyList()
  private var portalRevision=-1L
@@ -87,54 +89,81 @@ internal class SceneRuntime(
   controllers.start();hands.start()
   sound.play("audio/ambient-lab-loop.wav",null,vm.state.value.settings,loop=true,key="music",channel="music")
  }
- fun pause(){Log.i("SpaceBend","Scene paused");active=false;router.cancel();planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();started=false;sound.pause()}
+ fun pause(){Log.i("SpaceBend","Scene paused");active=false;router.cancel();inputFocus.reset();actions=null;planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();started=false;sound.pause()}
  fun resume(){Log.i("SpaceBend","Scene resume requested; loaded=$loaded closed=$closed");if(closed||!loaded)return;active=true;start();sound.resume()}
  private var diagnosticFrames=0L
  private var diagnosticAt=0L
+ private var diagnosticWindowFrames=0L
+ private var diagnosticTotalNanos=0L
+ private var diagnosticMaxNanos=0L
+ private var diagnosticSlowFrames=0L
+ private var diagnosticPlaneBuilds=0L
+ private inline fun <T> section(name: String,block: ()->T): T {
+  android.os.Trace.beginSection("SpaceBend/$name")
+  try{return block()}finally{android.os.Trace.endSection()}
+ }
  fun frame(rawDelta: Double) {
   if(closed||!active||!started)return
+  val frameStart=java.lang.System.nanoTime()
   diagnosticFrames++
   val now=android.os.SystemClock.uptimeMillis()
-  if((context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0&&now-diagnosticAt>10000){diagnosticAt=now;Log.i("SpaceBend","Frame=$diagnosticFrames delta=$rawDelta phase=${vm.engine.phase} tracking=${vm.state.value.tracking} elapsed=${vm.engine.elapsedSeconds}")}
+  if((context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0&&now-diagnosticAt>10000){
+   diagnosticAt=now
+   Log.i("SpaceBend","Frame=$diagnosticFrames delta=$rawDelta phase=${vm.engine.phase} tracking=${vm.state.value.tracking} callbackFrames=$diagnosticWindowFrames callbackAvgMs=${diagnosticTotalNanos/1e6/diagnosticWindowFrames.coerceAtLeast(1)} callbackMaxMs=${diagnosticMaxNanos/1e6} callbacksOver11ms=$diagnosticSlowFrames planeBuilds=$diagnosticPlaneBuilds")
+   diagnosticWindowFrames=0;diagnosticTotalNanos=0;diagnosticMaxNanos=0;diagnosticSlowFrames=0;diagnosticPlaneBuilds=0
+  }
   val dt=rawDelta.coerceIn(0.0,.1);time+=dt;scanTimer+=dt
-  val changed=planes.drain()
+  val changed=section("PlaneDrain"){planes.drain()}
   if(changed||scanTimer>.4){
-   vm.updateSurfaces(planes.surfaces(),planes.running);scanTimer=0.0
-   if(changed)rebuildPlaneVisuals()
+   section("Surfaces"){vm.updateSurfaces(planes.surfaces(),planes.running)};scanTimer=0.0
+   if(changed)section("PlaneVisualDiff"){updatePlaneVisuals()}
    if(planes.error!=null)vm.notify("scan_unavailable")
   }
+  // One changed/new outline per frame. Pose updates never enter the native mesh lifecycle.
+  section("PlaneGeometry"){buildNextPlaneVisual()}
   val state=vm.state.value
   if(lastTracking&&!state.tracking)router.cancel();lastTracking=state.tracking
   if(engineIdentity!==vm.engine){router.cancel();engineIdentity=vm.engine;portalRevision=-1}
-  fitPanels()
-  panelEntities.forEach{(id,e)->e.enabled=id in state.panels}
-  val inputs=inputFrames()
-  inputs.forEach{router.process(it,dt)};router.finishFrame(inputs.map{it.id}.toSet())
-  val ray=inputs.firstOrNull()?.ray
-  val hit=ray?.let{r->vm.engine.surfaces.mapNotNull{it.hit(r)}.minByOrNull{it.distance}}
+  section("Panels"){fitPanels();panelEntities.forEach{(id,e)->e.enabled=id in state.panels}}
+  val inputs=section("InputSamples"){inputFrames()}
+  section("InputRoute"){inputs.forEach{router.process(it,dt)};router.finishFrame(inputs.map{it.id}.toSet())}
+  section("RayVisual"){
+  val ray=inputFocus.choose(inputs,router.capturedInputId)?.ray
+  val panelHit=ray?.let(::panelAt)
+  val hit=if(panelHit!=null)null else ray?.let{r->vm.engine.surfaces.asSequence().mapNotNull{it.hit(r)}.minByOrNull{it.distance}}
   cursor.enabled=hit!=null&&state.tracking
   if(hit!=null)cursor.components[TransformComponent::class.java]?.setPosition((hit.point+hit.surface.normal*.01).sdk())
   beam.enabled=ray!=null
-  if(ray!=null){val dist=hit?.distance?:2.0;beam.components[TransformComponent::class.java]?.apply{setPosition((ray.origin+ray.direction*(dist*.5)).sdk());setQuaternion(facing(ray.direction));setScaleVector(Vector3(1f,1f,dist.toFloat()))}}
-  val events=vm.advance(dt)
+  if(ray!=null){val dist=panelHit?.distance?:hit?.distance?:2.0;beam.components[TransformComponent::class.java]?.apply{setPosition((ray.origin+ray.direction*(dist*.5)).sdk());setQuaternion(facing(ray.direction));setScaleVector(Vector3(1f,1f,dist.toFloat()))}}
+  }
+  val events=section("Physics"){vm.advance(dt)}
   for(event in events)when(event){
    is SimulationEvent.Transferred->{val p=vm.engine.payload?.position;sound.play("audio/sfx/portal-close.wav",p,state.settings);sound.play("audio/sfx/object-flight.wav",p,state.settings)}
    is SimulationEvent.Collided->{sound.play("audio/sfx/plane-impact.wav",event.point,state.settings);sound.play("audio/sfx/portal-collapse.wav",event.point,state.settings);portals.keys.forEach{sound.stop("portal_$it")}}
    SimulationEvent.Stable->sound.play("audio/sfx/success.wav",vm.engine.payload?.position,state.settings)
    SimulationEvent.Failed->sound.play("audio/sfx/failure.wav",vm.engine.payload?.position,state.settings)
   }
-  if(portalRevision!=vm.revision||portals.keys!=vm.engine.portals.map{it.id}.toSet())syncPortals()
+  section("PortalSync"){if(portalRevision!=vm.revision||portals.keys!=vm.engine.portals.map{it.id}.toSet())syncPortals()}
+  section("PortalAnimation"){
   portals.values.forEach{visual->
    val surface=vm.engine.surfaces.firstOrNull{it.id==visual.portal.surfaceId}
    visual.root.enabled=surface!=null
    if(surface!=null){visual.updateSurface(surface);visual.update(dt,vm.engine.collapseProgress);sound.move("portal_${visual.portal.id}",surface.world(visual.portal.center))}
   }
+  }
+  section("PayloadVisual"){
   models.forEach{(kind,e)->e.enabled=vm.engine.payload?.kind==kind}
   vm.engine.payload?.let{p->models[p.kind]?.components?.get(TransformComponent::class.java)?.apply{setPosition(p.position.sdk());if(p.velocity.length()>.05)setQuaternion(facing(p.velocity))}}
+  }
+  section("Narration"){
   vm.takeNarration()?.let{key->
    sound.stop("narration");sound.play("audio/voice/${state.settings.locale.voiceFolder}/$key.wav",null,state.settings,key="narration",channel="voice")
   }
-  sound.tick(state.settings)
+  }
+  section("AudioTick"){sound.tick(state.settings)}
+  val callbackNanos=java.lang.System.nanoTime()-frameStart
+  diagnosticWindowFrames++;diagnosticTotalNanos+=callbackNanos;diagnosticMaxNanos=maxOf(diagnosticMaxNanos,callbackNanos)
+  if(callbackNanos>11_111_111)diagnosticSlowFrames++
  }
  private fun syncPortals() {
   val current=vm.engine.portals.associateBy{it.id}
@@ -149,9 +178,15 @@ internal class SceneRuntime(
    sound.play("audio/sfx/portal-close.wav",surface.world(p.center),vm.state.value.settings)
   };portalRevision=vm.revision
  }
- private fun rebuildPlaneVisuals(){
-  planeVisuals.forEach{it.first.destroy();it.second.close()};planeVisuals.clear()
-  for(s in planes.surfaces())geometry.trace(s.boundary.map{s.world(it)+s.normal*.002},.001,true,geometry.planeMaterial)?.let{root.addChild(it.first);planeVisuals+=it}
+ private fun updatePlaneVisuals(){
+  planeVisualPlan.update(planes.surfaces()).forEach{id->planeVisuals.remove(id)?.close()}
+  planeVisuals.forEach{(id,visual)->planeVisualPlan.surface(id)?.let(visual::updatePose)}
+ }
+ private fun buildNextPlaneVisual(){
+  val surface=planeVisualPlan.nextBuild()?:return
+  val visual=PlaneOutlineVisual(surface,geometry)
+  val entity=visual.entity?:return
+  root.addChild(entity);planeVisuals.put(surface.id,visual)?.close();planeVisualPlan.markBuilt(surface);diagnosticPlaneBuilds++
  }
  fun updatePanelMetrics(metrics: Map<GamePanel,V2>){
   if(metrics!=panelBaseSizes){panelBaseSizes=metrics;fittedPanels.clear()}
@@ -187,23 +222,24 @@ internal class SceneRuntime(
  }
  override fun stroke(points: List<V3>){
   if(points==strokeKey)return;strokeKey=points
+  section("StrokeGeometry"){
   strokeVisual?.let{it.first.destroy();it.second.close()};strokeVisual=null
   geometry.trace(points,.003,false,geometry.ice)?.let{root.addChild(it.first);strokeVisual=it}
+  }
  }
  override fun drawSound(active: Boolean,point: V3?){
   if(active&&point!=null){sound.play("audio/sfx/draw-loop.wav",point,vm.state.value.settings,loop=true,key="draw");sound.move("draw",point)}else sound.stop("draw")
  }
  private fun inputFrames(): List<InputFrame> {
   val result=mutableListOf<InputFrame>();val data=controllers.latestData;val action=actions
-  if(action!=null){
    for(right in listOf(true,false)){
-    val pose=if(right)data.right else data.left;val a=if(right)action.right else action.left
+    val pose=if(right)data.right else data.left;val a=if(right)action?.right else action?.left
+    // Pose tracking must not wait for an action callback (idle controllers still move).
     if(pose!=null&&pose.position!=Vector3.ZERO){
      val pos=root.convertPositionFrom(pose.position,null).game();val rotation=root.convertRotationFrom(pose.rotation,null)
-     result+=InputFrame(if(right)"right_controller" else "left_controller",Ray(pos,rotate(rotation,V3(0.0,0.0,-1.0)).normalized()),a.triggerPressed||a.triggerValue>.65f,a.gripPressed||a.gripValue>.65f,a.bButtonPressed||a.yButtonPressed,a.thumbstickPressed,a.thumbstickValue.x,if(right)HandController.Right else HandController.Left)
+     result+=InputFrame(if(right)"right_controller" else "left_controller",Ray(pos,rotate(rotation,V3(0.0,0.0,-1.0)).normalized()),a?.let{it.triggerPressed||it.triggerValue>.65f}?:false,a?.let{it.gripPressed||it.gripValue>.65f}?:false,a?.let{it.bButtonPressed||it.yButtonPressed}?:false,a?.thumbstickPressed?:false,a?.thumbstickValue?.x?:0f,if(right)HandController.Right else HandController.Left,aimActive=a?.let{it.triggerTouched||it.thumbstickTouched||it.aButtonTouched||it.bButtonTouched||it.xButtonTouched||it.yButtonTouched}?:false)
     }
    }
-  }
   val handData=hands.latestData
   for(right in listOf(true,false)){
    val pinch=if(right)handData.rightPinch else handData.leftPinch;val aim=if(right)handData.rightAim else handData.leftAim
@@ -220,6 +256,6 @@ internal class SceneRuntime(
  }
  fun close(){
   if(closed)return;pause();closed=true;router.cancel();portals.values.forEach{it.close()};portals.clear();sound.close()
-  planeVisuals.forEach{it.first.destroy();it.second.close()};strokeVisual?.let{it.first.destroy();it.second.close()};root.destroy();geometry.close()
+  planeVisuals.values.forEach{it.close()};planeVisuals.clear();planeVisualPlan.clear();strokeVisual?.let{it.first.destroy();it.second.close()};root.destroy();geometry.close()
  }
 }

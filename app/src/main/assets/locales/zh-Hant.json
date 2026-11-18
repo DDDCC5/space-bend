@@ -25,6 +25,7 @@
   "move_hint": "按住握持鍵，在目前平面內移動",
   "delete_hint": "長按 B / Y 兩秒刪除",
   "object_hint": "按下搖桿叫出，左右切換，扳機確認",
+  "object_allowed": "本關可選：%s。其他物體可在自由創作模式中使用。",
   "mass": "質量",
   "velocity": "初始速度",
   "robot": "探測機器人",

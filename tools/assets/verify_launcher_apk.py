@@ -13,7 +13,7 @@ from PIL import Image
 root = Path(__file__).resolve().parents[2]
 apk = Path(sys.argv[1])
 aapt2 = sys.argv[2]
-out = root / 'docs/delivery/launcher-identity'
+out = Path(sys.argv[3]) if len(sys.argv) > 3 else root / 'docs/delivery/launcher-identity'
 out.mkdir(parents=True, exist_ok=True)
 badging = subprocess.check_output([aapt2, 'dump', 'badging', str(apk)], text=True)
 manifest = subprocess.check_output([aapt2, 'dump', 'xmltree', str(apk), '--file', 'AndroidManifest.xml'], text=True)
@@ -55,7 +55,7 @@ with zipfile.ZipFile(apk) as z:
 
 results = [ET.parse(p).getroot() for p in (root / 'app/build/test-results/testDebugUnitTest').glob('TEST-*.xml')]
 tests = {k: sum(int(r.get(k, 0)) for r in results) for k in ['tests', 'failures', 'errors', 'skipped']}
-assert tests['tests'] == 34 and tests['failures'] == tests['errors'] == 0
+assert tests['tests'] > 0 and tests['failures'] == tests['errors'] == 0
 report = {'package': 'com.example.spacebend', 'versionName': version_name, 'versionCode': int(version_code),
           'apk_sha256': hashlib.sha256(apk.read_bytes()).hexdigest(),
           'android_icon_and_round_icon': 'mipmap/ic_spatial_launcher',

@@ -10,6 +10,7 @@ import com.example.spacebend.domain.model.V2
 import com.example.spacebend.domain.model.V3
 import com.example.spacebend.platform.LaunchActivity
 import com.pico.spatial.core.ecs.ModelEntity
+import com.pico.spatial.core.ecs.TransformComponent
 import com.example.spacebend.ui.game.GameViewModel
 import com.example.spacebend.ui.game.GameViewModelFactory
 import org.junit.Assert.assertFalse
@@ -30,6 +31,30 @@ class SceneGeometryLifecycleTest {
    Thread.sleep(100)
   }
   throw AssertionError("Native scene did not initialize")
+ }
+
+ @Test fun planePoseRefinementReusesNativeMeshAndReleasesItOnRemoval() {
+  enabled()
+  ActivityScenario.launch(LaunchActivity::class.java).use{scenario->
+   awaitScene(scenario)
+   scenario.onActivity{
+    val geometry=SceneGeometry()
+    val boundary=listOf(V2(-1.0,-1.0),V2(1.0,-1.0),V2(1.0,1.0),V2(-1.0,1.0))
+    val initial=Surface("cache-test",V3(0.0,1.0,-1.0),V3(1.0,0.0,0.0),V3(0.0,1.0,0.0),boundary)
+    val visual=PlaneOutlineVisual(initial,geometry);val mesh=visual.mesh!!
+    try{
+     repeat(100){i->
+      val updated=initial.copy(origin=V3(i*.001,1.0,-1.0))
+      visual.updatePose(updated)
+      org.junit.Assert.assertSame(mesh,visual.mesh)
+      assertTrue(mesh.valid)
+      org.junit.Assert.assertEquals(updated.origin.sdk(),visual.entity!!.components[TransformComponent::class.java]!!.position)
+     }
+     Log.i("SpaceBendResourceTest","100 plane pose refinements retained the same valid native mesh")
+    }finally{visual.close();geometry.close()}
+    assertFalse(mesh.valid)
+   }
+  }
  }
 
  @Test fun repeatedStrokeReplacementKeepsSceneResourcesAlive() {

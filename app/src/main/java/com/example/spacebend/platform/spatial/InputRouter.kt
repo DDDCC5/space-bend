@@ -7,7 +7,7 @@ import com.example.spacebend.ui.navigation.GamePanel
 import com.pico.spatial.ui.platform.HandController
 import kotlin.math.abs
 
-internal data class InputFrame(val id: String,val ray: Ray,val trigger: Boolean,val grip: Boolean=false,val delete: Boolean=false,val stickClick: Boolean=false,val stickX: Float=0f,val hand: HandController=HandController.Unknown,val trackedHand: Boolean=false)
+internal data class InputFrame(val id: String,val ray: Ray,val trigger: Boolean,val grip: Boolean=false,val delete: Boolean=false,val stickClick: Boolean=false,val stickX: Float=0f,val hand: HandController=HandController.Unknown,val trackedHand: Boolean=false,val aimActive: Boolean=false)
 internal interface InputScene {
  fun panelAt(ray: Ray): PanelHit?
  fun movePanel(panel: GamePanel,point: V3)
@@ -20,6 +20,7 @@ internal class InputRouter(private val vm: GameViewModel,private val scene: Inpu
  private data class Previous(val trigger: Boolean=false,val grip: Boolean=false,val stick: Boolean=false,var axisHeld: Boolean=false)
  private val previous=mutableMapOf<String,Previous>()
  private var owner: String?=null
+ val capturedInputId: String? get()=owner
  private var strokeSurface: String?=null
  private val strokePoints=mutableListOf<V2>()
  private var latched=false
@@ -43,9 +44,9 @@ internal class InputRouter(private val vm: GameViewModel,private val scene: Inpu
   if(abs(frame.stickX)<.3f)axis=false
   if(GamePanel.PICKER in vm.state.value.panels&&abs(frame.stickX)>.65f&&!axis){vm.onEvent(GameEvent.Cycle(if(frame.stickX>0)1 else -1));axis=true}
   val panel=scene.panelAt(frame.ray)
-  val hits=vm.engine.surfaces.mapNotNull{it.hit(frame.ray)}.sortedBy{it.distance}
-  val hit=hits.firstOrNull()
-  val overPanel=panel!=null&&(hit==null||panel.distance<=hit.distance)
+  // Attachments are visible over passthrough; inferred room planes must not steal UI presses.
+  val overPanel=panel!=null
+  val hit=if(overPanel)null else vm.engine.surfaces.asSequence().mapNotNull{it.hit(frame.ray)}.minByOrNull{it.distance}
   val portal=hit?.let{h->vm.engine.portals.firstOrNull{it.surfaceId==h.surface.id&&Polygon.contains(it.outline,h.surface.project(h.point))}}
   if(owner==null&&panel!=null&&overPanel&&(gripPressed||(frame.trackedHand&&pressed&&panel.header))){
    owner=frame.id;panelDrag=panel.panel;panelDistance=panel.distance;panelOffset=panel.position-panel.point

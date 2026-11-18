@@ -1,0 +1,3 @@
+11-18 14:25:42.966 10371 10371 I SpaceBendResourceTest: 160 trace replacements and 40 shared-mesh owner destructions passed
+11-18 14:25:46.469 10371 10371 I SpaceBendResourceTest: 100 plane pose refinements retained the same valid native mesh
+11-18 14:25:50.471 10371 10371 I SpaceBendResourceTest: 30 portal create/update/collapse/destroy cycles passed

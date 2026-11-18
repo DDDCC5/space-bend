@@ -25,6 +25,7 @@
   "move_hint": "Hold grip to move within this surface.",
   "delete_hint": "Hold B / Y for two seconds to delete.",
   "object_hint": "Click thumbstick to open. Move left or right; trigger to confirm.",
+  "object_allowed": "Available in this mission: %s. All objects are available in Free Creation.",
   "mass": "Mass",
   "velocity": "Initial speed",
   "robot": "Exploration robot",
