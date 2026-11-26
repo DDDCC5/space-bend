@@ -41,7 +41,7 @@
 - [x] Update opt-in native interaction tests for complete flow and one visible panel; run on available explicit target without uninstalling app.
 - [x] Fresh-context read-only branch review; resolve actionable issues, repeat affected checks.
 - [x] Verify APK identity/signature/icons/locales and version1.0.5; install --replace when target available.
-- [ ] Update release notes/VibeLab/source archive, push existing public repo and publish test APK; report limitations honestly.
+- [x] Update release notes/VibeLab/source archive, push existing public repo and publish test APK; report limitations honestly.
 
 ## Ledger
 - 2026-11-26: User approved flow A. Implement inline; review once at end, no repeated design approvals.
