@@ -1,0 +1,98 @@
+{
+  "records": [
+    {
+      "locale": "zh-Hans",
+      "id": "v_welcome",
+      "text": "欢迎进入引力实验室。请选择自由体验或关卡挑战。",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 4.793541666666667,
+      "sha256": "2ff6670f9301f9800dcf22ca4aa052ebd57851b239e4262eb58139ae3d77b138",
+      "apkEntry": "assets/audio/voice/zh-Hans/v_welcome.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "v_ready",
+      "text": "空间扫描完成。请在真实平面上绘制虫洞。",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 4.143666666666666,
+      "sha256": "dd766af09483bb993638ede6dc5a3ed91a26c20838cc01b48854ab48390e968e",
+      "apkEntry": "assets/audio/voice/zh-Hans/v_ready.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "v_select",
+      "text": "请选择物体，确认洞口尺寸后，点击发射按钮。",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 4.6198125,
+      "sha256": "6ae78346129906430cd8f4698310109e0daed66f7eb6b0a18b8f30db9caa9156",
+      "apkEntry": "assets/audio/voice/zh-Hans/v_select.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "zh-Hans",
+      "id": "v_launch",
+      "text": "物体已发射。请观察它穿越虫洞。",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 3.066291666666667,
+      "sha256": "d4d3b533b7948ddb529dd7f171a7ef38d601f4617cf8e6efbdb912ad84bf72c4",
+      "apkEntry": "assets/audio/voice/zh-Hans/v_launch.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "en",
+      "id": "v_welcome",
+      "text": "Welcome to the Gravity Laboratory. Choose Free Play or Mission Challenge.",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 4.0886458333333335,
+      "sha256": "2ace87137cf5f6e2ac73cf1b145bebb685e647668a9a4cebcedac837d6e03a14",
+      "apkEntry": "assets/audio/voice/en/v_welcome.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "en",
+      "id": "v_ready",
+      "text": "Room scan ready. Draw portals on real surfaces.",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 3.3623125,
+      "sha256": "0e88d5ac1c80b54176a5ce1b4251e818d38aab9074b67633c29de38dc45ce4ee",
+      "apkEntry": "assets/audio/voice/en/v_ready.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "en",
+      "id": "v_select",
+      "text": "Choose an object, check the portal fit, then use the launch button.",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 3.9222083333333333,
+      "sha256": "e5e68b5914f3d98c8df2f751ede4d69519e4f96c6a2627b93ff8fbca82dbbad8",
+      "apkEntry": "assets/audio/voice/en/v_select.wav",
+      "packagedBytesMatch": true
+    },
+    {
+      "locale": "en",
+      "id": "v_launch",
+      "text": "Object launched. Watch it travel through the portals.",
+      "channels": 1,
+      "sampleRate": 48000,
+      "durationSeconds": 3.1292916666666666,
+      "sha256": "bf5559146788887e3c8024071c84f9ea61c8bf4f5229fa14f7ceae38fb3c3aba",
+      "apkEntry": "assets/audio/voice/en/v_launch.wav",
+      "packagedBytesMatch": true
+    }
+  ],
+  "aliases": {
+    "zh-Hans": "zh-Hans",
+    "zh-Hant": "zh-Hans",
+    "en": "en"
+  },
+  "traditionalVoiceDuplicated": false
+}

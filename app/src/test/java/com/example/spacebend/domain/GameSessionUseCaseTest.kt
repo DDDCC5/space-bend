@@ -21,18 +21,26 @@ class GameSessionUseCaseTest {
 }
 class GameViewModelTest {
  private fun vm()=GameViewModel(GameSessionUseCase(MemoryGameRepository()))
- @Test fun initialStateRequiresRealScan(){val v=vm();assertEquals(setOf(GamePanel.SCAN),v.state.value.panels);assertFalse(v.state.value.tracking)}
+ private fun preparePicker(v: GameViewModel){
+  val b=listOf(V2(-5.0,-5.0),V2(5.0,-5.0),V2(5.0,5.0),V2(-5.0,5.0))
+  val f=Surface("floor",V3.ZERO,V3(1.0,0.0,0.0),V3(0.0,0.0,-1.0),b)
+  v.sceneReady();v.onEvent(GameEvent.Sandbox);v.updateSurfaces(listOf(f),true);v.onEvent(GameEvent.ContinueScan)
+  for(x in listOf(-1.0,1.0))v.addPortal(f.id,(0 until 24).map{val a=it*Math.PI/12;V2(x+.7*kotlin.math.cos(a),.7*kotlin.math.sin(a))})
+  v.onEvent(GameEvent.Show(GamePanel.PICKER))
+ }
+
+ @Test fun initialStateRequiresRealScan(){val v=vm();assertEquals(setOf(GamePanel.MENU),v.state.value.panels);v.onEvent(GameEvent.Sandbox);assertEquals(setOf(GamePanel.SCAN),v.state.value.panels);assertFalse(v.state.value.tracking)}
  @Test fun choosingLockedMissionDoesNotChangeCurrentExperiment(){val v=vm();v.onEvent(GameEvent.ChooseMission(12));assertEquals(1,v.state.value.missionId)}
- @Test fun noDetectedPlanesCannotAdvanceScan(){val v=vm();v.onEvent(GameEvent.ContinueScan);assertTrue(GamePanel.SCAN in v.state.value.panels)}
+ @Test fun noDetectedPlanesCannotAdvanceScan(){val v=vm();v.onEvent(GameEvent.Sandbox);v.onEvent(GameEvent.ContinueScan);assertTrue(GamePanel.SCAN in v.state.value.panels)}
  @Test fun traditionalLocaleChangesTextOnlyAndPersistsSettings(){val v=vm();v.onEvent(GameEvent.Locale(GameLocale.TRADITIONAL));assertEquals("zh-Hant",v.state.value.strings["app"]);assertEquals("zh-Hans",v.state.value.settings.locale.voiceFolder)}
- @Test fun sandboxAllowsEveryPayloadWhileFirstMissionRestrictsSelection(){val v=vm();v.onEvent(GameEvent.Select(PayloadKind.CAPSULE));assertEquals(PayloadKind.CORE,v.state.value.selected);v.onEvent(GameEvent.Sandbox);v.onEvent(GameEvent.Select(PayloadKind.CAPSULE));assertEquals(PayloadKind.CAPSULE,v.state.value.selected)}
+ @Test fun sandboxAllowsEveryPayloadWhileFirstMissionRestrictsSelection(){val v=vm();v.onEvent(GameEvent.Select(PayloadKind.CAPSULE));assertEquals(PayloadKind.CORE,v.state.value.selected);preparePicker(v);v.onEvent(GameEvent.Select(PayloadKind.CAPSULE));assertEquals(PayloadKind.CAPSULE,v.state.value.selected)}
  @Test fun primaryNavigationReplacesCoplanarPanel() {
   val v=vm();v.onEvent(GameEvent.Show(GamePanel.MENU));v.onEvent(GameEvent.Show(GamePanel.LEVELS))
   assertTrue(GamePanel.LEVELS in v.state.value.panels);assertFalse(GamePanel.MENU in v.state.value.panels)
  }
  @Test fun rescanRecoversOrphanedAnchorsByClearingOldExperiment() {
   val v=vm();val b=listOf(V2(-3.0,-3.0),V2(3.0,-3.0),V2(3.0,3.0),V2(-3.0,3.0));val a=Surface("A",V3.ZERO,V3(1.0,0.0,0.0),V3(0.0,0.0,-1.0),b)
-  v.sceneReady();v.updateSurfaces(listOf(a),true);v.onEvent(GameEvent.ContinueScan)
+  v.sceneReady();v.onEvent(GameEvent.Sandbox);v.updateSurfaces(listOf(a),true);v.onEvent(GameEvent.ContinueScan)
   v.addPortal("A",(0 until 24).map{val r=it*Math.PI/12;V2(kotlin.math.cos(r),kotlin.math.sin(r))})
   v.updateSurfaces(emptyList(),true);v.updateSurfaces(listOf(a.copy(id="B")),true)
   v.onEvent(GameEvent.ContinueScan);assertTrue(v.state.value.tracking);assertTrue(v.engine.portals.isEmpty())

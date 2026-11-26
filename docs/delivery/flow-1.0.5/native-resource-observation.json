@@ -1,0 +1,19 @@
+{
+  "evidenceKind": "Recorded observation of CLI tool output in this chat, not a fresh logcat export",
+  "device": "PB3110MGL8190063B",
+  "versionName": "1.0.5",
+  "versionCode": 6,
+  "observedRun": {
+    "start": "2026-11-26 15:57:30.102",
+    "finish": "2026-11-26 16:01:40.914",
+    "tests": 5,
+    "failures": 0,
+    "ignored": 0
+  },
+  "resourceChecks": [
+    "160 trace replacements plus40 shared-mesh holder destructions",
+    "100 plane-pose updates reused the same valid native mesh and released it on close",
+    "30 portal creation/collapse/destruction cycles"
+  ],
+  "scope": "First1.0.5 native run, before the result-panel animation adjustment. SceneGeometry/resource code is unchanged in final build. Live device ring-buffer logs later rotated; final flow checks are captured separately to a host-side log file."
+}

@@ -33,16 +33,16 @@ internal class InputRouter(private val vm: GameViewModel,private val scene: Inpu
  private var deleting: Long?=null
  private var deleteTime=0.0
  private var vibrationTime=0.0
- fun cancel(){owner=null;strokeSurface=null;strokePoints.clear();dragPortal=null;panelDrag=null;latched=false;deleting=null;deleteOwner=null;deleteTime=0.0;vm.deleteProgress(0f);scene.stroke(emptyList());scene.drawSound(false,null);previous.clear()}
+ fun cancel(clearButtons: Boolean=true){owner=null;strokeSurface=null;strokePoints.clear();dragPortal=null;panelDrag=null;latched=false;deleting=null;deleteOwner=null;deleteTime=0.0;vm.deleteProgress(0f);scene.stroke(emptyList());scene.drawSound(false,null);if(clearButtons)previous.clear()}
  fun process(frame: InputFrame,dt: Double) {
   val old=previous[frame.id]?:Previous()
   val pressed=frame.trigger&&!old.trigger
   val gripPressed=frame.grip&&!old.grip
-  val state=vm.state.value
   if(frame.stickClick&&!old.stick){vm.onEvent(GameEvent.Show(GamePanel.PICKER))}
   var axis=old.axisHeld
   if(abs(frame.stickX)<.3f)axis=false
-  if(GamePanel.PICKER in vm.state.value.panels&&abs(frame.stickX)>.65f&&!axis){vm.onEvent(GameEvent.Cycle(if(frame.stickX>0)1 else -1));axis=true}
+  if(vm.state.value.currentPanel==GamePanel.PICKER&&abs(frame.stickX)>.65f&&!axis){vm.onEvent(GameEvent.Cycle(if(frame.stickX>0)1 else -1));axis=true}
+  val state=vm.state.value
   val panel=scene.panelAt(frame.ray)
   // Attachments are visible over passthrough; inferred room planes must not steal UI presses.
   val overPanel=panel!=null
@@ -54,9 +54,7 @@ internal class InputRouter(private val vm: GameViewModel,private val scene: Inpu
   if(owner==frame.id&&panelDrag!=null){
    if(frame.grip||(frame.trackedHand&&frame.trigger))scene.movePanel(panelDrag!!,frame.ray.origin+frame.ray.direction*panelDistance+panelOffset)
    else {panelDrag=null;owner=null}
-  }else if(owner==null&&pressed&&GamePanel.PICKER in state.panels&&!overPanel){
-   vm.onEvent(GameEvent.Launch);latched=true;owner=frame.id
-  }else if(state.tracking&&state.phase==ExperimentPhase.PLANNING&&!overPanel){
+  }else if(state.canEdit&&!overPanel){
    if(owner==null&&gripPressed&&portal!=null){owner=frame.id;dragPortal=portal.id;lastDrag=hit!!.surface.project(hit.point)}
    if(owner==frame.id&&dragPortal!=null){
     if(frame.grip){
@@ -86,7 +84,7 @@ internal class InputRouter(private val vm: GameViewModel,private val scene: Inpu
    if(strokeSurface!=null&&!latched){vm.notify("invalid_shape");scene.stroke(emptyList());scene.drawSound(false,null)}
    owner=null;strokeSurface=null;strokePoints.clear();latched=false
   }
-  if(frame.delete&&portal!=null&&state.phase==ExperimentPhase.PLANNING&&!overPanel&&(deleteOwner==null||deleteOwner==frame.id)){
+  if(frame.delete&&portal!=null&&state.canEdit&&!overPanel&&(deleteOwner==null||deleteOwner==frame.id)){
    if(deleting!=portal.id){deleting=portal.id;deleteOwner=frame.id;deleteTime=0.0};deleteTime+=dt;vm.deleteProgress((deleteTime/2).toFloat().coerceIn(0f,1f))
    if(deleteTime>=2){vm.deletePortal(portal.id);scene.pulse(frame.hand,true);deleting=null;deleteOwner=null;deleteTime=0.0;vm.deleteProgress(0f)}
   }else if(deleting!=null&&deleteOwner==frame.id){deleting=null;deleteOwner=null;deleteTime=0.0;vm.deleteProgress(0f)}

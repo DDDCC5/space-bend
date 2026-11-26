@@ -48,8 +48,11 @@ internal class SceneRuntime(
  private var closed=false
  var active=true;private set
  private var lastTracking=false
+ private var lastPanel=GamePanel.MENU
+ private var workspacePosition=V3(0.0,1.35,-1.45)
  private var time=0.0
  private var scanTimer=0.0
+ private var lastScanRevision=0L
  private val cursor=ModelEntity(geometry.dotMesh,geometry.amber)
  private val beam=ModelEntity(geometry.beamMesh,geometry.planeMaterial)
  init {
@@ -59,13 +62,8 @@ internal class SceneRuntime(
   }
  }
  fun attachPanel(id: GamePanel,entity: Entity) {
-  panelEntities[id]=entity;root.addChild(entity);entity.setName("Panel_${id.name}");entity.enabled=id in vm.state.value.panels
-  val position=when(id){
-   GamePanel.HUD->V3(-.77,1.50,-1.35);GamePanel.SETTINGS->V3(.72,1.35,-1.55)
-   GamePanel.PICKER->V3(0.0,.87,-1.15);GamePanel.TUTORIAL->V3(.45,1.55,-1.65)
-   else->V3(0.0,1.35,-1.45)
-  }
-  entity.components[TransformComponent::class.java]?.setPosition(position.sdk())
+  panelEntities[id]=entity;root.addChild(entity);entity.setName("Panel_${id.name}");entity.enabled=id==vm.state.value.currentPanel
+  entity.components[TransformComponent::class.java]?.setPosition(workspacePosition.sdk())
  }
  suspend fun load() {
   // Retain each loaded hierarchy; center its actual visual bounds under an identity motion owner.
@@ -113,18 +111,22 @@ internal class SceneRuntime(
    diagnosticWindowFrames=0;diagnosticTotalNanos=0;diagnosticMaxNanos=0;diagnosticSlowFrames=0;diagnosticPlaneBuilds=0
   }
   val dt=rawDelta.coerceIn(0.0,.1);time+=dt;scanTimer+=dt
+  val scanRevision=vm.state.value.scanRevision
+  val restarted=scanRevision!=lastScanRevision
+  if(restarted){section("ScanRestart"){planes.restart()};lastScanRevision=scanRevision;router.cancel(clearButtons=false)}
   val changed=section("PlaneDrain"){planes.drain()}
-  if(changed||scanTimer>.4){
+  if(changed||restarted||scanTimer>.4){
    section("Surfaces"){vm.updateSurfaces(planes.surfaces(),planes.running)};scanTimer=0.0
-   if(changed)section("PlaneVisualDiff"){updatePlaneVisuals()}
+   if(changed||restarted)section("PlaneVisualDiff"){updatePlaneVisuals()}
    if(planes.error!=null)vm.notify("scan_unavailable")
   }
   // One changed/new outline per frame. Pose updates never enter the native mesh lifecycle.
   section("PlaneGeometry"){buildNextPlaneVisual()}
   val state=vm.state.value
-  if(lastTracking&&!state.tracking)router.cancel();lastTracking=state.tracking
-  if(engineIdentity!==vm.engine){router.cancel();engineIdentity=vm.engine;portalRevision=-1}
-  section("Panels"){fitPanels();panelEntities.forEach{(id,e)->e.enabled=id in state.panels}}
+  if(lastTracking&&!state.tracking)router.cancel(clearButtons=false);lastTracking=state.tracking
+  if(lastPanel!=state.currentPanel){router.cancel(clearButtons=false);lastPanel=state.currentPanel}
+  if(engineIdentity!==vm.engine){router.cancel(clearButtons=false);engineIdentity=vm.engine;portalRevision=-1}
+  section("Panels"){fitPanels();panelEntities.forEach{(id,e)->e.enabled=id==state.currentPanel}}
   val inputs=section("InputSamples"){inputFrames()}
   section("InputRoute"){inputs.forEach{router.process(it,dt)};router.finishFrame(inputs.map{it.id}.toSet())}
   section("RayVisual"){
@@ -198,7 +200,7 @@ internal class SceneRuntime(
    // including its current worldScale; never infer a fixed px/meter ratio.
    val base=panelBaseSizes[id]?:continue
    if(base.x<=0.0||base.y<=0.0)continue
-   val desired=if(id==GamePanel.HUD).48 else if(id==GamePanel.PICKER).92 else .86
+   val desired=.86
    val scale=desired/base.x
    e.components[TransformComponent::class.java]?.setScaleVector(Vector3(scale.toFloat()))
    panelHalfSizes[id]=V2(desired*.5,base.y*scale*.5);fittedPanels+=id
@@ -206,7 +208,7 @@ internal class SceneRuntime(
   }
  }
  override fun panelAt(ray: Ray): PanelHit? = panelEntities.mapNotNull{(id,e)->
-  if(id !in vm.state.value.panels)return@mapNotNull null
+  if(id!=vm.state.value.currentPanel)return@mapNotNull null
   val position=e.components[TransformComponent::class.java]?.position?.game()?:return@mapNotNull null
   if(abs(ray.direction.z)<1e-6)return@mapNotNull null
   val t=(position.z-ray.origin.z)/ray.direction.z;if(t<0)return@mapNotNull null
@@ -215,7 +217,11 @@ internal class SceneRuntime(
   if(abs(q.x-position.x)>half.x||abs(q.y-position.y)>half.y)return@mapNotNull null
   PanelHit(id,q,t,q.y>position.y+half.y*.65,position)
  }.minByOrNull{it.distance}
- override fun movePanel(panel: GamePanel,point: V3){panelEntities[panel]?.components?.get(TransformComponent::class.java)?.setPosition(point.sdk())}
+ override fun movePanel(panel: GamePanel,point: V3){
+  if(panel!=vm.state.value.currentPanel)return
+  workspacePosition=point
+  panelEntities.values.forEach{it.components[TransformComponent::class.java]?.setPosition(point.sdk())}
+ }
  override fun pulse(hand: HandController,strong: Boolean){
   if(!vm.state.value.settings.haptics||hand==HandController.Unknown)return
   haptic.feedback(if(strong)HandControllerHapticType(210,130,70)else HandControllerHapticType(22,150,55),hand)

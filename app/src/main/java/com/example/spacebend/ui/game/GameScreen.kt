@@ -28,12 +28,11 @@ fun GameScreen() {
  val context=LocalContext.current
  val factory=remember(context){GameViewModelFactory(context.applicationContext)}
  val vm: GameViewModel=viewModel(factory=factory)
- val state by vm.state.collectAsStateWithLifecycle()
  val scope=rememberCoroutineScope()
  val haptic=LocalHandControllerHaptic.current
  val converter=LocalPhysicalLengthConverter.current
  val panelMetrics=GamePanel.entries.associateWith{id->
-  V2(converter.dpToLength((if(id==GamePanel.HUD)540 else 960).dp,LengthUnit.Meters).toDouble(),converter.dpToLength((if(id==GamePanel.HUD)440 else 640).dp,LengthUnit.Meters).toDouble())
+  V2(converter.dpToLength(960.dp,LengthUnit.Meters).toDouble(),converter.dpToLength(640.dp,LengthUnit.Meters).toDouble())
  }
  var runtime by remember{mutableStateOf<SceneRuntime?>(null)}
  val lifecycle=LocalLifecycleOwner.current.lifecycle
@@ -46,7 +45,7 @@ fun GameScreen() {
  }
  SpatialView(
   modifier=Modifier.fillMaxSize(),
-  attachments={GamePanel.entries.forEach{id->AttachmentPanel(id){GamePanelContent(id,state,vm::onEvent)}}},
+  attachments={GamePanel.entries.forEach{id->AttachmentPanel(id){val state by vm.state.collectAsStateWithLifecycle();GamePanelContent(id,state,vm::onEvent)}}},
   initial={content,attachments->
    val root=Entity();content.addEntity(root)
    val scene=SceneRuntime(context.applicationContext,vm,root,scope,haptic,panelMetrics);runtime=scene

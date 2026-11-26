@@ -27,19 +27,26 @@ private class InputSceneStub: InputScene {
 }
 class InputRouterTest {
  private val ray=Ray(V3.ZERO,V3(0.0,0.0,-1.0))
+ private val floor=Surface("floor",V3.ZERO,V3(1.0,0.0,0.0),V3(0.0,0.0,-1.0),listOf(V2(-5.0,-5.0),V2(5.0,-5.0),V2(5.0,5.0),V2(-5.0,5.0)))
+ private fun ready(v: GameViewModel){
+  v.sceneReady();v.onEvent(GameEvent.Sandbox);v.updateSurfaces(listOf(floor),true);v.onEvent(GameEvent.ContinueScan)
+  for(x in listOf(-1.0,1.0))v.addPortal(floor.id,(0 until 24).map{val a=it*Math.PI/12;V2(x+.7*kotlin.math.cos(a),.7*kotlin.math.sin(a))})
+ }
+
  @Test fun visiblePickerOwnsTriggerEvenWhenDetectedWallIsCloser() {
   val vm=GameViewModel(GameSessionUseCase(InputRepository()))
   val scene=InputSceneStub()
-  vm.onEvent(GameEvent.Sandbox)
+  ready(vm)
   vm.onEvent(GameEvent.Show(GamePanel.PICKER))
-  vm.updateSurfaces(listOf(Surface("wall",V3(0.0,0.0,-.5),V3(1.0,0.0,0.0),V3(0.0,1.0,0.0),listOf(V2(-2.0,-2.0),V2(2.0,-2.0),V2(2.0,2.0),V2(-2.0,2.0)))),true)
+  vm.updateSurfaces(listOf(floor,Surface("wall",V3(0.0,0.0,-.5),V3(1.0,0.0,0.0),V3(0.0,1.0,0.0),listOf(V2(-2.0,-2.0),V2(2.0,-2.0),V2(2.0,2.0),V2(-2.0,2.0)))),true)
   scene.panel=PanelHit(GamePanel.PICKER,V3(0.0,0.0,-1.0),1.0,false,V3(0.0,0.0,-1.0))
+  val before=vm.state.value.statusKey
   InputRouter(vm,scene).process(InputFrame("left",ray,true),.016)
-  assertEquals("A UI trigger must not attempt Launch behind a detected plane","sandbox_hint",vm.state.value.statusKey)
+  assertEquals("A UI trigger must not attempt Launch behind a detected plane",before,vm.state.value.statusKey)
   assertEquals(0,scene.strokes)
  }
  @Test fun stickCyclesOncePerDeflectionAndRearmsAfterCentering() {
-  val vm=GameViewModel(GameSessionUseCase(InputRepository()));vm.onEvent(GameEvent.Sandbox)
+  val vm=GameViewModel(GameSessionUseCase(InputRepository()));ready(vm)
   val router=InputRouter(vm,InputSceneStub())
   router.process(InputFrame("left",ray,false,stickClick=true),.016)
   assertTrue(GamePanel.PICKER in vm.state.value.panels)
@@ -49,5 +56,27 @@ class InputRouterTest {
   router.process(InputFrame("left",ray,false),.016)
   router.process(InputFrame("left",ray,false,stickX=1f),.016)
   assertEquals(PayloadKind.entries[(initial.ordinal+2)%6],vm.state.value.selected)
+ }
+
+ @Test fun blankSpaceTriggerInPickerDoesNotLaunchOrDraw() {
+  val vm=GameViewModel(GameSessionUseCase(InputRepository()));ready(vm);vm.onEvent(GameEvent.Show(GamePanel.PICKER))
+  val scene=InputSceneStub();val router=InputRouter(vm,scene);val layout=vm.engine.portals
+  router.process(InputFrame("left",Ray(V3(0.0,1.0,0.0),V3(0.0,-1.0,0.0)),true),.016)
+  assertEquals(ExperimentPhase.PLANNING,vm.engine.phase);assertEquals(layout,vm.engine.portals);assertEquals(0,scene.strokes)
+ }
+ @Test fun menuCannotDrawMoveOrDeleteWorldPortals() {
+  val vm=GameViewModel(GameSessionUseCase(InputRepository()));ready(vm);vm.onEvent(GameEvent.Show(GamePanel.MENU))
+  val scene=InputSceneStub();val router=InputRouter(vm,scene);val layout=vm.engine.portals
+  router.process(InputFrame("left",Ray(V3(-1.0,1.0,0.0),V3(0.0,-1.0,0.0)),true,grip=true,delete=true),2.1)
+  assertEquals(layout,vm.engine.portals);assertEquals(0,scene.strokes)
+ }
+ @Test fun heldTriggerAcrossPanelTransitionRequiresReleaseBeforeDrawing() {
+  val vm=GameViewModel(GameSessionUseCase(InputRepository()));ready(vm);vm.onEvent(GameEvent.Show(GamePanel.PICKER))
+  val scene=InputSceneStub();val router=InputRouter(vm,scene)
+  val down=Ray(V3(0.0,1.0,0.0),V3(0.0,-1.0,0.0));val moved=down.copy(origin=V3(.2,1.0,0.0))
+  router.process(InputFrame("left",down,true),.016);vm.onEvent(GameEvent.Close(GamePanel.PICKER));router.cancel(clearButtons=false);scene.strokes=0
+  router.process(InputFrame("left",moved,true),.016);assertEquals(0,scene.strokes)
+  router.process(InputFrame("left",down,false),.016);router.process(InputFrame("left",down,true),.016);router.process(InputFrame("left",moved,true),.016)
+  assertTrue(scene.strokes>0)
  }
 }

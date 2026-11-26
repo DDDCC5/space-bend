@@ -1,0 +1,2 @@
+11-26 17:11:44.788 22810 22834 I TestRunner: finished: manualRescanResumesDrawingAndPreservesValidAnchorCoordinates(com.example.spacebend.ExperienceFlowInteractionTest)
+11-26 17:11:44.790 22810 22834 I TestRunner: run finished: 1 tests, 0 failed, 0 ignored

@@ -10,6 +10,20 @@ class PuzzleEngineTest {
  private val floor=Surface("floor",V3.ZERO,V3(1.0,0.0,0.0),V3(0.0,0.0,-1.0),boundary)
  private fun aperture(x: Double)=(0 until 24).map { val a=it*PI/12;V2(x+.65*cos(a),.65*sin(a)) }
  private fun game(mode: GameMode=GameMode.CHALLENGE): PuzzleEngine = PuzzleEngine(mode,Missions.all.first()).apply {updateSurfaces(listOf(floor));addPortal("floor",aperture(-1.0));addPortal("floor",aperture(1.0))}
+ @Test fun stopKeepsLayoutAndElapsedTimeThenAllowsRelaunch() {
+  val e=game(GameMode.SANDBOX);val layout=e.portals;assertTrue(e.launch(PayloadKind.CORE));e.advance(.05);val elapsed=e.elapsedSeconds
+  assertTrue(e.stopForEditing());assertEquals(ExperimentPhase.PLANNING,e.phase);assertNull(e.payload);assertEquals(layout,e.portals);assertEquals(elapsed,e.elapsedSeconds,1e-9)
+  assertTrue(e.launch(PayloadKind.PROBE))
+ }
+ @Test fun stopCannotCancelRealCollisionCollapse() {
+  val e=game(GameMode.SANDBOX);e.launch(PayloadKind.CORE);e.payload!!.apply{position=V3(4.0,2.0,0.0);velocity=V3(0.0,-250.0,0.0)}
+  e.advance(.05);assertEquals(ExperimentPhase.FALLING,e.phase);assertFalse(e.stopForEditing());e.advance(1.0);assertTrue(e.portals.isEmpty())
+ }
+ @Test fun launchExplainsTheExactSmallPortalWithoutPreventingObjectChoice() {
+  val e=game(GameMode.SANDBOX);val id=e.portals.last().id;e.deletePortal(id)
+  val points=(0 until 24).map{val a=it*PI/12;V2(1.0+.3*cos(a),.3*sin(a))};assertEquals(EditResult.OK,e.addPortal("floor",points))
+  assertNull(e.launchIssue(PayloadKind.CORE));assertEquals(LaunchIssue(LaunchBlocker.APERTURE_TOO_SMALL,2),e.launchIssue(PayloadKind.ROBOT))
+ }
  @Test fun cannotDrawInAirOrMoveAcrossPlanes() {
   val e=game();assertEquals(EditResult.NO_SURFACE,e.addPortal("unknown",aperture(3.0)))
   val id=e.portals.first().id;assertEquals(EditResult.NO_SURFACE,e.movePortal(id,"wall",V2(1.0,0.0)))

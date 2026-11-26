@@ -40,8 +40,8 @@ class ObjectPickerInteractionTest {
   ActivityScenario.launch(LaunchActivity::class.java).use{scenario->
    val ref=AtomicReference<GameViewModel>()
    scenario.onActivity{ref.set(ViewModelProvider(it,GameViewModelFactory(it))[GameViewModel::class.java])}
-   val vm=ref.get();waitUntil{vm.state.value.sceneReady}
-   main{vm.onEvent(GameEvent.Sandbox);vm.onEvent(GameEvent.Show(GamePanel.PICKER))}
+   val vm=ref.get();waitUntil{vm.state.value.sceneReady&&vm.state.value.scanAvailable}
+   main{vm.onEvent(GameEvent.Sandbox);vm.onEvent(GameEvent.ContinueScan);NativeFlowFixture.makeTwoPortals(vm);vm.onEvent(GameEvent.Show(GamePanel.PICKER))}
    for(kind in PayloadKind.entries){
     val label=main{vm.state.value.text(kind.textKey)}
     var target: Pair<ViewRootForTest,SemanticsNode>?=null
@@ -77,7 +77,7 @@ class ObjectPickerInteractionTest {
     }
     waitUntil{vm.state.value.selected==kind}
    }
-   main{vm.onEvent(GameEvent.ChooseMission(1));vm.onEvent(GameEvent.Show(GamePanel.PICKER))}
+   main{vm.onEvent(GameEvent.ChooseMission(1));vm.onEvent(GameEvent.ConfirmNewExperiment);NativeFlowFixture.makeTwoPortals(vm);vm.onEvent(GameEvent.Show(GamePanel.PICKER))}
    waitUntil{
     val label=vm.state.value.text(PayloadKind.ROBOT.textKey)
     WindowInspector.getGlobalWindowViews().flatMap(::views).filterIsInstance<ViewRootForTest>().any{root->
@@ -85,6 +85,7 @@ class ObjectPickerInteractionTest {
     }
    }
    assertEquals(PayloadKind.CORE,main{vm.state.value.selected})
+   main{vm.onEvent(GameEvent.Show(GamePanel.MENU))}
   }
  }
 }

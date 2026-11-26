@@ -1,0 +1,8 @@
+11-26 17:16:46.603 25753 25773 I TestRunner: run started: 3 tests
+11-26 17:16:46.603 25753 25773 I TestRunner: started: homeScanDrawSelectStopSettingsAndReturnUseOneTaskPanel(com.example.spacebend.ExperienceFlowInteractionTest)
+11-26 17:17:38.578 25753 25773 I TestRunner: finished: homeScanDrawSelectStopSettingsAndReturnUseOneTaskPanel(com.example.spacebend.ExperienceFlowInteractionTest)
+11-26 17:17:38.579 25753 25773 I TestRunner: started: manualRescanResumesDrawingAndPreservesValidAnchorCoordinates(com.example.spacebend.ExperienceFlowInteractionTest)
+11-26 17:18:28.358 25753 25773 I TestRunner: finished: manualRescanResumesDrawingAndPreservesValidAnchorCoordinates(com.example.spacebend.ExperienceFlowInteractionTest)
+11-26 17:18:28.364 25753 25773 I TestRunner: started: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-26 17:19:19.506 25753 25773 I TestRunner: finished: everyPayloadGraphicAndLabelSelectsAndUpdatesLiveAttachment(com.example.spacebend.ObjectPickerInteractionTest)
+11-26 17:19:19.507 25753 25773 I TestRunner: run finished: 3 tests, 0 failed, 0 ignored

@@ -1,0 +1,32 @@
+{
+  "authority": "User approved docs/design/2026-11-26-experience-flow.md; continue-development instruction",
+  "scope": "Existing app flow and current work-panel content; inherited Stage Mixed container and 8 attachment identities",
+  "style": "Approved style A custom chamfered controls and existing assets",
+  "binding": {
+    "single_visible_task": "GameUiState.currentPanel -> SceneRuntime enabled panel equality",
+    "home_mode_scan": "GameViewModel.begin/continueScan/scanReturn",
+    "draw_select_launch": "canEdit/canChoose/canLaunch + explicit GameEvent.Launch",
+    "fit_reason": "PuzzleEngine.launchIssue -> PickerActions sticky footer",
+    "back_stop_preserve": "GameEvent.Close/StopAndEdit; PuzzleEngine.stopForEditing",
+    "destructive_new": "pendingExperiment with ConfirmNewExperiment/CancelNewExperiment",
+    "tutorial": "tutorialActive/tutorialStep follows portals/transfers/loops",
+    "recovery": "recovering/scanReturn/invalidAnchorCount/scanRevision",
+    "workspace": "SceneRuntime.workspacePosition shared on movePanel",
+    "state_observation": "GameScreen attachment-local lifecycle collection"
+  },
+  "metrics": {
+    "all_task_panels_dp": [
+      960,
+      640
+    ],
+    "fitted_width_m": 0.86
+  },
+  "invariants": [
+    "one task visible",
+    "no implicit blank-space launch",
+    "only drawing stage edits portals",
+    "stop retains layout, collision still collapses it",
+    "Chinese locale resources distinct, shared zh-Hans narration"
+  ],
+  "verification": "See docs/delivery/flow-1.0.5; this map is verification-only, not a code-generation input"
+}

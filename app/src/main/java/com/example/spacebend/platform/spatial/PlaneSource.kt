@@ -54,6 +54,11 @@ internal class PlaneSource(private val root: Entity,private val scope: Coroutine
    assembler.update(c.id,c.localVertices,c.indices,origin,Orientation(rotation.x.toDouble(),rotation.y.toDouble(),rotation.z.toDouble(),rotation.w.toDouble()),c.semantic)?.let{if(planes[c.id]!=it){planes[c.id]=it;changed=true}}
   };return changed
  }
+ fun restart(){
+  // Keep the per-UUID basis: restarting tracking must not rotate stored portal coordinates.
+  // Only a genuine REMOVED anchor event invalidates its basis.
+  stop();pending.clear();planes.clear();error=null;anchorLogs=0;start()
+ }
  fun surfaces()=planes.values.toList()
  fun stop(){snapshotJob?.cancel();snapshotJob=null;stopSubscription?.invoke();stopSubscription=null;try{PlaneTrackingManager.stop()}catch(e: Exception){Log.w("SpaceBend","Plane stop",e)}}
 }

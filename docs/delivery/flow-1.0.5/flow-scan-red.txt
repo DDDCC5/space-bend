@@ -1,0 +1,3 @@
+ExperienceFlowTest > manualScanNeedsFreshPlaneAvailabilityBeforeContinue FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:82
+BUILD FAILED in 979ms

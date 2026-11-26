@@ -1,0 +1,3 @@
+[arch-check] WROTE /Users/chanzungsan/Documents/ChatGPT/Space Bend/app/.scratch/architecture_check_result.json
+[arch-check] WARNING [A1] Main.kt/App.kt not found under src/main or app/src/main — skipping size check.
+[arch-check] PASS (1 warnings)

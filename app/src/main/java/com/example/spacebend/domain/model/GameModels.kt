@@ -25,3 +25,6 @@ sealed interface SimulationEvent {
     data object Stable: SimulationEvent
     data object Failed: SimulationEvent
 }
+
+enum class LaunchBlocker { NOT_PLANNING, MORE_PORTALS, KIND_RESTRICTED, ANCHOR_MISSING, APERTURE_TOO_SMALL }
+data class LaunchIssue(val reason: LaunchBlocker,val portalOrder: Int?=null,val requiredCount: Int?=null)

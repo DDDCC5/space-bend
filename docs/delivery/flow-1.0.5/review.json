@@ -1,0 +1,8 @@
+{
+  "scope": "approved staged experience flow",
+  "reviewer": "fresh-context read-only reviewer",
+  "finding": "Result panel froze an already falling challenge payload",
+  "resolution": "Allow RESULT simulation while home/settings/scan stay paused; added red/green regression",
+  "scanBasisReview": "Preserve per-UUID bases across retry, invalidate only on genuine REMOVED",
+  "remainingActionableFindings": []
+}

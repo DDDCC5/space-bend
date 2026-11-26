@@ -36,7 +36,7 @@ class SpatialOrbitSmokeTest {
    scenario.onActivity{activity->ref.set(ViewModelProvider(activity,GameViewModelFactory(activity))[GameViewModel::class.java])}
    val vm=ref.get();waitFor(60){vm.state.value.sceneReady&&vm.state.value.scanAvailable}
    capture("01-room-scan");Thread.sleep(2200)
-   main{vm.onEvent(GameEvent.ContinueScan);vm.onEvent(GameEvent.ChooseMission(1))}
+   main{vm.onEvent(GameEvent.ChooseMission(1));vm.onEvent(GameEvent.ContinueScan)}
    val chosen=main{
     vm.engine.surfaces.sortedByDescending{Polygon.area(it.boundary)}.firstNotNullOfOrNull{s->
      if(s.normal.y<.9)return@firstNotNullOfOrNull null
@@ -56,7 +56,7 @@ class SpatialOrbitSmokeTest {
    main{
     val (s,a,b)=chosen!!
     for(q in listOf(a,b)){val outline=(0 until 40).map{val angle=it*PI/20;V2(q.x+.58*cos(angle),q.y+.58*sin(angle))};assertEquals(com.example.spacebend.domain.usecase.EditResult.OK,vm.addPortal(s.id,outline))}
-    vm.onEvent(GameEvent.Launch)
+    vm.onEvent(GameEvent.Show(GamePanel.PICKER));vm.onEvent(GameEvent.Launch)
    }
    waitFor(5){vm.state.value.phase==ExperimentPhase.RUNNING||vm.state.value.phase==ExperimentPhase.STABLE}
    capture("02-two-portals-running")

@@ -1,0 +1,3 @@
+ExperienceFlowTest > challengeResultAllowsTheAlreadyFallingObjectToLand FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:113
+BUILD FAILED in 960ms

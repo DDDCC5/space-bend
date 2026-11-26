@@ -53,13 +53,28 @@ class PuzzleEngine(val mode: GameMode,val mission: Mission) {
         if(removed)portalList.indices.forEach{portalList[it]=portalList[it].copy(order=it)}
         return removed
     }
+    val requiredPortals: Int get()=if(mode==GameMode.CHALLENGE)maxOf(2,mission.optimalPortals)else 2
+    fun launchIssue(kind: PayloadKind): LaunchIssue? {
+        if(phase!=ExperimentPhase.PLANNING)return LaunchIssue(LaunchBlocker.NOT_PLANNING)
+        if(portalList.size<requiredPortals)return LaunchIssue(LaunchBlocker.MORE_PORTALS,requiredCount=requiredPortals)
+        if(mode==GameMode.CHALLENGE&&kind !in mission.allowed)return LaunchIssue(LaunchBlocker.KIND_RESTRICTED)
+        portalList.forEachIndexed {index,p->
+            if(surfaceMap[p.surfaceId]==null)return LaunchIssue(LaunchBlocker.ANCHOR_MISSING,index+1)
+            if(!Polygon.fitsCircle(p.outline,p.center,kind.radius))return LaunchIssue(LaunchBlocker.APERTURE_TOO_SMALL,index+1)
+        }
+        return null
+    }
     fun launch(kind: PayloadKind): Boolean {
-        if(phase!=ExperimentPhase.PLANNING||portalList.size<2)return false
-        if(mode==GameMode.CHALLENGE&&(kind !in mission.allowed||portalList.size<mission.optimalPortals))return false
+        if(launchIssue(kind)!=null)return false
         val first=portalList.first();val s=surfaceMap[first.surfaceId]?:return false
-        if(!portalList.all{p->Polygon.fitsCircle(p.outline,p.center,kind.radius)})return false
         payload=Payload(kind,s.world(first.center)+s.normal*(kind.radius+.07),-s.normal*kind.launchSpeed)
         phase=ExperimentPhase.RUNNING;enteringId=null;exitGrace=null;sequenceValid=true;return true
+    }
+    fun stopForEditing(): Boolean {
+        if(phase!=ExperimentPhase.RUNNING&&phase!=ExperimentPhase.STABLE)return false
+        payload=null;phase=ExperimentPhase.PLANNING;resultSeconds=null
+        accumulator=0.0;fallingTime=0.0;collapseProgress=0.0;enteringId=null;exitGrace=null;sequenceValid=true
+        return true
     }
     fun reset() {
         portalList.clear();payload=null;phase=ExperimentPhase.PLANNING;elapsedSeconds=0.0;resultSeconds=null

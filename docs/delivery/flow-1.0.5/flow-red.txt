@@ -1,0 +1,14 @@
+ExperienceFlowTest > selectingBeforeTwoPortalsIsGuardedAndDoesNotOpenPicker FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:27
+ExperienceFlowTest > homeComesBeforeModeSpecificScan FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:25
+ExperienceFlowTest > pickerReplacesDrawingPanelAndBackPreservesLayout FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:30
+ExperienceFlowTest > scanContinuesDirectlyIntoChosenSandboxWithoutAnotherMenu FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:26
+ExperienceFlowTest > tutorialCannotAdvanceByClickingContinueBeforeActualActions FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:41
+ExperienceFlowTest > settingsIsExclusiveAndReturnsToExactPriorStep FAILED
+    java.lang.AssertionError at ExperienceFlowTest.kt:35
+6 tests completed, 6 failed
+BUILD FAILED in 3s

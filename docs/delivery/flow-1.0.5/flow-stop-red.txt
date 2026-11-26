@@ -1,0 +1,4 @@
+PuzzleEngineTest > stopKeepsLayoutAndElapsedTimeThenAllowsRelaunch FAILED
+    java.lang.AssertionError at PuzzleEngineTest.kt:15
+8 tests completed, 1 failed
+BUILD FAILED in 4s

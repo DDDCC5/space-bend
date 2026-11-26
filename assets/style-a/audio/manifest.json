@@ -61,7 +61,7 @@
     {
       "language": "zh-Hans",
       "id": "v_welcome",
-      "text": "欢迎进入引力实验室。请先扫描周围空间。",
+      "text": "欢迎进入引力实验室。请选择自由体验或关卡挑战。",
       "voice": "Binbin (Enhanced)",
       "file": "voice/zh-Hans/v_welcome.wav"
     },
@@ -75,7 +75,7 @@
     {
       "language": "zh-Hans",
       "id": "v_ready",
-      "text": "扫描完成。请在已识别的平面上绘制虫洞。",
+      "text": "空间扫描完成。请在真实平面上绘制虫洞。",
       "voice": "Binbin (Enhanced)",
       "file": "voice/zh-Hans/v_ready.wav"
     },
@@ -96,14 +96,14 @@
     {
       "language": "zh-Hans",
       "id": "v_select",
-      "text": "按下摇杆，选择传送物体。",
+      "text": "请选择物体，确认洞口尺寸后，点击发射按钮。",
       "voice": "Binbin (Enhanced)",
       "file": "voice/zh-Hans/v_select.wav"
     },
     {
       "language": "zh-Hans",
       "id": "v_launch",
-      "text": "按下扳机，将物体放置到首个虫洞入口。",
+      "text": "物体已发射。请观察它穿越虫洞。",
       "voice": "Binbin (Enhanced)",
       "file": "voice/zh-Hans/v_launch.wav"
     },
@@ -145,7 +145,7 @@
     {
       "language": "en",
       "id": "v_welcome",
-      "text": "Welcome to the Gravity Laboratory. Scan your surroundings to begin.",
+      "text": "Welcome to the Gravity Laboratory. Choose Free Play or Mission Challenge.",
       "voice": "Samantha",
       "file": "voice/en/v_welcome.wav"
     },
@@ -159,7 +159,7 @@
     {
       "language": "en",
       "id": "v_ready",
-      "text": "Scan complete. Draw a portal on a detected surface.",
+      "text": "Room scan ready. Draw portals on real surfaces.",
       "voice": "Samantha",
       "file": "voice/en/v_ready.wav"
     },
@@ -180,14 +180,14 @@
     {
       "language": "en",
       "id": "v_select",
-      "text": "Click the thumbstick to choose a payload.",
+      "text": "Choose an object, check the portal fit, then use the launch button.",
       "voice": "Samantha",
       "file": "voice/en/v_select.wav"
     },
     {
       "language": "en",
       "id": "v_launch",
-      "text": "Press the trigger to place the payload at the first portal.",
+      "text": "Object launched. Watch it travel through the portals.",
       "voice": "Samantha",
       "file": "voice/en/v_launch.wav"
     },
