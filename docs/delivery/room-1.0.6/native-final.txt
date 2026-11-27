@@ -1,0 +1,8 @@
+
+com.example.spacebend.ExperienceFlowInteractionTest:...
+
+Time: 25.965
+
+OK (3 tests)
+
+

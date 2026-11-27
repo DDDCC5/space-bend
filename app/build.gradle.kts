@@ -12,8 +12,8 @@ android {
         applicationId = "com.example.spacebend"
         minSdk = 35
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.0.5"
+        versionCode = 7
+        versionName = "1.0.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters.add("arm64-v8a") }
@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation("org.locationtech.jts:jts-core:1.20.0")
     implementation(libs.androidx.core.ktx)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     implementation(platform(libs.spatial.bom))

@@ -3,6 +3,7 @@ package com.example.spacebend.platform.spatial
 import android.content.Context
 import android.util.Log
 import com.example.spacebend.domain.model.*
+import com.example.spacebend.domain.usecase.WorkspacePose
 import com.example.spacebend.ui.game.*
 import com.example.spacebend.ui.navigation.GamePanel
 import com.pico.spatial.core.ecs.*
@@ -11,6 +12,9 @@ import com.pico.spatial.core.math.Vector3
 import com.pico.spatial.tracking.controller.ControllerActionData
 import com.pico.spatial.tracking.controller.ControllerTrackingProvider
 import com.pico.spatial.tracking.hand.HandTrackingProvider
+import com.pico.spatial.tracking.hmd.HMDTrackingProvider
+import com.pico.spatial.tracking.hmd.HMDTrackingData
+import com.pico.spatial.tracking.DataProvider
 import com.pico.spatial.ui.platform.HandController
 import com.pico.spatial.ui.platform.HandControllerHapticType
 import com.pico.spatial.ui.platform.SpatialHandControllerHaptic
@@ -28,6 +32,9 @@ internal class SceneRuntime(
  private val planes=PlaneSource(root,scope)
  private val controllers=ControllerTrackingProvider()
  private val hands=HandTrackingProvider()
+ private val head=HMDTrackingProvider()
+ private val headSamples=FreshTrackingSample<HMDTrackingData>()
+ private var stopHeadListener: (() -> Unit)?=null
  @Volatile private var actions: ControllerActionData?=null
  private val listener=ControllerTrackingProvider.ControllerActionListener {actions=it}
  private val router=InputRouter(vm,this)
@@ -49,7 +56,8 @@ internal class SceneRuntime(
  var active=true;private set
  private var lastTracking=false
  private var lastPanel=GamePanel.MENU
- private var workspacePosition=V3(0.0,1.35,-1.45)
+ private var workspace=WorkspacePose(V3(0.0,1.35,-1.45),V3(1.0,0.0,0.0),V3(0.0,0.0,1.0))
+ private var placementPending=true
  private var time=0.0
  private var scanTimer=0.0
  private var lastScanRevision=0L
@@ -62,8 +70,8 @@ internal class SceneRuntime(
   }
  }
  fun attachPanel(id: GamePanel,entity: Entity) {
-  panelEntities[id]=entity;root.addChild(entity);entity.setName("Panel_${id.name}");entity.enabled=id==vm.state.value.currentPanel
-  entity.components[TransformComponent::class.java]?.setPosition(workspacePosition.sdk())
+  panelEntities[id]=entity;root.addChild(entity);entity.setName("Panel_${id.name}");entity.enabled=!placementPending&&id==vm.state.value.currentPanel
+  applyWorkspace(entity)
  }
  suspend fun load() {
   // Retain each loaded hierarchy; center its actual visual bounds under an identity motion owner.
@@ -85,10 +93,13 @@ internal class SceneRuntime(
   if(started||closed)return
   started=true;planes.start();controllers.addControllerActionListener(listener)
   controllers.start();hands.start()
+  val token=headSamples.begin()
+  val headListener=DataProvider.DataListener<HMDTrackingData>{data->headSamples.offer(token,data)}
+  head.addListener(headListener);stopHeadListener={head.removeListener(headListener)};head.start()
   sound.play("audio/ambient-lab-loop.wav",null,vm.state.value.settings,loop=true,key="music",channel="music")
  }
- fun pause(){Log.i("SpaceBend","Scene paused");active=false;router.cancel();inputFocus.reset();actions=null;planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();started=false;sound.pause()}
- fun resume(){Log.i("SpaceBend","Scene resume requested; loaded=$loaded closed=$closed");if(closed||!loaded)return;active=true;start();sound.resume()}
+ fun pause(){Log.i("SpaceBend","Scene paused");active=false;router.cancel();inputFocus.reset();actions=null;planes.stop();controllers.removeControllerActionListener(listener);controllers.stop();hands.stop();headSamples.begin();stopHeadListener?.invoke();stopHeadListener=null;head.stop();started=false;sound.pause()}
+ fun resume(){Log.i("SpaceBend","Scene resume requested; loaded=$loaded closed=$closed");if(closed||!loaded)return;active=true;placementPending=true;start();sound.resume()}
  private var diagnosticFrames=0L
  private var diagnosticAt=0L
  private var diagnosticWindowFrames=0L
@@ -114,8 +125,10 @@ internal class SceneRuntime(
   val scanRevision=vm.state.value.scanRevision
   val restarted=scanRevision!=lastScanRevision
   if(restarted){section("ScanRestart"){planes.restart()};lastScanRevision=scanRevision;router.cancel(clearButtons=false)}
-  val changed=section("PlaneDrain"){planes.drain()}
-  if(changed||restarted||scanTimer>.4){
+  // Freeze before draining queued changes: the exact geometry accepted by Continue is retained.
+  if(vm.state.value.planesLocked&&!planes.frozen)planes.freeze()
+  if(!planes.frozen&&(restarted||scanTimer>.4)){
+   val changed=section("PlaneDrain"){planes.drain(vm.engine.portals.map{it.surfaceId}.toSet())}
    section("Surfaces"){vm.updateSurfaces(planes.surfaces(),planes.running)};scanTimer=0.0
    if(changed||restarted)section("PlaneVisualDiff"){updatePlaneVisuals()}
    if(planes.error!=null)vm.notify("scan_unavailable")
@@ -126,7 +139,7 @@ internal class SceneRuntime(
   if(lastTracking&&!state.tracking)router.cancel(clearButtons=false);lastTracking=state.tracking
   if(lastPanel!=state.currentPanel){router.cancel(clearButtons=false);lastPanel=state.currentPanel}
   if(engineIdentity!==vm.engine){router.cancel(clearButtons=false);engineIdentity=vm.engine;portalRevision=-1}
-  section("Panels"){fitPanels();panelEntities.forEach{(id,e)->e.enabled=id==state.currentPanel}}
+  section("Panels"){placeWorkspaceInView();fitPanels();panelEntities.forEach{(id,e)->e.enabled=!placementPending&&id==state.currentPanel}}
   val inputs=section("InputSamples"){inputFrames()}
   section("InputRoute"){inputs.forEach{router.process(it,dt)};router.finishFrame(inputs.map{it.id}.toSet())}
   section("RayVisual"){
@@ -207,20 +220,33 @@ internal class SceneRuntime(
    Log.i("SpaceBend","Panel $id: runtime source ${base.x} x ${base.y} m, fitted width $desired m")
   }
  }
- override fun panelAt(ray: Ray): PanelHit? = panelEntities.mapNotNull{(id,e)->
-  if(id!=vm.state.value.currentPanel)return@mapNotNull null
-  val position=e.components[TransformComponent::class.java]?.position?.game()?:return@mapNotNull null
-  if(abs(ray.direction.z)<1e-6)return@mapNotNull null
-  val t=(position.z-ray.origin.z)/ray.direction.z;if(t<0)return@mapNotNull null
-  val q=ray.origin+ray.direction*t
-  val half=panelHalfSizes[id]?:return@mapNotNull null
-  if(abs(q.x-position.x)>half.x||abs(q.y-position.y)>half.y)return@mapNotNull null
-  PanelHit(id,q,t,q.y>position.y+half.y*.65,position)
- }.minByOrNull{it.distance}
+ private fun applyWorkspace(entity: Entity){
+  entity.components[TransformComponent::class.java]?.apply{
+   setPosition(workspace.position.sdk())
+   setQuaternion(basisRotation(workspace.right,workspace.up,workspace.normal))
+  }
+ }
+ private fun placeWorkspaceInView(){
+  if(!placementPending)return
+  val pose=headSamples.latest()?.hmdPose?:return
+  if(pose.position==Vector3.ZERO)return
+  val position=root.convertPositionFrom(pose.position,null).game()
+  val rotation=root.convertRotationFrom(pose.rotation,null)
+  val placed=WorkspacePose.inFront(position,rotate(rotation,V3(0.0,0.0,-1.0)),rotate(rotation,V3(0.0,1.0,0.0)))?:return
+  workspace=placed;panelEntities.values.forEach(::applyWorkspace);placementPending=false
+  Log.i("SpaceBend","Workspace placed in view: head=$position panel=${placed.position} normal=${placed.normal} distance=${position.distance(placed.position)}")
+ }
+ override fun panelAt(ray: Ray): PanelHit? {
+  if(placementPending)return null
+  val panel=vm.state.value.currentPanel
+  if(panel !in panelEntities)return null
+  val hit=workspace.hit(ray,panelHalfSizes[panel]?:return null)?:return null
+  return PanelHit(panel,hit.point,hit.distance,hit.header,workspace.position)
+ }
  override fun movePanel(panel: GamePanel,point: V3){
   if(panel!=vm.state.value.currentPanel)return
-  workspacePosition=point
-  panelEntities.values.forEach{it.components[TransformComponent::class.java]?.setPosition(point.sdk())}
+  workspace=workspace.copy(position=point)
+  panelEntities.values.forEach(::applyWorkspace)
  }
  override fun pulse(hand: HandController,strong: Boolean){
   if(!vm.state.value.settings.haptics||hand==HandController.Unknown)return

@@ -1,0 +1,10 @@
+{
+  "reviewer": "independent code review",
+  "finding": "P2: cached HMD latestData survives stop/start and could place resumed panel at stale pose.",
+  "fix": "Per-start new DataListener, generation-gated sample latch; main-frame transform application.",
+  "regressionTests": [
+    "restart waits for a new sample",
+    "late old callback cannot overwrite fresh sample"
+  ],
+  "finalReview": "No remaining concrete findings."
+}

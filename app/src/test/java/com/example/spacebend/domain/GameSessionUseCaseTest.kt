@@ -42,7 +42,7 @@ class GameViewModelTest {
   val v=vm();val b=listOf(V2(-3.0,-3.0),V2(3.0,-3.0),V2(3.0,3.0),V2(-3.0,3.0));val a=Surface("A",V3.ZERO,V3(1.0,0.0,0.0),V3(0.0,0.0,-1.0),b)
   v.sceneReady();v.onEvent(GameEvent.Sandbox);v.updateSurfaces(listOf(a),true);v.onEvent(GameEvent.ContinueScan)
   v.addPortal("A",(0 until 24).map{val r=it*Math.PI/12;V2(kotlin.math.cos(r),kotlin.math.sin(r))})
-  v.updateSurfaces(emptyList(),true);v.updateSurfaces(listOf(a.copy(id="B")),true)
+  v.onEvent(GameEvent.Scan);v.updateSurfaces(emptyList(),true);v.updateSurfaces(listOf(a.copy(id="B")),true)
   v.onEvent(GameEvent.ContinueScan);assertTrue(v.state.value.tracking);assertTrue(v.engine.portals.isEmpty())
  }
 }

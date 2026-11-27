@@ -1,0 +1,21 @@
+
+com.example.spacebend.ExperienceFlowInteractionTest:..
+Error in confirmedPlanesRemainFixedAcrossPauseAndResume(com.example.spacebend.ExperienceFlowInteractionTest):
+java.lang.AssertionError: Activity never becomes requested state "[STARTED]" (last lifecycle transition = "RESUMED")
+	at androidx.test.core.app.ActivityScenario.waitForActivityToBecomeAnyOf(ActivityScenario.java:454)
+	at androidx.test.core.app.ActivityScenario.moveToState(ActivityScenario.java:689)
+	at com.example.spacebend.ExperienceFlowInteractionTest.confirmedPlanesRemainFixedAcrossPauseAndResume(ExperienceFlowInteractionTest.kt:27)
+
+
+Time: 67.447
+There was 1 failure:
+1) confirmedPlanesRemainFixedAcrossPauseAndResume(com.example.spacebend.ExperienceFlowInteractionTest)
+java.lang.AssertionError: Activity never becomes requested state "[STARTED]" (last lifecycle transition = "RESUMED")
+	at androidx.test.core.app.ActivityScenario.waitForActivityToBecomeAnyOf(ActivityScenario.java:454)
+	at androidx.test.core.app.ActivityScenario.moveToState(ActivityScenario.java:689)
+	at com.example.spacebend.ExperienceFlowInteractionTest.confirmedPlanesRemainFixedAcrossPauseAndResume(ExperienceFlowInteractionTest.kt:27)
+
+FAILURES!!!
+Tests run: 3,  Failures: 1
+
+

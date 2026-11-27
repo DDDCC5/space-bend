@@ -14,6 +14,22 @@ import org.junit.Test
 import java.util.concurrent.atomic.AtomicReference
 
 class ExperienceFlowInteractionTest {
+ @Test fun confirmedPlanesRemainFixedWhilePlaying() {
+  assumeTrue(InstrumentationRegistry.getArguments().getString("experienceFlow")=="true")
+  ActivityScenario.launch(LaunchActivity::class.java).use{scenario->
+   val ref=AtomicReference<GameViewModel>();scenario.onActivity{ref.set(ViewModelProvider(it,GameViewModelFactory(it))[GameViewModel::class.java])};val vm=ref.get()
+   NativeFlowFixture.waitUntil{vm.state.value.sceneReady&&vm.state.value.scanAvailable}
+   NativeFlowFixture.tap(vm,GamePanel.MENU,"sandbox");NativeFlowFixture.tap(vm,GamePanel.SCAN,"flow_start_drawing")
+   val snapshot=NativeFlowFixture.main{assertTrue(vm.state.value.planesLocked);vm.engine.surfaces}
+   Thread.sleep(8000)
+   assertEquals(snapshot,NativeFlowFixture.main{vm.engine.surfaces})
+   NativeFlowFixture.main{
+    assertTrue(vm.state.value.planesLocked);assertEquals(snapshot,vm.engine.surfaces)
+    vm.onEvent(GameEvent.Show(GamePanel.MENU))
+   }
+   Log.i("SpaceBendFlowTest","confirmed SDK plane snapshot unchanged for 8 seconds while playing")
+  }
+ }
  @Test fun homeScanDrawSelectStopSettingsAndReturnUseOneTaskPanel() {
   assumeTrue(InstrumentationRegistry.getArguments().getString("experienceFlow")=="true")
   ActivityScenario.launch(LaunchActivity::class.java).use{scenario->

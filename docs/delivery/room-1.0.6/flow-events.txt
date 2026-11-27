@@ -1,0 +1,28 @@
+11-27 09:42:38.385 17711 17733 I SpaceBendFlowTest: single panel: PICKER
+11-27 09:42:38.848 17711 17733 I SpaceBendFlowTest: single panel: HUD
+11-27 09:42:39.239 17711 17733 I SpaceBendFlowTest: single panel: HUD
+11-27 09:42:39.510 17711 17733 I SpaceBendFlowTest: single panel: SETTINGS
+11-27 09:42:39.570 17711 17733 I SpaceBendFlowTest: single panel: HUD
+11-27 09:42:39.829 17711 17733 I SpaceBendFlowTest: single panel: MENU
+11-27 09:42:40.101 17711 17733 I SpaceBendFlowTest: single panel: HUD
+11-27 09:42:40.448 17711 17733 I SpaceBendFlowTest: single panel: HUD
+11-27 09:42:40.558 17711 17733 I SpaceBendFlowTest: single panel: MENU
+11-27 09:42:40.558 17711 17733 I SpaceBendFlowTest: flow pointer actions passed; back/stop/settings preserve layout, clear removes it
+11-27 09:42:45.596 17711 17733 I SpaceBendFlowTest: manual rescan used fresh SDK planes, resumed drawing and retained coordinates for valid anchors
+11-27 09:44:04.927 18814 18836 I SpaceBendFlowTest: single panel: MENU
+11-27 09:44:05.228 18814 18836 I SpaceBendFlowTest: single panel: SCAN
+11-27 09:44:05.465 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:06.521 18814 18836 I SpaceBendFlowTest: single panel: PICKER
+11-27 09:44:06.780 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:07.106 18814 18836 I SpaceBendFlowTest: single panel: PICKER
+11-27 09:44:07.513 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:07.871 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:08.138 18814 18836 I SpaceBendFlowTest: single panel: SETTINGS
+11-27 09:44:08.242 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:08.440 18814 18836 I SpaceBendFlowTest: single panel: MENU
+11-27 09:44:08.609 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:08.927 18814 18836 I SpaceBendFlowTest: single panel: HUD
+11-27 09:44:09.006 18814 18836 I SpaceBendFlowTest: single panel: MENU
+11-27 09:44:09.006 18814 18836 I SpaceBendFlowTest: flow pointer actions passed; back/stop/settings preserve layout, clear removes it
+11-27 09:44:14.081 18814 18836 I SpaceBendFlowTest: manual rescan used fresh SDK planes, resumed drawing and retained coordinates for valid anchors
+11-27 09:44:25.856 18814 18836 I SpaceBendFlowTest: confirmed SDK plane snapshot unchanged for 8 seconds while playing

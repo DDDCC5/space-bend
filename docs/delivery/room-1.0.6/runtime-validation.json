@@ -1,0 +1,36 @@
+{
+  "hardware": "PICO B3110",
+  "versionName": "1.0.6",
+  "versionCode": 7,
+  "sdk": "6.1.9",
+  "nativeTests": {
+    "tests": 3,
+    "failures": 0,
+    "durationSeconds": 25.965
+  },
+  "snapshotStabilitySeconds": 8,
+  "observedRawPlanes": 16,
+  "observedConsolidatedPlanes": 15,
+  "panelPoseChecks": [
+    {
+      "distanceMeters": 1.4500000000000004,
+      "facingDot": 1.0
+    },
+    {
+      "distanceMeters": 1.4500000000000002,
+      "facingDot": 1.0000000000000002
+    },
+    {
+      "distanceMeters": 1.45,
+      "facingDot": 1.0
+    }
+  ],
+  "visual": "UNOBSERVED: FOV capture showed passthrough only; no app panel. Capture kept private under .scratch.",
+  "crashBuffer": "No entries returned in final observation.",
+  "limits": [
+    "Native pointer tests are attachment dispatch, not physical controller or hand gesture testing.",
+    "ActivityScenario STARTED transition unsupported in PICO Full Space; lifecycle harness failed before final corrected test suite. System background/resume not validated by native test.",
+    "Voice naturalness and worn-headset visual placement await user feedback."
+  ],
+  "freshHeadPoseGate": "Per-start DataListener; stale or late callbacks from a previous generation rejected."
+}

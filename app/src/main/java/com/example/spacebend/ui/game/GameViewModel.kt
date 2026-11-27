@@ -68,14 +68,14 @@ class GameViewModel(private val session: GameSessionUseCase): ViewModel() {
   val s=mutable.value
   if(s.currentPanel!=GamePanel.SCAN)scanReturn=if(s.experimentActive)validWorkPanel(s.currentPanel)else GamePanel.MENU
   scanned=false;recovering=false
-  update{it.copy(scanning=true,currentPanel=GamePanel.SCAN,statusKey="scan_hint",scanRevision=it.scanRevision+1,planeCount=0,scanAvailable=false,tracking=false)};narration="v_scan"
+  update{it.copy(scanning=true,planesLocked=false,currentPanel=GamePanel.SCAN,statusKey="scan_hint",scanRevision=it.scanRevision+1,planeCount=0,scanAvailable=false,tracking=false)};narration="v_scan"
  }
  private fun continueScan() {
   if(mutable.value.currentPanel!=GamePanel.SCAN||!mutable.value.canContinueScan)return
   val lost=engine.portals.any{p->engine.surfaces.none{it.id==p.surfaceId}}
   if(lost){engine.reset();revision++;scanReturn=GamePanel.HUD}
   scanned=true;recovering=false
-  update{it.copy(tracking=true,scanning=false,invalidAnchorCount=0,currentPanel=if(it.experimentActive)validWorkPanel(scanReturn)else GamePanel.MENU,statusKey=if(lost)"flow_layout_redraw" else if(engine.phase!=ExperimentPhase.PLANNING||scanReturn==GamePanel.PICKER||scanReturn==GamePanel.SETTINGS)"flow_tracking_restored" else if(engine.portals.isNotEmpty())"flow_draw_ready" else "flow_draw_first",tutorialStep=if(it.tutorialActive)1 else it.tutorialStep)}
+  update{it.copy(tracking=true,scanning=false,planesLocked=true,invalidAnchorCount=0,currentPanel=if(it.experimentActive)validWorkPanel(scanReturn)else GamePanel.MENU,statusKey=if(lost)"flow_layout_redraw" else if(engine.phase!=ExperimentPhase.PLANNING||scanReturn==GamePanel.PICKER||scanReturn==GamePanel.SETTINGS)"flow_tracking_restored" else if(engine.portals.isNotEmpty())"flow_draw_ready" else "flow_draw_first",tutorialStep=if(it.tutorialActive)1 else it.tutorialStep)}
   narration="v_ready"
  }
  fun onEvent(event: GameEvent) {
@@ -116,6 +116,7 @@ class GameViewModel(private val session: GameSessionUseCase): ViewModel() {
  }
  private fun settings(value: GameSettings){session.saveSettings(value);update{it.copy(settings=value)}}
  fun updateSurfaces(surfaces: List<Surface>,running: Boolean) {
+  if(mutable.value.planesLocked)return
   engine.updateSurfaces(surfaces)
   val s=mutable.value;val available=running&&surfaces.isNotEmpty()
   val lost=engine.portals.count{p->surfaces.none{it.id==p.surfaceId}}

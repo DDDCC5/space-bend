@@ -66,13 +66,16 @@ class ExperienceFlowTest {
   v.onEvent(GameEvent.ChooseMission(1));v.onEvent(GameEvent.ConfirmNewExperiment)
   assertEquals(GameMode.CHALLENGE,v.state.value.mode);assertTrue(v.engine.portals.isEmpty());assertNull(v.state.value.pendingExperiment)
  }
- @Test fun transientTrackingLossRestoresPickerWithoutClearingLayout() {
+ @Test fun confirmedScanIgnoresLaterPlaneUpdatesAndServiceStop() {
   val v=vm();prepareLayout(v);v.onEvent(GameEvent.Show(GamePanel.PICKER));val layout=v.engine.portals
-  v.updateSurfaces(emptyList(),false);assertEquals(setOf(GamePanel.SCAN),v.state.value.panels);assertFalse(v.state.value.canLaunch)
-  v.updateSurfaces(listOf(floor),true);assertEquals(setOf(GamePanel.PICKER),v.state.value.panels);assertEquals(layout,v.engine.portals);assertTrue(v.state.value.canLaunch)
+  v.updateSurfaces(emptyList(),false)
+  assertEquals(setOf(GamePanel.PICKER),v.state.value.panels);assertTrue(v.state.value.canLaunch)
+  v.updateSurfaces(listOf(floor.copy(id="new-room")),true)
+  assertEquals(listOf(floor),v.engine.surfaces);assertEquals(layout,v.engine.portals)
  }
  @Test fun invalidAnchorsRequireExplicitRedrawAndDoNotSilentlyEraseLayout() {
   val v=vm();prepareLayout(v);val layout=v.engine.portals
+  v.onEvent(GameEvent.Scan)
   v.updateSurfaces(listOf(floor.copy(id="new-room")),true)
   assertEquals(setOf(GamePanel.SCAN),v.state.value.panels);assertEquals(2,v.state.value.invalidAnchorCount);assertEquals(layout,v.engine.portals)
   v.onEvent(GameEvent.ContinueScan);assertEquals(setOf(GamePanel.HUD),v.state.value.panels);assertTrue(v.engine.portals.isEmpty());assertEquals("flow_layout_redraw",v.state.value.statusKey)
@@ -107,7 +110,7 @@ class ExperienceFlowTest {
   val v=vm();ready(v);v.onEvent(GameEvent.ChooseMission(1));portal(v,-1.0);portal(v,1.0)
   v.onEvent(GameEvent.Show(GamePanel.PICKER));v.onEvent(GameEvent.Launch)
   val wall=Surface("high-wall",V3(0.0,5.0,2.0),V3(0.0,1.0,0.0),V3(0.0,0.0,1.0),listOf(V2(-10.0,-10.0),V2(10.0,-10.0),V2(10.0,10.0),V2(-10.0,10.0)))
-  v.updateSurfaces(listOf(floor,wall),true);v.engine.payload!!.apply{position=V3(1.0,8.0,2.0);velocity=V3(-10.0,0.0,0.0)}
+  v.onEvent(GameEvent.Scan);v.updateSurfaces(listOf(floor,wall),true);v.onEvent(GameEvent.ContinueScan);v.engine.payload!!.apply{position=V3(1.0,8.0,2.0);velocity=V3(-10.0,0.0,0.0)}
   repeat(10){v.advance(.1)};assertEquals(setOf(GamePanel.RESULT),v.state.value.panels);assertEquals(ExperimentPhase.FAILED,v.state.value.phase)
   val height=v.engine.payload!!.position.y;assertTrue(height>1.0)
   v.advance(.1);assertTrue("Falling must continue behind the result panel",v.engine.payload!!.position.y<height)

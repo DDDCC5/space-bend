@@ -11,7 +11,7 @@ data class GameUiState(
  val phase: ExperimentPhase=ExperimentPhase.PLANNING,val portalCount: Int=0,val elapsed: Double=0.0,val loops: Int=0,
  val statusKey: String="flow_home_hint",val stars: Int=0,val tutorialStep: Int=0,val deleteProgress: Float=0f,val sceneReady: Boolean=false,
  val experimentActive: Boolean=false,val tutorialActive: Boolean=false,val requiredPortals: Int=2,
- val scanRevision: Long=0,val launchIssue: LaunchIssue?=null,val invalidAnchorCount: Int=0,val pendingExperiment: NewExperiment?=null,
+ val scanRevision: Long=0,val planesLocked: Boolean=false,val launchIssue: LaunchIssue?=null,val invalidAnchorCount: Int=0,val pendingExperiment: NewExperiment?=null,
 ) {
  val panels: Set<GamePanel> get()=setOf(currentPanel)
  val canEdit: Boolean get()=experimentActive&&currentPanel==GamePanel.HUD&&tracking&&!scanning&&sceneReady&&phase==ExperimentPhase.PLANNING
