@@ -1,0 +1,50 @@
+{
+  "exploration_robot": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "+X",
+    "yawDegrees": 90,
+    "evidence": "Actual normalized GLB inspected in local WebGL viewer: +X view shows central camera eye; -X view shows rear head casing. Rotate +90 degrees around Y to map +X to gameplay -Z.",
+    "notes": "Four compact articulated legs, metallic joints, off-white ceramic casing and ice-blue eye; no scenery or separate display base."
+  },
+  "spacecraft": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "+X",
+    "yawDegrees": 90,
+    "evidence": "Actual GLB +X view shows nose aperture, lights and cockpit; -X view shows two rear thrusters.",
+    "notes": "Compact shuttle with short side wings; rotate +90 degrees around Y so nose points along gameplay -Z."
+  },
+  "energy_core": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "non-directional, chamber axis X",
+    "yawDegrees": 90,
+    "evidence": "Actual GLB inspected front, side and reverse: enclosed ice-blue chamber and connected metallic cage; both axial sides readable.",
+    "notes": "No unique semantic front. Align chamber axis with gameplay forward for presentation; not a directional requirement."
+  },
+  "micro_probe": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "+X",
+    "yawDegrees": 90,
+    "evidence": "Actual normalized GLB inspected in front three-quarter and +X cardinal views; optical/hatch face points +X.",
+    "notes": "Compact spherical scientific instrument with attached optical pods, short antennas and forward lens. Distinct from four-legged robot."
+  },
+  "heavy_capsule": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "+X",
+    "yawDegrees": 90,
+    "evidence": "Actual normalized GLB inspected in front three-quarter and +X cardinal views; optical/hatch face points +X.",
+    "notes": "Reinforced transport pod with integrated feet, thick armor ribs, hatch-like front chamber and amber locks; no separate scenery."
+  },
+  "beacon": {
+    "geometry": "accepted",
+    "materials": "accepted",
+    "sourceFrontAxis": "+X",
+    "yawDegrees": 90,
+    "evidence": "Actual GLB +X view shows ice-blue signal panel and front access cover; upright structure and attached feet verified in three-quarter view.",
+    "notes": "Compact standing transmitter with white armor, metallic feet, blue panel and amber indicators."
+  }
+}

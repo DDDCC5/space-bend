@@ -1,0 +1,11 @@
+{
+  "review": "Independent code + asset integration review",
+  "findings": [],
+  "checked": [
+    "source/runtime GLB bytes match",
+    "embedded resources and no required glTF extensions",
+    "owner-local native centering preserves physics radii",
+    "no credential patterns or signed download URLs in reviewed metadata"
+  ],
+  "result": "No actionable findings."
+}

@@ -10,8 +10,8 @@
   "files": [
     {
       "file": "README.md",
-      "bytes": 3344,
-      "sha256": "a5ceab1556bb21e90140aedcb0489544999fa1c51cbbcf3432bfd5607e767c67"
+      "bytes": 3440,
+      "sha256": "e14159e469dfc6d76e07c51d2fc7685431f137e4a69abd28d779ad1bdf119434"
     },
     {
       "file": "audio/ambient-lab-loop.wav",
@@ -20,8 +20,8 @@
     },
     {
       "file": "audio/manifest.json",
-      "bytes": 6481,
-      "sha256": "cfb32aab66c909d308399bfbf7ba97b3cf874ef2251884657ba5553a82db5717"
+      "bytes": 9669,
+      "sha256": "e7369139db65ddd33e6307ce39c3d9bbc7a427271103e6fce1256ec1a4af6bdd"
     },
     {
       "file": "audio/sfx/draw-loop.wav",
@@ -65,183 +65,178 @@
     },
     {
       "file": "audio/voice/en/v_closed.wav",
-      "bytes": 289408,
-      "sha256": "8b6afdd608889f36d3e51a02ca02e7da9c38faf64f39b1052fee5e13ad7f2e1c"
+      "bytes": 384838,
+      "sha256": "41a5e9d84ae6f06f82e69df7142ddffd822e7293aa6c13c150b1b5d858e8fb68"
     },
     {
       "file": "audio/voice/en/v_delete.wav",
-      "bytes": 342734,
-      "sha256": "342c6075d2d2a2503c9c5acc817f77a3849ceee82c9355af211b4ba2c52d4a86"
+      "bytes": 582978,
+      "sha256": "9cf0c7ba8f0950940760bdcfea8f7bff7638517385285ec32fceaaf5271a017a"
     },
     {
       "file": "audio/voice/en/v_draw.wav",
-      "bytes": 332524,
-      "sha256": "701dd75cf23f804fb89e928c2e07a3c6ea1110d7ff947b16548e181d400b1fd2"
+      "bytes": 433992,
+      "sha256": "6b4625fbb898827a8ac1125b8a3050fb9a2723c36946f32f216a8f211c1736f6"
     },
     {
       "file": "audio/voice/en/v_fail.wav",
-      "bytes": 424258,
-      "sha256": "31f3e77034127af594dafa33c03fbbc258c7f67a60b557ecffa22fdf0ac18886"
+      "bytes": 606706,
+      "sha256": "890a2d28c795f0096a6b6f224ecffe3f6ef4ea1dc1ce80157e486799ec67e85a"
     },
     {
       "file": "audio/voice/en/v_launch.wav",
-      "bytes": 283662,
-      "sha256": "0281ce9b5d9db8c3432c0a46204f48b20bbda6d2b73eee40307ed006e76b804a"
+      "bytes": 403948,
+      "sha256": "82fb0c2707ca883256d3fb0e9d75a161163c351f61402fd31344e75ef8ea2df3"
     },
     {
       "file": "audio/voice/en/v_loop.wav",
-      "bytes": 325506,
-      "sha256": "c9be1c72f7aeea893928e739fc67a2e152f4ad1450267d265bd991e11f2ca0ef"
+      "bytes": 467294,
+      "sha256": "7ade1e996538b65d3ffa0d7c7abb3febe957a46c2c4548c19b4386f33897101c"
     },
     {
       "file": "audio/voice/en/v_lost.wav",
-      "bytes": 332050,
-      "sha256": "334fafa37f7a87bbbd9657f0a328279c2ae282d93d0ec2dd5d945daa64e686c3"
+      "bytes": 503784,
+      "sha256": "5bc414cdd92bc5525457f2e130ea4875e33d054a48d674834aa892b25e8e6842"
     },
     {
       "file": "audio/voice/en/v_move.wav",
-      "bytes": 330294,
-      "sha256": "34fe1f11f379eb34d4f2af8cf311cc92e013190bdbdef9c3d0ed1f1355f28af6"
+      "bytes": 352422,
+      "sha256": "d634fcb3556f59f6a8c86064a2f6eae32d9acbd8a8660658e149d1fcdcc98f4e"
     },
     {
       "file": "audio/voice/en/v_ready.wav",
-      "bytes": 344310,
-      "sha256": "4f8b68ff30bb2f583cfeea4e19584f808cd49b2c6b621278d890437c0c62edd0"
+      "bytes": 622116,
+      "sha256": "a19e463b459eebeb7e9eaf83e406321cedb298ae7a50ef4b56e15eaed13f2444"
     },
     {
       "file": "audio/voice/en/v_scan.wav",
-      "bytes": 412420,
-      "sha256": "cb0a7be99071c91d0f04ab6dac4282d479018c1c5b56b9f0d4ff8a51ad640b2f"
+      "bytes": 795482,
+      "sha256": "84335495958690ff978201ad88416ce36e2fc76d4b9d49e10b96891ad9e2c718"
     },
     {
       "file": "audio/voice/en/v_select.wav",
-      "bytes": 202300,
-      "sha256": "527c26be4fe996563eea5859f33fcaf06ad3042a79c1ae1450756646f20eba6e"
+      "bytes": 508552,
+      "sha256": "b01db04fcae5c77ed002913a7d06a6cf0aca64ae4ab7208d946c4de0253a5f21"
     },
     {
       "file": "audio/voice/en/v_welcome.wav",
-      "bytes": 384346,
-      "sha256": "a42348e34f0b23a27896ae56c0bb9bfb152a2e7bd52474f9b6a9429eb80672e7"
+      "bytes": 398880,
+      "sha256": "eae431b371f2287660aa7ed23e93d6ed2892e692df169a60a08666cb55e053b6"
     },
     {
       "file": "audio/voice/zh-Hans/v_closed.wav",
-      "bytes": 237098,
-      "sha256": "5fad7f00de400bb1cdb8e64fbb3717f2e4007ff0b22a6849dde9022f68830f6a"
+      "bytes": 300940,
+      "sha256": "5878420b0de30cd4535a4a7a18d3d728a65415952708dfe490081f46b3babf68"
     },
     {
       "file": "audio/voice/zh-Hans/v_delete.wav",
-      "bytes": 382954,
-      "sha256": "f884cdbcff2cca39f2c767fd0d0d2b98e974f013553315344e7ca6c0ab981521"
+      "bytes": 548078,
+      "sha256": "e0bf59f1053f3538d5e170e8b89a3bd0924f21ad3c6ec6ab9b675d8f9c98a977"
     },
     {
       "file": "audio/voice/zh-Hans/v_draw.wav",
-      "bytes": 342676,
-      "sha256": "4b89d5b943fce4bff8f6f1d24f6b9be8dcbca514ec9f1252240156df2636b821"
+      "bytes": 458404,
+      "sha256": "3b1145cf6331acd8a0b2519969c726d5d774e67666d6d90c621c209b37408384"
     },
     {
       "file": "audio/voice/zh-Hans/v_fail.wav",
-      "bytes": 410922,
-      "sha256": "0fe3e3a491a9f473d1c0da49615e568f6882940eacba2301eb4bb54c769a5885"
+      "bytes": 500242,
+      "sha256": "3dce856f61e4c82dc7c540857289dd515a118d06772b80d9e55810ba0a7035ec"
     },
     {
       "file": "audio/voice/zh-Hans/v_launch.wav",
-      "bytes": 361602,
-      "sha256": "61100003d3f8d64a12e821667aa21e53f85e6c8b8c32c2132fe4d356cbb8814f"
+      "bytes": 381160,
+      "sha256": "093a92b0e8998cc6c2c25c319a702ea4e558a610d385946d6223b67c522646c4"
     },
     {
       "file": "audio/voice/zh-Hans/v_loop.wav",
-      "bytes": 289900,
-      "sha256": "609b8da00adf98ea0dbc29db00510615725f7da9eb2066002155874c62500c97"
+      "bytes": 377452,
+      "sha256": "7d0bfd9b8b9633271882dd4e22cdf7c1c91039412236cdd6102e8264646f698b"
     },
     {
       "file": "audio/voice/zh-Hans/v_lost.wav",
-      "bytes": 315196,
-      "sha256": "65ec429fe25e81859355cad407fab3471a9d48815f67d8a8a6d1df2c33fc5881"
+      "bytes": 436028,
+      "sha256": "8b959a24e1598494a37345944da3fe79f1ed83cabf3311ea6723004bcb0209b6"
     },
     {
       "file": "audio/voice/zh-Hans/v_move.wav",
-      "bytes": 340448,
-      "sha256": "733a63180fa81bdbba96998043d46c26000b6c74171d9e9fa3d3f9f21879f168"
+      "bytes": 406624,
+      "sha256": "d5146f4ece1d46c9fd9825ab9653f9741fa4e1b03aea63f17f5cdef14c698146"
     },
     {
       "file": "audio/voice/zh-Hans/v_ready.wav",
-      "bytes": 402188,
-      "sha256": "4571011ba44ed32ed1df04a1653f4efe0060cbe076b23405c87f4292b81ead44"
+      "bytes": 584010,
+      "sha256": "3bae895b58d755e66eca62bf71248b420da1a8ea86599768c0f692cb8bc52f76"
     },
     {
       "file": "audio/voice/zh-Hans/v_scan.wav",
-      "bytes": 396288,
-      "sha256": "1b2dee59fd6328c73b56969a96536bfb0f7205358fac553327591bb505683ed1"
+      "bytes": 822348,
+      "sha256": "d0ef9e87a8d52bb532a505b2f041b8c738c1359056504fa3108a5b1c52ba937a"
     },
     {
       "file": "audio/voice/zh-Hans/v_select.wav",
-      "bytes": 267918,
-      "sha256": "99d06a70a7c8cb377390d0c220783cd42285ba5570ec8c84f5c99f6f04d6ac40"
+      "bytes": 455624,
+      "sha256": "74c547a0bbeae76288c2bf97684b71089fc99fe354851889d2b341a79f4269bd"
     },
     {
       "file": "audio/voice/zh-Hans/v_welcome.wav",
-      "bytes": 396288,
-      "sha256": "9b26e012efe956603f05e1ea051566a543bc999425ed9050fa0b6704e6f0217c"
+      "bytes": 543164,
+      "sha256": "12eb8fcd40155c67a6f0774842c832fedb3f371b41a673e852a38a546bf3baf3"
     },
     {
       "file": "locales/en.json",
-      "bytes": 2939,
-      "sha256": "746edbf8b5a5b253cb4d03efb2a122c6e6297c92d31410fa301c05a116a561f5"
+      "bytes": 3096,
+      "sha256": "a9479ebf4a261208268041e4ec79f96de90494ae130dcc276bc5d921bac23f32"
     },
     {
       "file": "locales/zh-Hans.json",
-      "bytes": 2810,
-      "sha256": "49bb98c532177971bc0be60e8e2b738dfbcfba4b78e455c43a15440889e12d9a"
+      "bytes": 2973,
+      "sha256": "342844bd863fdca33ab2635005b59ee69db37a329a789445a5563c42f141d49e"
     },
     {
       "file": "locales/zh-Hant.json",
-      "bytes": 2816,
-      "sha256": "4bd2b4001d5c658f65d948ccbcd7aed2c7c0319b7753ac44653253a672fb2dea"
+      "bytes": 2979,
+      "sha256": "6d6cbd16d96f9129e6783f7d9618c7f9e577ed88fb2f81968ac537ab9dde9c6b"
     },
     {
       "file": "models/beacon.glb",
-      "bytes": 96764,
-      "sha256": "c7ee14fadd39e728ae870eb47ddb60aa34b9413ccc970a8836318f69cdfc23b4"
+      "bytes": 1928500,
+      "sha256": "cf054c6b908e4a36d28a14151406358b19afaf1e8b65f9352fcec072a6152ebc"
     },
     {
       "file": "models/catalog.json",
-      "bytes": 2218,
-      "sha256": "6d1bfe39c9e69bbb37d098ee0c1148c7c077b6c5a887c35dd00499c3d7f760ea"
+      "bytes": 17022,
+      "sha256": "c0e5d9426a75536695199174ce0667647c1f2e8f6693e73dd35e03559ff280b6"
     },
     {
       "file": "models/energy_core.glb",
-      "bytes": 103916,
-      "sha256": "5629eeab0a66e8e959bb5d3e33c09b5d4e5b12dcc58ef5040453379555d33503"
+      "bytes": 1957020,
+      "sha256": "cc85b24a597c0b33c23093df350338d8b32a84031d2ab3ba292ec3e16875dcf5"
     },
     {
       "file": "models/exploration_robot.glb",
-      "bytes": 280684,
-      "sha256": "35c720c6dbddebf55a2e479a63206f0be6f3b620f953bc3628f99de1509da73d"
+      "bytes": 1841632,
+      "sha256": "14696452e614f31e8f33b6796542f863a4872b7df925325b89d986ee98d0eb2c"
     },
     {
       "file": "models/heavy_capsule.glb",
-      "bytes": 95940,
-      "sha256": "771063119ac809306c0307e6d03dee866a2b5dd0c64556c20804c80f8bc8f477"
+      "bytes": 1961036,
+      "sha256": "cd172234c0e5ad2df01dee3e64195bc021579e18cdc5fb935b3da12d65d95de6"
     },
     {
       "file": "models/micro_probe.glb",
-      "bytes": 103568,
-      "sha256": "69640aef2b4bd66f3e1fec5e09cf78042d49c066134686b2df1ba17319aa6d12"
-    },
-    {
-      "file": "models/review-data.json",
-      "bytes": 1014895,
-      "sha256": "1ee9611d1478b80ffa41059ab5f630e34ff64149c0c9dc4cf7094653660da173"
+      "bytes": 1980356,
+      "sha256": "f08fb559c5b633bd8433fe4f9ded48ee8c705d90ab1afb2ec62a205d992dd6d4"
     },
     {
       "file": "models/spacecraft.glb",
-      "bytes": 104768,
-      "sha256": "5d46e2b13416a77fe7e03f68b3187af2dd25a74bcccf9ad1a95ab8e842273963"
+      "bytes": 1860232,
+      "sha256": "5748fce9e5a393cb00183afd33e4f7a7c65cb3eb377a53b474be8111e416d579"
     },
     {
       "file": "models-preview.html",
-      "bytes": 1021328,
-      "sha256": "1175b704bd40ed378908fb6bea3e04b11069429576a9f7fc043275d8aa886bbc"
+      "bytes": 242,
+      "sha256": "69b308ea37efdbc5b0b839150eb2fb5dca1ac169e008e6614cc3b1462baf621e"
     },
     {
       "file": "object-visual-catalog.json",
@@ -255,8 +250,8 @@
     },
     {
       "file": "previews/models-board.png",
-      "bytes": 177042,
-      "sha256": "d1855053b73926f85211bf39892bf71e75237c1623863697444c4ae9c5f5bb07"
+      "bytes": 927837,
+      "sha256": "f760660e3a657aa4f8b94d0261d4a811bcdd123b2c2d055d7b01b0065b0ace07"
     },
     {
       "file": "previews/text-check.html",
@@ -543,5 +538,6 @@
     "zh-Hans": "zh-Hans",
     "zh-Hant": "zh-Hans",
     "en": "en"
-  }
+  },
+  "modelSource": "Tripo H3.1 v3.1-20260211, six detailed PBR models; 360 generation credits"
 }

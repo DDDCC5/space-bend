@@ -83,6 +83,16 @@ internal class SceneRuntime(
     val source=catalog.getJSONObject(kind.asset);val min=source.getJSONArray("min");val max=source.getJSONArray("max")
     val center=V3((min.getDouble(0)+max.getDouble(0))*.5,(min.getDouble(1)+max.getDouble(1))*.5,(min.getDouble(2)+max.getDouble(2))*.5)
     model.components[TransformComponent::class.java]?.setPosition((-center).sdk())
+    // The native importer may produce a slightly different center from offline glTF bounds.
+    // Measure in the identity motion owner's space before physics starts moving that owner.
+    val importedBounds=owner.getVisualBounds(owner,recursive=true,enabledOnly=false)
+    model.components[TransformComponent::class.java]?.let{transform->
+     transform.setPosition((transform.position.game()-importedBounds.center.game()).sdk())
+    }
+    if((context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE)!=0){
+     val bounds=owner.getVisualBounds(owner,recursive=true,enabledOnly=false)
+     Log.i("SpaceBend","Payload bounds ${kind.asset}: center=${bounds.center} radius=${bounds.boundingSphereRadius} collider=${kind.radius}")
+    }
     owner.enabled=false;models[kind]=owner
     Log.i("SpaceBend","Loaded ${kind.asset}; source center=$center, radius=${kind.radius}")
    }catch(e: Exception){owner.destroy();Log.e("SpaceBend","Payload loading failed: ${kind.asset}",e);vm.notify("asset_error");throw e}

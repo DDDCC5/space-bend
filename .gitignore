@@ -48,6 +48,11 @@ editor-asset/
 .mcp.json
 .env
 .env.*
+.tripo/
+editor-tripo/
+assets/tripo/runs/
+assets/tripo/generated/
+assets/tripo/normalized/
 
 # Downloadable artifacts live in private GitHub releases
 *.zip

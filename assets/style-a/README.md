@@ -7,12 +7,12 @@
 
 ## 内容
 
-- models/：6 个独立 GLB，原创程序化硬表面网格，米制、Y 轴向上、−Z 为语义前方。共用钛金属、石墨、陶瓷、冰蓝发光、琥珀标记五类 PBR 材质。未制作写实磨损贴图，当前造型与写实概念图有细节差距，须审阅。
+- models/：六个 Tripo H3.1 高细节 PBR 模型，统一米制、Y 向上，并将有方向的模型对齐游戏 −Z 前方。每件约 1.2 万三角面，保留颜色、金属粗糙度与法线贴图，贴图最长边 1024；补齐 MikkTSpace 切线。保守碰撞半径、物体质量和发射速度沿用原游戏。完整任务与参数记录见根目录 docs/assets/tripo-20261127/。
 - vfx/wormhole-reference.glb：包含 Portal_Close（0.5 秒）、Portal_Suction（1.6 秒）、Portal_Collapse（0.8 秒）真实 glTF 动画。固定不规则参考轮廓，不能代替运行时用户绘制轮廓。运行时使用真实平面锚定、动态边缘光与吸入粒子；未实现背景引力透镜折射。
 - vfx/wormhole-cycle.svg：8 秒矢量视觉方向预览，含闭合、吸入、收缩。它不是运行截图或 GLB 动画播放器。
 - ui/：8 种面板稿 × 3 语种，共 24 个 SVG；包括主菜单、关卡、物体、成功/失败结算、设置、扫描、教程。另含按钮五态、进度五态、10 个图标、2 个星级、控件总览。全为自定义矢量轮廓。
 - locales/：每语种 74 个同名键，包括 UI 文案与 12 条语音脚本。
-- audio/：48 kHz、16-bit PCM WAV。32 秒立体声环境音乐、8 种单声道音效、中文与英文各 12 条播报，共 33 个 WAV；繁体中文复用简体中文语音，繁体文案单独保留。音频均本地合成；中文使用系统已安装 Binbin，英文 Samantha。当前为系统合成音色，需听审确认；不是专业真人录音。
+- audio/：48 kHz、16-bit PCM WAV。32 秒立体声环境音乐、8 种单声道音效、中文与英文各 12 条播报，共 33 个 WAV；繁体中文复用简体中文语音，繁体文案单独保留。音效为程序合成；1.0.6 起播报为离线神经语音，中文 Xiaoxiao、英文 Aria，中文音色已获用户认可。
 - reference/：imagegen 生成的风格参考图。仅用于视觉方向，不是实际模型渲染或设备运行截图。
 - previews/：本地浏览器渲染的素材截图，不是 PICO 设备截图。
 
@@ -22,11 +22,11 @@
 
 第三步已经验证六个 GLB 在 PICO SDK 中加载及空间面板、虫洞运行。真实头显上的声音方位、材质观感、扫描精度和视觉舒适度仍待实测；素材预览不能替代设备运行证据。
 
-官方 Spatial Editor 工作流在制作前因内置 Python TLS 证书链校验失败而终止。系统证书库在单独子进程测试有效，但后台工作进程没有继承；随后会话清理/取消。未伪造 Editor bundle、provenance 或设备证据。六个 GLB 由 tools/assets/build_models.py 原创生成，虫洞 GLB 由 build_portal.py 生成。
+当前六件物体使用官方 Tripo CLI 0.11.4 的海外站账号生成，实际合计 360 积分。认证由 CLI 用户级配置管理，没有把 Key 放进项目。旧版程序化造型仅为历史版本，tools/assets/build_models.py 不用于重建当前 Tripo 物件。虫洞参考 GLB 仍由 build_portal.py 制作。
 
 ## 验证
 
-7 个 GLB 已通过 Khronos glTF Validator：0 errors / 0 warnings。
+六个新物件 GLB 均通过 Khronos glTF Validator，0 errors / 0 warnings。旧虫洞参考模型保持原版本。
 全部 SVG XML 可解析；三语键集合相同；48 kHz WAV 非空且无满幅削波；24 个面板 SVG 的文本未越出画布。详见项目 docs/assets 下验证 JSON。
 
 审阅重点：模型造型与写实细节、UI 布局与文字、虫洞光色与节奏、音乐/音效、三语发音和播报音色。

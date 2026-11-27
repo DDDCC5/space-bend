@@ -1,0 +1,616 @@
+{
+  "status": "integrated_pending_user_visual_feedback",
+  "source": "Official Tripo CLI 0.11.4 / H3.1 v3.1-20260211 / detailed geometry + PBR",
+  "units": "meters",
+  "upAxis": "Y",
+  "forward": "-Z for directional assets",
+  "creditsConsumed": 360,
+  "objects": [
+    {
+      "id": "exploration_robot",
+      "taskId": "e15627c3-9f35-41fa-80bc-c279ad38dfd2",
+      "sourceModel": "assets/tripo/generated/exploration_robot/tripo-out/spacebend-exploration-robot-2026-e15627c3/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 8350916,
+      "normalizedBytes": 1841632,
+      "triangles": 11986,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 4,
+      "originalBounds": {
+        "min": [
+          -0.4897642135620117,
+          -0.4327425956726074,
+          -0.4223375916481018
+        ],
+        "max": [
+          0.4892423152923584,
+          0.43131211400032043,
+          0.4225584864616394
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.42233759164810175,
+          -0.4327425956726074,
+          -0.4892423152923584
+        ],
+        "max": [
+          0.4225584864616395,
+          0.43131211400032043,
+          0.48976421356201183
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.20814264989338566,
+          -0.21286243549212383,
+          -0.24118115642644328
+        ],
+        "max": [
+          0.20814264989338566,
+          0.21286243549212383,
+          0.24118115642644328
+        ]
+      },
+      "uniformScale": 0.4927059203755721,
+      "collisionRadius": 0.390967,
+      "normalizedRadius": 0.38314766,
+      "sha256": "14696452e614f31e8f33b6796542f863a4872b7df925325b89d986ee98d0eb2c",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front +X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/exploration_robot.glb",
+      "name": "探测机器人",
+      "file": "models/exploration_robot.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "+X",
+        "yawDegrees": 90,
+        "evidence": "Actual normalized GLB inspected in local WebGL viewer: +X view shows central camera eye; -X view shows rear head casing. Rotate +90 degrees around Y to map +X to gameplay -Z.",
+        "notes": "Four compact articulated legs, metallic joints, off-white ceramic casing and ice-blue eye; no scenery or separate display base."
+      }
+    },
+    {
+      "id": "energy_core",
+      "taskId": "51fb28d0-a144-49bb-9e06-bf96bfad56c8",
+      "sourceModel": "assets/tripo/generated/energy_core/tripo-out/spacebend-energy-core-20261127-51fb28d0/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 9449888,
+      "normalizedBytes": 1957020,
+      "triangles": 12384,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 0,
+      "originalBounds": {
+        "min": [
+          -0.40197107195854187,
+          -0.4542638063430786,
+          -0.48845016956329346
+        ],
+        "max": [
+          0.3687540888786316,
+          0.4541591703891754,
+          0.48882171511650085
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.4884501695632935,
+          -0.4542638063430786,
+          -0.3687540888786316
+        ],
+        "max": [
+          0.4888217151165008,
+          0.4541591703891754,
+          0.40197107195854187
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.14198269751705195,
+          -0.1319800014150374,
+          -0.11197460921100838
+        ],
+        "max": [
+          0.14198269751705195,
+          0.13198000141503743,
+          0.11197460921100838
+        ]
+      },
+      "uniformScale": 0.2905694919558091,
+      "collisionRadius": 0.228435,
+      "normalizedRadius": 0.2238663,
+      "sha256": "cc85b24a597c0b33c23093df350338d8b32a84031d2ab3ba292ec3e16875dcf5",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front non-directional, chamber axis X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/energy_core.glb",
+      "name": "能量核心",
+      "file": "models/energy_core.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "non-directional, chamber axis X",
+        "yawDegrees": 90,
+        "evidence": "Actual GLB inspected front, side and reverse: enclosed ice-blue chamber and connected metallic cage; both axial sides readable.",
+        "notes": "No unique semantic front. Align chamber axis with gameplay forward for presentation; not a directional requirement."
+      }
+    },
+    {
+      "id": "spacecraft",
+      "taskId": "20aaef1e-9e78-4b29-b27d-d369e4c1bd06",
+      "sourceModel": "assets/tripo/generated/spacecraft/tripo-out/spacebend-spacecraft-20261127-20aaef1e/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 8838968,
+      "normalizedBytes": 1860232,
+      "triangles": 11719,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 0,
+      "originalBounds": {
+        "min": [
+          -0.4890047311782837,
+          -0.25220152735710144,
+          -0.44318336248397827
+        ],
+        "max": [
+          0.48897770047187805,
+          0.2511436343193054,
+          0.4429337680339813
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.4431833624839783,
+          -0.25220152735710144,
+          -0.48897770047187805
+        ],
+        "max": [
+          0.44293376803398127,
+          0.2511436343193054,
+          0.4890047311782837
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.24094184080317088,
+          -0.13686329452043597,
+          -0.2659206996903615
+        ],
+        "max": [
+          0.24094184080317085,
+          0.136863294520436,
+          0.26592069969036153
+        ]
+      },
+      "uniformScale": 0.5438148806858836,
+      "collisionRadius": 0.391893,
+      "normalizedRadius": 0.38405513999999996,
+      "sha256": "5748fce9e5a393cb00183afd33e4f7a7c65cb3eb377a53b474be8111e416d579",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front +X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/spacecraft.glb",
+      "name": "小型航天器",
+      "file": "models/spacecraft.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "+X",
+        "yawDegrees": 90,
+        "evidence": "Actual GLB +X view shows nose aperture, lights and cockpit; -X view shows two rear thrusters.",
+        "notes": "Compact shuttle with short side wings; rotate +90 degrees around Y so nose points along gameplay -Z."
+      }
+    },
+    {
+      "id": "micro_probe",
+      "taskId": "0a6f601f-d1eb-49e0-aa7d-5105557292e7",
+      "sourceModel": "assets/tripo/generated/micro_probe/tripo-out/spacebend-micro-probe-20261127-0a6f601f/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 9441924,
+      "normalizedBytes": 1980356,
+      "triangles": 11238,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 2,
+      "originalBounds": {
+        "min": [
+          -0.4892410933971405,
+          -0.32666704058647156,
+          -0.4157828092575073
+        ],
+        "max": [
+          0.4896829426288605,
+          0.3265875279903412,
+          0.4175478219985962
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.41578280925750727,
+          -0.32666704058647156,
+          -0.4896829426288605
+        ],
+        "max": [
+          0.41754782199859614,
+          0.3265875279903412,
+          0.4892410933971405
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.14952315858416587,
+          -0.1172124038041308,
+          -0.17564674618996895
+        ],
+        "max": [
+          0.14952315858416584,
+          0.11721240380413078,
+          0.17564674618996895
+        ]
+      },
+      "uniformScale": 0.35885674419236274,
+      "collisionRadius": 0.264023,
+      "normalizedRadius": 0.25874254,
+      "sha256": "f08fb559c5b633bd8433fe4f9ded48ee8c705d90ab1afb2ec62a205d992dd6d4",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front +X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/micro_probe.glb",
+      "name": "微型探测器",
+      "file": "models/micro_probe.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "+X",
+        "yawDegrees": 90,
+        "evidence": "Actual normalized GLB inspected in front three-quarter and +X cardinal views; optical/hatch face points +X.",
+        "notes": "Compact spherical scientific instrument with attached optical pods, short antennas and forward lens. Distinct from four-legged robot."
+      }
+    },
+    {
+      "id": "heavy_capsule",
+      "taskId": "3ae42fe6-8b47-4380-ab98-d28aab470815",
+      "sourceModel": "assets/tripo/generated/heavy_capsule/tripo-out/spacebend-heavy-capsule-20261127-3ae42fe6/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 9460424,
+      "normalizedBytes": 1961036,
+      "triangles": 12019,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 2,
+      "originalBounds": {
+        "min": [
+          -0.49007371068000793,
+          -0.29602569341659546,
+          -0.28872835636138916
+        ],
+        "max": [
+          0.48903173208236694,
+          0.29603609442710876,
+          0.288004994392395
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.2887283563613892,
+          -0.29602569341659546,
+          -0.489031732082367
+        ],
+        "max": [
+          0.28800499439239496,
+          0.29603609442710876,
+          0.490073710680008
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.17067165640139656,
+          -0.175207773039635,
+          -0.2897449011566128
+        ],
+        "max": [
+          0.17067165640139656,
+          0.175207773039635,
+          0.2897449011566128
+        ]
+      },
+      "uniformScale": 0.5918563793071115,
+      "collisionRadius": 0.38692,
+      "normalizedRadius": 0.37918159999999995,
+      "sha256": "cd172234c0e5ad2df01dee3e64195bc021579e18cdc5fb935b3da12d65d95de6",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front +X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/heavy_capsule.glb",
+      "name": "重型舱体",
+      "file": "models/heavy_capsule.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "+X",
+        "yawDegrees": 90,
+        "evidence": "Actual normalized GLB inspected in front three-quarter and +X cardinal views; optical/hatch face points +X.",
+        "notes": "Reinforced transport pod with integrated feet, thick armor ribs, hatch-like front chamber and amber locks; no separate scenery."
+      }
+    },
+    {
+      "id": "beacon",
+      "taskId": "977adbf0-244f-4eed-ac99-32df7037d298",
+      "sourceModel": "assets/tripo/generated/beacon/tripo-out/spacebend-beacon-20261127-977adbf0/model.glb",
+      "creditsConsumed": 60,
+      "sourceBytes": 9146844,
+      "normalizedBytes": 1928500,
+      "triangles": 12138,
+      "materials": 1,
+      "textures": [
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg"
+        },
+        {
+          "before": [
+            4096,
+            4096
+          ],
+          "after": [
+            1024,
+            1024
+          ],
+          "mime": "image/png"
+        }
+      ],
+      "tangentSpace": "MikkTSpace, generated offline",
+      "repairedDegenerateTangents": 0,
+      "originalBounds": {
+        "min": [
+          -0.3339301347732544,
+          -0.4888730049133301,
+          -0.32053932547569275
+        ],
+        "max": [
+          0.3343159556388855,
+          0.48956185579299927,
+          0.3209003508090973
+        ]
+      },
+      "orientedBounds": {
+        "min": [
+          -0.3205393254756928,
+          -0.4888730049133301,
+          -0.33431595563888555
+        ],
+        "max": [
+          0.32090035080909735,
+          0.48956185579299927,
+          0.33393013477325445
+        ]
+      },
+      "bounds": {
+        "min": [
+          -0.13194624442185154,
+          -0.20126725872239098,
+          -0.13746041169476947
+        ],
+        "max": [
+          0.13194624442185152,
+          0.20126725872239098,
+          0.1374604116947695
+        ]
+      },
+      "uniformScale": 0.41140655715618457,
+      "collisionRadius": 0.282809,
+      "normalizedRadius": 0.27715281999999997,
+      "sha256": "cf054c6b908e4a36d28a14151406358b19afaf1e8b65f9352fcec072a6152ebc",
+      "yawDegrees": 90,
+      "orientation": "Y-up; source front +X; rotated 90 degrees about Y",
+      "modelVersion": "v3.1-20260211",
+      "preparedFile": "assets/tripo/normalized/beacon.glb",
+      "name": "信标装置",
+      "file": "models/beacon.glb",
+      "visualReview": {
+        "geometry": "accepted",
+        "materials": "accepted",
+        "sourceFrontAxis": "+X",
+        "yawDegrees": 90,
+        "evidence": "Actual GLB +X view shows ice-blue signal panel and front access cover; upright structure and attached feet verified in three-quarter view.",
+        "notes": "Compact standing transmitter with white armor, metallic feet, blue panel and amber indicators."
+      }
+    }
+  ]
+}

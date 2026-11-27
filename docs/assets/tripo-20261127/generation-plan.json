@@ -1,0 +1,500 @@
+{
+  "provider": "official Tripo CLI",
+  "status": "all_six_generated_and_integrated",
+  "style": "A: 引力实验室 · 硬核写实科技风",
+  "requestedModelCount": 6,
+  "editorProject": "editor-tripo/SpaceBendTripo.spatialproject",
+  "blocker": null,
+  "assets": [
+    {
+      "id": "exploration_robot",
+      "displayName": "探测机器人",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Low squat autonomous exploration robot. Four short articulated legs tucked close to a compact armored body, one central forward-facing camera eye, compact sensor mast. Clearly robotic, mechanically plausible.",
+      "runtimeAsset": "app/src/main/assets/models/exploration_robot.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.2425,
+          0.027000000000000003,
+          -0.23750000000000002
+        ],
+        "max": [
+          0.2425,
+          0.4275,
+          0.21
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Low squat autonomous exploration robot. Four short articulated legs tucked close to a compact armored body, one central forward-facing camera eye, compact sensor mast. Clearly robotic, mechanically plausible.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/exploration_robot",
+        "--name",
+        "spacebend-exploration_robot-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Low squat autonomous exploration robot. Four short articulated legs tucked close to a compact armored body, one central forward-facing camera eye, compact sensor mast. Clearly robotic, mechanically plausible.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Low squat autonomous exploration robot. Four short articulated legs tucked close to a compact armored body, one central forward-facing camera eye, compact sensor mast. Clearly robotic, mechanically plausible.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    },
+    {
+      "id": "energy_core",
+      "displayName": "能量核心",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact spherical fusion energy core. Dense metallic containment cage around a solid ice-blue reactor capsule, six reinforced structural ribs, small ceramic inspection panels. No detached floating rings, no transparent outer shell.",
+      "runtimeAsset": "app/src/main/assets/models/energy_core.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.129,
+          -0.129,
+          -0.129
+        ],
+        "max": [
+          0.129,
+          0.129,
+          0.129
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact spherical fusion energy core. Dense metallic containment cage around a solid ice-blue reactor capsule, six reinforced structural ribs, small ceramic inspection panels. No detached floating rings, no transparent outer shell.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/energy_core",
+        "--name",
+        "spacebend-energy_core-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact spherical fusion energy core. Dense metallic containment cage around a solid ice-blue reactor capsule, six reinforced structural ribs, small ceramic inspection panels. No detached floating rings, no transparent outer shell.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact spherical fusion energy core. Dense metallic containment cage around a solid ice-blue reactor capsule, six reinforced structural ribs, small ceramic inspection panels. No detached floating rings, no transparent outer shell.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    },
+    {
+      "id": "spacecraft",
+      "displayName": "小型航天器",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Small unmanned orbital spacecraft with compact angular fuselage, blunt nose, two short swept wings and two integrated rear thrusters. Graphite underside, off-white ceramic top panels. Clearly readable nose and tail, all parts connected.",
+      "runtimeAsset": "app/src/main/assets/models/spacecraft.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.25732079203845465,
+          -0.067,
+          -0.275
+        ],
+        "max": [
+          0.25732079203845465,
+          0.125,
+          0.27
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Small unmanned orbital spacecraft with compact angular fuselage, blunt nose, two short swept wings and two integrated rear thrusters. Graphite underside, off-white ceramic top panels. Clearly readable nose and tail, all parts connected.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/spacecraft",
+        "--name",
+        "spacebend-spacecraft-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Small unmanned orbital spacecraft with compact angular fuselage, blunt nose, two short swept wings and two integrated rear thrusters. Graphite underside, off-white ceramic top panels. Clearly readable nose and tail, all parts connected.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Small unmanned orbital spacecraft with compact angular fuselage, blunt nose, two short swept wings and two integrated rear thrusters. Graphite underside, off-white ceramic top panels. Clearly readable nose and tail, all parts connected.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    },
+    {
+      "id": "micro_probe",
+      "displayName": "微型探测器",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Tiny precision scientific probe, a compact central instrument housing with four short folded antenna or sensor arms integrated into the body, forward optical lens, miniature rear propulsion unit. Lighter and more delicate than the exploration robot, no long fragile rods.",
+      "runtimeAsset": "app/src/main/assets/models/micro_probe.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.1625,
+          -0.065,
+          -0.1625
+        ],
+        "max": [
+          0.1625,
+          0.17400000000000002,
+          0.1625
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Tiny precision scientific probe, a compact central instrument housing with four short folded antenna or sensor arms integrated into the body, forward optical lens, miniature rear propulsion unit. Lighter and more delicate than the exploration robot, no long fragile rods.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/micro_probe",
+        "--name",
+        "spacebend-micro_probe-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Tiny precision scientific probe, a compact central instrument housing with four short folded antenna or sensor arms integrated into the body, forward optical lens, miniature rear propulsion unit. Lighter and more delicate than the exploration robot, no long fragile rods.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Tiny precision scientific probe, a compact central instrument housing with four short folded antenna or sensor arms integrated into the body, forward optical lens, miniature rear propulsion unit. Lighter and more delicate than the exploration robot, no long fragile rods.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    },
+    {
+      "id": "heavy_capsule",
+      "displayName": "重型舱体",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Heavy reinforced transport capsule, squat rectangular pressure vessel with beveled corners, thick ribbed armor, recessed door hatch, four integrated structural lifting lugs and amber locking indicators. Bulky industrial silhouette, dense and sturdy, no separate stand.",
+      "runtimeAsset": "app/src/main/assets/models/heavy_capsule.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.2125,
+          -0.17,
+          -0.262
+        ],
+        "max": [
+          0.2125,
+          0.234,
+          0.2275
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Heavy reinforced transport capsule, squat rectangular pressure vessel with beveled corners, thick ribbed armor, recessed door hatch, four integrated structural lifting lugs and amber locking indicators. Bulky industrial silhouette, dense and sturdy, no separate stand.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/heavy_capsule",
+        "--name",
+        "spacebend-heavy_capsule-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Heavy reinforced transport capsule, squat rectangular pressure vessel with beveled corners, thick ribbed armor, recessed door hatch, four integrated structural lifting lugs and amber locking indicators. Bulky industrial silhouette, dense and sturdy, no separate stand.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Heavy reinforced transport capsule, squat rectangular pressure vessel with beveled corners, thick ribbed armor, recessed door hatch, four integrated structural lifting lugs and amber locking indicators. Bulky industrial silhouette, dense and sturdy, no separate stand.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    },
+    {
+      "id": "beacon",
+      "displayName": "信标装置",
+      "faceCountTarget": 12000,
+      "pbr": true,
+      "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact portable navigation beacon. Short upright hexagonal transmitter body on three short integrated support feet, ice-blue horizontal signal lens near top, amber power light, rugged ceramic and titanium casing. No floating signal waves, no separate ground base.",
+      "runtimeAsset": "app/src/main/assets/models/beacon.glb",
+      "previousBoundsMeters": {
+        "min": [
+          -0.09137544456622773,
+          0.0,
+          -0.14170393758658795
+        ],
+        "max": [
+          0.155,
+          0.40950000000000003,
+          0.141703937586588
+        ]
+      },
+      "command": [
+        "tripo",
+        "make",
+        "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact portable navigation beacon. Short upright hexagonal transmitter body on three short integrated support feet, ice-blue horizontal signal lens near top, amber power light, rugged ceramic and titanium casing. No floating signal waves, no separate ground base.",
+        "--model",
+        "tripo-v3.1",
+        "-p",
+        "geometry_quality=detailed",
+        "-p",
+        "smart_low_poly=true",
+        "-p",
+        "face_limit=12000",
+        "-p",
+        "texture_quality=detailed",
+        "-p",
+        "pbr=true",
+        "--out",
+        "assets/tripo/generated/beacon",
+        "--name",
+        "spacebend-beacon-20261127",
+        "--no-open",
+        "--json"
+      ],
+      "validatedPlan": {
+        "dry_run": true,
+        "valid": true,
+        "input": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact portable navigation beacon. Short upright hexagonal transmitter body on three short integrated support feet, ice-blue horizontal signal lens near top, amber power light, rugged ceramic and titanium casing. No floating signal waves, no separate ground base.",
+        "model": "v3.1-20260211",
+        "model_reason": "explicit --model",
+        "steps": [
+          {
+            "name": "text-to-model",
+            "endpoint": "/v3/generation/text-to-model",
+            "task_type": "text_to_model",
+            "payload": {
+              "prompt": "Space Bend Gravity Laboratory, realistic aerospace engineering hard-surface design. Graphite titanium, brushed aluminum, off-white ceramic, subtle ice-blue optics, restrained amber status lights. Believable panels, seams, vents and light wear. A single complete isolated solid object. No ground plane, display base, background, lettering or logos. Compact robust silhouette, no loose cables, no cartoon styling, no neon cyberpunk. Game-ready PBR textures, Y-up, semantic front toward -Z where applicable. Compact portable navigation beacon. Short upright hexagonal transmitter body on three short integrated support feet, ice-blue horizontal signal lens near top, amber power light, rugged ceramic and titanium casing. No floating signal waves, no separate ground base.",
+              "geometry_quality": "detailed",
+              "smart_low_poly": true,
+              "face_limit": 12000,
+              "texture_quality": "detailed",
+              "pbr": true,
+              "model": "v3.1-20260211"
+            }
+          }
+        ],
+        "pending_uploads": [],
+        "deliverables": [
+          "GLB"
+        ],
+        "candidates": 1,
+        "warnings": [],
+        "errors": [],
+        "generation_credits_estimate": 60,
+        "cost_notes": [
+          "estimated generation cost: 60 credits (official list price)",
+          "texture_quality detailed: higher price tier",
+          "geometry detailed (Ultra): extra HD credit"
+        ]
+      }
+    }
+  ],
+  "integrationContract": {
+    "preserve": "payload mass, launch speed, identity and current gameplay",
+    "normalize": "Use measured generated model bounds and uniform scaling to existing payload collision radius; update model-bounds.json to normalized geometry.",
+    "review": "Inspect actual generated textures and silhouettes before replacement.",
+    "credentials": "Configure only in Editor AI3D settings; never store API key in repository or chat."
+  },
+  "setupStatus": {
+    "officialCli": "0.11.4; user-level default profile reused from Shatter, doctor passed",
+    "editor": "Not required for official Tripo CLI generation",
+    "credentials": "No credential copied or printed"
+  },
+  "region": "ov",
+  "model": "v3.1-20260211",
+  "estimatedCredits": 360,
+  "noAutomaticPaidRetry": true,
+  "actualCreditsConsumed": 360
+}

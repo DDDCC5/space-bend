@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {build} from './tripo-runtime/node_modules/esbuild/lib/main.js';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const review=path.join(root,'assets/tripo/review');
+await build({entryPoints:[path.join(review,'viewer.mjs')],outfile:path.join(review,'viewer.bundle.js'),bundle:true,format:'esm',minify:true,legalComments:'eof',nodePaths:[path.join(root,'tools/assets/tripo-runtime/node_modules')]});
+await fs.copyFile(path.join(root,'tools/assets/tripo-runtime/node_modules/three/LICENSE'),path.join(review,'THREE-LICENSE.txt'));
+let html=await fs.readFile(path.join(review,'index.html'),'utf8');
+html=html.replace(/<script type="importmap">.*?<\/script>/s,'').replace(/src="viewer(?:\.bundle\.js|\.mjs)(?:\?[^" ]*)?"/,'src="viewer.bundle.js"');
+await fs.writeFile(path.join(review,'index.html'),html);
+console.log('Bundled self-contained Three.js review viewer.');

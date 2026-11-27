@@ -4,7 +4,7 @@ PICO Spatial MR 空间解谜游戏，包名 `com.example.spacebend`。风格 A�
 
 ## 测试与迭代
 
-- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.6)。1.0.6（versionCode 7）将确认后的平面锁定，合并共面相连区域；启动及恢复前台时按头显位姿定位工作面板，并重制 24 条中英文自然神经语音。详见 [1.0.6 验证记录](docs/delivery/room-1.0.6/README.md)。
+- 当前测试 APK：[GitHub 测试发布](https://github.com/DDDCC5/space-bend/releases/tag/v1.0.7)。1.0.7（versionCode 8）使用 Tripo 重制全部六种科幻物件，升级 PBR 贴图并验证原生尺寸与碰撞球对齐。保留扫描锁定、视线前方工作面板和新语音。详见 [1.0.7 验证记录](docs/delivery/tripo-1.0.7/README.md)。
 - 测试反馈：[新建真机测试反馈](https://github.com/DDDCC5/space-bend/issues/new?template=device-test.md)。请附头显 / OS 版本、APK 版本、复现步骤和截图。
 - 本地 SDK、登录配置、缓存和签名密钥不进入仓库；APK 作为GitHub 测试发布附件保存。
 - [Vibe Lab 投稿字段填写稿](docs/submission/00-填写指南.md)：沿用 Orbit Mission 表单字段，包含可复制简介、版本说明及当前验证边界。
@@ -34,7 +34,7 @@ pico-cli app launch com.example.spacebend
 ## 已实现内容
 
 - 官方 PlaneTrackingManager 提供平面边界、孔洞、语义与锚点姿态；以稳定锚点局部坐标保存虫洞。扫描时按真实边界合并共面相连区域，保留孔洞与空隙；确认后停止订阅和轮询，使用固定快照。
-- 六种原始 GLB 科幻物体，独立质量、弹射速度和根据模型边界计算的保守碰撞半径。
+- 六种 Tripo H3.1 PBR GLB 科幻物体，独立质量、弹射速度和根据模型边界计算的保守碰撞半径。
 - 任意简单闭合轮廓、引力边缘光、向内运动粒子、生成与收缩动画；手柄射线和手势输入适配，绘制与闭合震动。
 - 固定 240 Hz 物理步长、9.8 m/s² 重力、近洞口引力、双侧进入/法线方向吐出、入口末速度保留、连续球体与有限平面面/边/顶点碰撞检测。
 - 12 关、四个难度梯队、逐关解锁、三星规则、最快用时与星级分别保存；自由创作无胜负结算。
@@ -54,6 +54,8 @@ pico-cli app launch com.example.spacebend
 - `docs/delivery/launcher-identity/`：1.0.1编译后图标引用、分层/SDF资源检查及直接从APK提取的图标。`tools/assets/generate_launcher_identity.py`和`GenerateIconSdf.java`为离线资源导出工具；Android Studio插件仅参与资源制作，不作为APK运行依赖。
 
 ## 验证状态
+
+2026-11-27：1.0.7 完成六模型 Tripo 重制，实际 360 积分。六 GLB 校验零错误与警告、81 项 JVM 与 3 项真机自动交互检查通过，实际 SDK 包围盒已验证位于原碰撞球内。总览见 [Tripo 模型预览](assets/tripo/review/contact-sheet.png)。
 
 2026-11-27：1.0.6 的 81 项 JVM 检查及 3 项真机自动交互检查通过，覆盖流程、主动重扫和确认后平面连续 8 秒不变。真机日志确认面板相对头显距离 1.45 m；当前 FOV 截图未呈现应用面板，中文音色已获用户确认，佩戴后的面板位置仍待用户反馈。以下为历史验证记录。
 

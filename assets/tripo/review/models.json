@@ -1,0 +1,26 @@
+[
+  {
+    "id": "exploration_robot",
+    "url": "/assets/style-a/models/exploration_robot.glb"
+  },
+  {
+    "id": "energy_core",
+    "url": "/assets/style-a/models/energy_core.glb"
+  },
+  {
+    "id": "spacecraft",
+    "url": "/assets/style-a/models/spacecraft.glb"
+  },
+  {
+    "id": "micro_probe",
+    "url": "/assets/style-a/models/micro_probe.glb"
+  },
+  {
+    "id": "heavy_capsule",
+    "url": "/assets/style-a/models/heavy_capsule.glb"
+  },
+  {
+    "id": "beacon",
+    "url": "/assets/style-a/models/beacon.glb"
+  }
+]
