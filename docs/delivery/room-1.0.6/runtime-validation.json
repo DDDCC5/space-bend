@@ -13,16 +13,16 @@
   "observedConsolidatedPlanes": 15,
   "panelPoseChecks": [
     {
-      "distanceMeters": 1.4500000000000004,
+      "distanceMeters": 1.4499999999999997,
+      "facingDot": 0.9999999999999997
+    },
+    {
+      "distanceMeters": 1.45,
       "facingDot": 1.0
     },
     {
       "distanceMeters": 1.4500000000000002,
       "facingDot": 1.0000000000000002
-    },
-    {
-      "distanceMeters": 1.45,
-      "facingDot": 1.0
     }
   ],
   "visual": "UNOBSERVED: FOV capture showed passthrough only; no app panel. Capture kept private under .scratch.",
@@ -30,7 +30,13 @@
   "limits": [
     "Native pointer tests are attachment dispatch, not physical controller or hand gesture testing.",
     "ActivityScenario STARTED transition unsupported in PICO Full Space; lifecycle harness failed before final corrected test suite. System background/resume not validated by native test.",
-    "Voice naturalness and worn-headset visual placement await user feedback."
+    "Chinese voice accepted by user. Worn-headset panel placement and English voice remain unconfirmed."
   ],
-  "freshHeadPoseGate": "Per-start DataListener; stale or late callbacks from a previous generation rejected."
+  "freshHeadPoseGate": "Per-start DataListener; stale or late callbacks from a previous generation rejected.",
+  "sourceCommit": "cc63b4737247cb6388b55b8927dfbab5e0341cf0",
+  "userFeedback": {
+    "ChineseVoice": "accepted: 声音是可以的",
+    "panelPosition": "not yet confirmed",
+    "EnglishVoice": "not yet confirmed"
+  }
 }
